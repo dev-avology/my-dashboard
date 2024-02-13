@@ -181,8 +181,5 @@ const revenue = [
 ];
 
 module.exports = {
-  users,
-  customers,
-  invoices,
-  revenue,
+  users
 };
