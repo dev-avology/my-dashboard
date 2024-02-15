@@ -3,6 +3,7 @@ import {
   User,
 } from './definitions';
 import { formatCurrency } from './utils';
+import { tasks } from './placeholder-data';
 
 const bcrypt = require('bcrypt');
 
@@ -84,6 +85,20 @@ const bcrypt = require('bcrypt');
 // }
 
 const ITEMS_PER_PAGE = 6;
+
+
+export async function fetchFilteredTasks(
+  query: string|null,
+  currentPage: number|null,
+){
+
+  const offset = currentPage?(currentPage - 1) * ITEMS_PER_PAGE:0;
+
+   return tasks;
+
+}
+
+
 // export async function fetchFilteredInvoices(
 //   query: string,
 //   currentPage: number,

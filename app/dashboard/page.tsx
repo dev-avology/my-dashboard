@@ -1,3 +1,9 @@
+import TasksTable from "../ui/tasks/tables";
+
 export default function Page() {
-    return <p>Dashboard Page</p>;
+    return ( 
+            <>
+            <TasksTable query={null} currentPage={null}></TasksTable>
+            </>
+             );
   }

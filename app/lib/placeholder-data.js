@@ -180,6 +180,114 @@ const revenue = [
   { month: 'Dec', revenue: 4800 },
 ];
 
+
+
+const tasks =[
+  {
+      "id": 7,
+      "title": "Task 1",
+      "status": 0,
+      "assignedTo": [{
+              "id": 8,
+              "email": "lindsay.ferguson@reqres.in",
+              "first_name": "Lindsay",
+              "last_name": "Ferguson",
+              "avatar": "https://reqres.in/img/faces/8-image.jpg"
+          },
+          {
+              "id": 10,
+              "email": "byron.fields@reqres.in",
+              "first_name": "Byron",
+              "last_name": "Fields",
+              "avatar": "https://reqres.in/img/faces/10-image.jpg"
+          }
+       ],
+      "priority": 0,
+      "update_at":"20-08-2024",
+      "created_at":"20-08-2024",
+      "submited_at":"20-08-2024",
+      "due_date":"20-08-2024"
+  },
+  {
+      "id": 8,
+      "title": "Task 2",
+      "status": 1,
+      "assignedTo": [{
+              "id": 8,
+              "email": "lindsay.ferguson@reqres.in",
+              "first_name": "Lindsay",
+              "last_name": "Ferguson",
+              "avatar": "https://reqres.in/img/faces/8-image.jpg"
+          },
+          {
+              "id": 10,
+              "email": "byron.fields@reqres.in",
+              "first_name": "Byron",
+              "last_name": "Fields",
+              "avatar": "https://reqres.in/img/faces/10-image.jpg"
+          }
+       ],
+      "priority": 0,
+      "update_at":"20-08-2024",
+      "created_at":"20-08-2024",
+      "submited_at":"20-08-2024",
+      "due_date":"20-08-2024"
+  },
+  {
+      "id": 9,
+      "title": "Task3",
+      "status": 1,
+      "assignedTo": [{
+              "id": 8,
+              "email": "lindsay.ferguson@reqres.in",
+              "first_name": "Lindsay",
+              "last_name": "Ferguson",
+              "avatar": "https://reqres.in/img/faces/8-image.jpg"
+          },
+          {
+              "id": 10,
+              "email": "byron.fields@reqres.in",
+              "first_name": "Byron",
+              "last_name": "Fields",
+              "avatar": "https://reqres.in/img/faces/10-image.jpg"
+          }
+       ],
+      "priority": 0,
+      "update_at":"20-08-2024",
+      "created_at":"20-08-2024",
+      "submited_at":"20-08-2024",
+      "due_date":"20-08-2024"
+  },
+  {
+      "id": 10,
+      "title": "Task4",
+      "status": 0,
+      "assignedTo": [{
+              "id": 8,
+              "email": "lindsay.ferguson@reqres.in",
+              "first_name": "Lindsay",
+              "last_name": "Ferguson",
+              "avatar": "https://reqres.in/img/faces/8-image.jpg"
+          },
+          {
+              "id": 10,
+              "email": "byron.fields@reqres.in",
+              "first_name": "Byron",
+              "last_name": "Fields",
+              "avatar": "https://reqres.in/img/faces/10-image.jpg"
+          }
+       ],
+      "priority": 1,
+      "update_at":"20-08-2024",
+      "created_at":"20-08-2024",
+      "submited_at":"20-08-2024",
+      "due_date":"20-08-2024"
+  }
+];
+
+
+
 module.exports = {
-  users
+  users,
+  tasks
 };
