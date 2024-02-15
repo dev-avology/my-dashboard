@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import { UserFields } from '../lib/definitions';
 import { lusitana } from '@/app/ui/fonts';
 import {
@@ -10,16 +10,45 @@ import {
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from '@/app/ui/button';
 import Link from 'next/link';
-//import { register,register1 } from '@/app/lib/actions';
- 
+// import { useFormState, useFormStatus } from 'react-dom';
+// import { register } from '@/app/lib/actions';
+import { FormEvent } from 'react'
+import { useRouter } from 'next/navigation'
+
 export default function RegisterForm() { 
+
+  const router = useRouter()
 
   const initialState = { message: null, errors: {} };
   
   //const [errorMessage, dispatch] = useFormState(register, undefined);
 
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+ 
+    const formData = new FormData(event.currentTarget)
+    const name = formData.get('name')
+    const email = formData.get('email')
+    const password = formData.get('password')
+ 
+    const response = await fetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name,email, password }),
+    })
+ 
+    if (response.ok) {
+      console.log(response.body);
+      router.push('/login')
+    } else {
+      // Handle errors
+    }
+  }
+
+
   return (
-    <form  className="space-y-3">
+    <form onSubmit={handleSubmit}  className="space-y-3">
       <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
         <h1 className={`${lusitana.className} mb-3 text-2xl`}>
           Please Sign Up Here.
@@ -106,10 +135,10 @@ export default function RegisterForm() {
 }
  
 function LoginButton() {
- // const { pending } = useFormStatus();
+ //const { pending } = useFormStatus();
  
   return (
-    <Button type="submit" className="mt-4 w-full" >
+    <Button type="submit" className="mt-4 w-full">
       Sign Up Now <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
     </Button>
   );

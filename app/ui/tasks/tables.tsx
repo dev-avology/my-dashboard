@@ -46,7 +46,6 @@ export default async function TasksTable({
 
                   <div className="flex justify-end gap-2">
                     <UpdateTask id={task.id} />
-                    <DeleteTask id={task.id} />
                   </div>
 
                 </div>
@@ -115,7 +114,6 @@ export default async function TasksTable({
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex justify-end gap-3">
                     <UpdateTask id={task.id} />
-                    <DeleteTask id={task.id} />
                     </div>
                   </td>
                 </tr>
