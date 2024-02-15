@@ -30,7 +30,7 @@ export default function Page() {
                         <div className="flex flex-col py-4 lg:flex-row">
                             <div className="w-full grow pr-3 lg:w-auto">
                                 <h4 className="text-base font-bold text-gray-900">✅ Create a task</h4>
-                                <p className="mt-5 text-sm font-normal leading-5 text-gray-500">Watch our 30 second video to get started. We'll show you how to create and submit your first task.</p>
+                                <p className="mt-5 text-sm font-normal leading-5 text-gray-500">Watch our 30 second video to get started. We will show you how to create and submit your first task.</p>
                                 </div>
                             </div>
                             <hr className="mt-6"/>
