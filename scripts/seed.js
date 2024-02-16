@@ -1,6 +1,7 @@
 const { db } = require('@vercel/postgres');
 const {
   users,
+  services
 } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
@@ -17,6 +18,10 @@ async function seedUsers(client) {
       );
     `;
 
+
+  //   const alterTable = await client.sql`
+  //   ALTER TABLE users ADD role VARCHAR(255) NOT NULL DEFAULT 'admin';
+  // `;
     console.log(`Created "users" table`);
 
     // Insert data into the "users" table
@@ -42,6 +47,60 @@ async function seedUsers(client) {
     throw error;
   }
 }
+
+
+
+async function seedServices(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+
+    // Create the "services" table if it doesn't exist
+    const createTable = await client.sql`
+    CREATE TABLE IF NOT EXISTS services (
+    id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NULL,
+    amount DOUBLE PRECISION NOT NULL,
+    recurring INT NOT NULL DEFAULT 0,
+    repeat INT NOT NULL DEFAULT 0,
+    status VARCHAR(255) NOT NULL DEFAULT 'enable',
+    image_url VARCHAR(255) NULL,
+    date DATE NOT NULL
+  );
+`;
+
+    console.log(`Created "services" table`);
+
+    // Insert data into the "invoices" table
+    const insertedServices = await Promise.all(
+      services.map(
+        (service) => client.sql`
+        INSERT INTO services (id, title, description, amount,recurring,repeat,status,image_url,date)
+        VALUES (${service.id}, ${service.title}, ${service.description}, ${service.amount}, ${service.recurring}, ${service.repeat}, ${service.status}, ${service.image_url}, ${service.date})
+        ON CONFLICT (id) DO NOTHING;
+      `,
+      ),
+    );
+
+    console.log(`Seeded ${JSON.stringify(insertedServices)} serices`);
+
+
+//     const selectTable = await client.sql`
+//     SELECT * FROM services;
+// `;
+
+// console.log(`select Seeded ${JSON.stringify(selectTable)} serices`);
+
+    return {
+      createTable,
+      services: insertedServices,
+    };
+  } catch (error) {
+    console.error('Error seeding services:', error);
+    throw error;
+  }
+}
+
 
 // async function seedInvoices(client) {
 //   try {
@@ -164,7 +223,7 @@ async function main() {
   // await seedCustomers(client);
   // await seedInvoices(client);
   // await seedRevenue(client);
-
+  await seedServices(client);
   await client.end();
 }
 

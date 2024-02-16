@@ -18,7 +18,7 @@ const links = [
     href: '#',
     icon: Bars3Icon,
   },
-  { name: 'Services', href: '#', icon: Squares2X2Icon },
+  { name: 'Services', href: '/services', icon: Squares2X2Icon },
   { name: 'Storage', href: '#', icon: CircleStackIcon },
   { name: 'Setting', href: '#', icon: Cog6ToothIcon },
 ];

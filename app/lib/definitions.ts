@@ -16,6 +16,19 @@ export type UserFields = {
   email: string;
   password: string;
 };
+
+export type Services = {
+  id: number,
+  title: string|null,
+  description: string|null,
+  amount: number|null,
+  recurring: number|null,
+  repeat: number|null,
+  status:'active'|'inactive'|null,
+  image_url:string|null,
+  date: string|null,
+}
+
 // export type Customer = {
 //   id: string;
 //   name: string;

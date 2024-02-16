@@ -6,13 +6,16 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
+import { auth } from '@/auth';
 
-export default function Page() {
+export default async  function Page() {
+    let session = await auth();
+
     return (
         <div className="mx-auto max-w-screen-2xl">
 
             <div className="min-w-0">
-                <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl">Welcome, Kyle</h2>
+                <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl">Welcome, {session?.user?.name}</h2>
             </div>
 
             <Accordion type="single" collapsible className="border bg-white md:rounded-md my-6 md:my-0">

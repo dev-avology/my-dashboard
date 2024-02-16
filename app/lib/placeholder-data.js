@@ -9,6 +9,34 @@ const users = [
   },
 ];
 
+
+const services = [
+  {
+    id: '410544b2-4001-4271-9855-fec4b6a6442a',
+    title: 'One-off copywriting',
+    description: '<p>Get all the copywriting you need, starting at just $60 for 500 words. This includes Surfer Optimisation, Image Sourcing, and Meta Descriptions.</p><ul><li><p>Professional and engaging copy</p></li><li><p>Best practice on-page SEO</p></li><li><p>Keyword &amp; subject research</p></li><li><p>Expert editing and proof-reading</p></li><li><p>2-3 days turnaround time</p></li><li><p>Delivered in Google Doc format</p></li><li><p>Free revisions and rewrites</p></li><li><p>Plagiarism-free guarantee</p></li><li><p>100% human written, not AI</p></li></ul>',
+    amount: 60.00,
+    recurring: 0,
+    repeat: 0,
+    status:'active',
+    image_url:null,
+    date: '2024-01-10',
+  },
+  {
+    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
+    title: 'Pro',
+    description: '<p>Unlimited web design and Webflow development services, with three requests at a time, this includes:</p><ul><li><p>Everything in Standard, plus:</p></li><li><p>Unlimited website design</p></li><li><p>Unlimited landing pages</p></li><li><p>Unlimited Webflow development</p></li><li><p>3 design projects at a time</p></li><li><p>Delivery within 2-3 days</p></li><li><p>Pause or cancel anytime</p></li></ul>',
+    amount: 2295.00,
+    recurring: 1,
+    repeat: 1,
+    status:'active',
+    image_url:'/services/pro.png',
+    date: '2024-01-10',
+  },
+];
+
+
+
 const customers = [
   {
     id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
@@ -289,5 +317,6 @@ const tasks =[
 
 module.exports = {
   users,
-  tasks
+  tasks,
+  services,
 };
