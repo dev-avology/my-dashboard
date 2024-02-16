@@ -7,6 +7,7 @@ export type User = {
   name: string;
   email: string;
   password: string;
+  role:'admin'|'developer'|'customer';
 };
 
 
@@ -18,16 +19,40 @@ export type UserFields = {
 };
 
 export type Services = {
-  id: number,
-  title: string|null,
-  description: string|null,
-  amount: number|null,
-  recurring: number|null,
-  repeat: number|null,
-  status:'active'|'inactive'|null,
-  image_url:string|null,
-  date: string|null,
+  id: number;
+  title: string|null;
+  description: string|null;
+  amount: number|null;
+  recurring: number|null;
+  repeat: number|null;
+  status:'active'|'inactive'|null;
+  image_url:string|null;
+  date: string|null;
 }
+
+
+
+export type Task = {
+  id: number;
+  title: string|null;
+  description: string|null;
+  status:'queue'|'paused'|'inprogress'|'readyforreview'| 'completed'|'closed';
+  priority:'low'|'medium'|'heigh';
+  service_type:string|null;
+  service_category:string|null;
+  task_type:string|null;
+  task_service:string|null;
+  task_plateform:string|null;
+  task_speclization:string|null;
+  submitted:string|null;
+  duedate:string|null,
+  date: string|null,
+  created_by:number|null;
+}
+
+
+
+export type TaskAssigned = {}
 
 // export type Customer = {
 //   id: string;
