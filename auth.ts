@@ -40,3 +40,10 @@ export const { auth, signIn, signOut } = NextAuth({
     }),
   ],
 });
+
+export async function getSessionUser(){
+   let session = await auth();
+   
+   return session?.user;
+
+};

@@ -15,7 +15,7 @@ const links = [
   { name: 'Dashboad', href: '/dashboard', icon: HomeIcon },
   {
     name: 'Tasks',
-    href: '#',
+    href: '/tasks',
     icon: Bars3Icon,
   },
   { name: 'Services', href: '/services', icon: Squares2X2Icon },

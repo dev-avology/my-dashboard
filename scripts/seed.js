@@ -102,6 +102,82 @@ async function seedServices(client) {
 }
 
 
+
+
+async function seedTasks(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+
+    // Create the "services" table if it doesn't exist
+    const createTable = await client.sql`
+    CREATE TABLE IF NOT EXISTS tasks (
+    id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NULL,
+    status VARCHAR(255) NOT NULL DEFAULT 'queue',
+    priority VARCHAR(255) NOT NULL DEFAULT 'low',
+    service_type VARCHAR(255) NOT NULL DEFAULT ' ',
+    service_category VARCHAR(255) NOT NULL DEFAULT ' ',
+    task_type VARCHAR(255) NOT NULL DEFAULT ' ',
+    task_service VARCHAR(255) NOT NULL DEFAULT ' ',
+    task_plateform VARCHAR(255) NOT NULL DEFAULT ' ',
+    task_speclization VARCHAR(255) NOT NULL DEFAULT ' ',
+    submitted DATE NULL,
+    duedate DATE NULL,
+    date DATE NOT NULL,
+    created_by UUID NOT NULL
+  );
+`;
+
+    console.log(`Created "Tasks" table`);
+
+
+
+      // Create the "services" table if it doesn't exist
+      const createTable1 = await client.sql`
+      CREATE TABLE IF NOT EXISTS assignedTo (
+      id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+      taskId UUID references tasks (id) on delete cascade,
+      userId UUID references users (id) on delete cascade
+    );
+  `;
+
+  console.log(`Created "Tasks Assigned Table" table`);
+
+    // Insert data into the "invoices" table
+    // const insertedServices = await Promise.all(
+    //   services.map(
+    //     (service) => client.sql`
+    //     INSERT INTO services (id, title, description, amount,recurring,repeat,status,image_url,date)
+    //     VALUES (${service.id}, ${service.title}, ${service.description}, ${service.amount}, ${service.recurring}, ${service.repeat}, ${service.status}, ${service.image_url}, ${service.date})
+    //     ON CONFLICT (id) DO NOTHING;
+    //   `,
+    //   ),
+    // );
+
+    // console.log(`Seeded ${JSON.stringify(insertedServices)} serices`);
+
+
+
+
+//     const selectTable = await client.sql`
+//     SELECT * FROM services;
+// `;
+
+// console.log(`select Seeded ${JSON.stringify(selectTable)} serices`);
+
+    return {
+      createTable,
+      createTable1,
+    };
+  } catch (error) {
+    console.error('Error seeding services:', error);
+    throw error;
+  }
+}
+
+
+
 // async function seedInvoices(client) {
 //   try {
 //     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
@@ -222,8 +298,8 @@ async function main() {
   await seedUsers(client);
   // await seedCustomers(client);
   // await seedInvoices(client);
-  // await seedRevenue(client);
-  await seedServices(client);
+   await seedTasks(client);
+ // await seedServices(client);
   await client.end();
 }
 
