@@ -9,8 +9,8 @@ import { ValidationError } from "@/use-cases/tasks/utils";
 import { revalidatePath } from "next/cache";
 
 type Form = {
-  name: string;
-  quantity: string;
+  title: string;
+  description: string;
 };
 
 type FieldErrorsState = {
@@ -42,7 +42,8 @@ export async function createTaskAction(
   state: CreateItemState,
   formData: FormData
 ): Promise<CreateItemState> {
-  const  user  = await getSessionUser();
+  const { getUser }  = await getSessionUser();
+    
 
   const submittedForm = {
     title: formData.get("title") as string,
@@ -50,39 +51,46 @@ export async function createTaskAction(
   };
 
   try {
-    await createTaskUseCase(
-      {
-        getUser:user,
-        createTask: createTask,
-        updateTask: updateTask
-      },
-      {
-        title: submittedForm.title.toLowerCase(),
-        quantity: parseInt(submittedForm.quantity),
-      }
-    );
+    
+    // await createTaskUseCase(
+    //   {
+    //     getUser,
+    //     createTask: createTask,
+    //     updateTask: updateTask
+    //   },
+    //   {
+    //     title: submittedForm.title.toLowerCase(),
+    //     description: parseInt(submittedForm.description),
+    //   }
+    // );
     revalidatePath("/");
     return {
       form: {
-        name: "",
-        quantity: "1",
+        title: "",
+        description: "1",
       },
       status: "success",
     };
   } catch (err) {
     const error = err as Error;
-    if (error instanceof ValidationError) {
-      return {
-        form: submittedForm,
-        status: "field-errors",
-        errors: error.getErrors(),
-      };
-    } else {
-      return {
-        form: submittedForm,
-        status: "error",
-        errors: error.message,
-      };
-    }
+    // if (error instanceof ValidationError) {
+    //   return {
+    //     form: submittedForm,
+    //     status: "field-errors",
+    //     errors: error.getErrors(),
+    //   };
+    // } else {
+    //   return {
+    //     form: submittedForm,
+    //     status: "error",
+    //     errors: error.message,
+    //   };
+    // }
+
+    return {
+          form: submittedForm,
+          status: "error",
+          errors: error.message,
+        };
   }
 }
