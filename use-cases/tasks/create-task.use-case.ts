@@ -1,4 +1,5 @@
 import { TaskEntity, TaskEntityValidationError } from "@/entites/task";
+import { formatDateToLocal } from "./utils";
 import {
   AuthenticationError,
   taskToDto,
@@ -23,9 +24,9 @@ export async function createTaskUseCase(
     task_service:string;
     task_plateform:string;
     task_speclization:string;
-    submitted:string;
-    duedate:string;
-    date: string;
+    submitted?:string;
+    duedate?:string;
+    date?: string;
     created_by:string }
 ) {
   const user = context.getUser();
@@ -46,13 +47,14 @@ export async function createTaskUseCase(
       task_service: data.task_service,
       task_plateform: data.task_plateform,
       task_speclization: data.task_speclization,
-      submitted: data.submitted,
-      duedate: data.duedate,
-      date: data.date,
+      //submitted: '2022-12-06',
+      duedate: '2022-12-06',
+      date: '2022-12-06',
       created_by: data.created_by
     });
     await context.createTask(taskToCreateTaskDtoMapper(newItem));
   } catch (err) {
+    console.log(err);
     const error = err as TaskEntityValidationError;
     throw new ValidationError(error.getErrors());
   }

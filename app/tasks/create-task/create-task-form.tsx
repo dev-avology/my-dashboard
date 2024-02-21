@@ -10,6 +10,22 @@ import { Terminal } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { createTaskAction } from "../_actions/create-task.action";
 
+
+
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 export function CreateTaskForm() {
   const { toast } = useToast();
 
@@ -60,7 +76,6 @@ export function CreateTaskForm() {
         className="flex-1 lg:max-w-2xl"
       >
 
-       <div className="flex-1 lg:max-w-2xl"></div>
         <Label htmlFor="item-title">Item Title</Label>
         <Input
           data-testid="item-title"
@@ -76,7 +91,6 @@ export function CreateTaskForm() {
           <Error error={formState.errors.title} />
         )}
 
-<div className="flex-1 lg:max-w-2xl"></div>
 
         <Label htmlFor="description">Description</Label>
         <Input
@@ -93,7 +107,7 @@ export function CreateTaskForm() {
           <Error error={formState.errors.description} />
         )}
 
-<div className="flex-1 lg:max-w-2xl"></div>
+       <div className="flex-1 lg:max-w-2xl"></div>
 
 
        <Label htmlFor="status">status</Label>
@@ -237,6 +251,7 @@ export function CreateTaskForm() {
           <Error error={formState.errors.submitted} />
         )}
 
+
        <Label htmlFor="duedate">duedate</Label>
         <Input
           data-testid="duedate"
@@ -248,6 +263,8 @@ export function CreateTaskForm() {
             formState.status === "field-errors" && !!formState.errors.duedate
           }
         ></Input>
+
+
         {formState.status === "field-errors" && (
           <Error error={formState.errors.duedate} />
         )}

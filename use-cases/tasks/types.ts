@@ -12,9 +12,9 @@ export type TaskDto = {
     task_service:string;
     task_plateform:string;
     task_speclization:string;
-    submitted:string;
-    duedate:string;
-    date: string;
+    submitted?:string;
+    duedate?:string;
+    date?: string;
     created_by:string;
    // assignedTo? : User[]|undefined;
   };
@@ -30,9 +30,9 @@ export type TaskDto = {
     task_service:string;
     task_plateform:string;
     task_speclization:string;
-    submitted:string;
-    duedate:string;
-    date: string;
+    submitted?:string;
+    duedate?:string;
+    date?: string;
     created_by:string;
     //assignedTo? : User[]|undefined;
   };

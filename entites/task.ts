@@ -28,9 +28,9 @@ export class TaskEntity {
   private task_service:string;
   private task_plateform:string;
   private task_speclization:string;
-  private submitted:string;
-  private duedate:string;
-  private date: string;
+  private submitted?:string;
+  private duedate?:string;
+  private date?: string;
   private created_by:string;
   private assignedTo? : User[]|undefined; 
 
@@ -63,9 +63,9 @@ export class TaskEntity {
     task_service:string;
     task_plateform:string;
     task_speclization:string;
-    submitted:string;
-    duedate:string;
-    date: string;
+    submitted?:string;
+    duedate?:string;
+    date?: string;
     created_by:string;
   }) {
     this.id = id;
@@ -79,9 +79,9 @@ export class TaskEntity {
     this.task_service = task_service;
     this.task_plateform = task_plateform;
     this.task_speclization = task_speclization;
-    this.submitted = submitted;
-    this.duedate = duedate;
-    this.date = date;
+    this.submitted = '2022-12-06';
+    this.duedate = '2022-12-06';
+    this.date = '2022-12-06';
     this.created_by = created_by;
      
     this.validate();
