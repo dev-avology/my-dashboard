@@ -5,7 +5,8 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import type { User } from '@/app/lib/definitions';
 import bcrypt from 'bcrypt';
- 
+import { unstable_noStore } from "next/cache";
+
 async function getUser(email: string): Promise<User | undefined> {
   try {
     const user = await sql<User>`SELECT * FROM users WHERE email=${email}`;
@@ -42,6 +43,8 @@ export const { auth, signIn, signOut } = NextAuth({
 });
 
 export async function getSessionUser(){
-  let session = await auth();
-return { getUser: () => session?.user && { userId: session.user.id } }
+  unstable_noStore();
+
+  const session = await auth();
+  return { getUser: () => session?.user && { userId: session.user.id } };
 };
