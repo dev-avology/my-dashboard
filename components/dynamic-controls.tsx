@@ -1,5 +1,15 @@
 import { useFormContext } from "react-hook-form";
 import { DynamicFieldData } from "./dynamic-control-types";
+import { Input } from "./ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const DynamicControl = ({
   inputType,

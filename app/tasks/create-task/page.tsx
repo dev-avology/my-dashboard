@@ -1,5 +1,6 @@
 import { auth } from '@/auth';
 import { getTasks } from "@/data-access/tasks/get-tasks.persistence";
+import { CreateTaskForm } from './create-task-form';
 export default async  function Page() {
     let session = await auth();
 
@@ -12,6 +13,7 @@ export default async  function Page() {
                     
                     <div className="flex items-center justify-between space-y-2">
                         <div> Create new Task</div>
+                        <CreateTaskForm></CreateTaskForm>
                     </div>
                     
                 </div>

@@ -1,4 +1,4 @@
-import { User } from "@/db/schema";
+//import { User } from "@/db/schema";
 
 export type TaskDto = {
     id: number;
@@ -36,7 +36,9 @@ export type TaskDto = {
     created_by:string;
     assignedTo? : User[]|undefined;
   };
-  
+  export type User = {
+    userId: string;
+  };
   export type CreateTask = (task: CreateTaskDto) => void;
   export type DeleteTask = (taskid: number) => void;
   export type UpdateTask = (task: TaskDto) => void;
