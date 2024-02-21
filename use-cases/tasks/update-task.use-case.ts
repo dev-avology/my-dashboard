@@ -23,7 +23,6 @@ export async function updateTaskUseCase(
     task_speclization:string;
     submitted:string;
     duedate:string;
-    assignedTo:User[]|undefined;  
   }
 ) {
   const user = context.getUser();
@@ -37,8 +36,7 @@ export async function updateTaskUseCase(
    
   task.setDescrition(data.description);
 
-  task.setAssigned(data.assignedTo);
-
+  //task.setAssigned(data.assignedTo);
 
   await context.updateTask(taskToDto(task));
 

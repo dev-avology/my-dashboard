@@ -51,7 +51,6 @@ export class TaskEntity {
     duedate,
     date,
     created_by,
-    assignedTo,
   }: {
     id?: number;
     title: string;
@@ -68,7 +67,6 @@ export class TaskEntity {
     duedate:string;
     date: string;
     created_by:string;
-    assignedTo? : User[]|undefined;
   }) {
     this.id = id;
     this.title = title;
@@ -85,7 +83,6 @@ export class TaskEntity {
     this.duedate = duedate;
     this.date = date;
     this.created_by = created_by;
-    this.assignedTo = assignedTo;
      
     this.validate();
   }
