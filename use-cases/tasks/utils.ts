@@ -62,6 +62,6 @@ export function taskToDto(task: TaskEntity): TaskDto {
     duedate:task.getDueDate(),
     date: task.getDate(),
     created_by:task.getCreatedBy(),
-    assignedTo : task.getAssigned()
+    //assignedTo : task.getAssigned()
   };
 }

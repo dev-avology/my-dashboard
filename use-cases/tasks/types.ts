@@ -16,7 +16,7 @@ export type TaskDto = {
     duedate:string;
     date: string;
     created_by:string;
-    assignedTo? : User[]|undefined;
+   // assignedTo? : User[]|undefined;
   };
   
   export type CreateTaskDto = {
@@ -34,7 +34,7 @@ export type TaskDto = {
     duedate:string;
     date: string;
     created_by:string;
-    assignedTo? : User[]|undefined;
+    //assignedTo? : User[]|undefined;
   };
   export type User = {
     userId: string;
