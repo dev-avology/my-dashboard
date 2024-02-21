@@ -40,8 +40,8 @@ export const users = pgTable('users', {
     task_service:varchar('task_service', { length: 255 }).notNull(),
     task_plateform:varchar('task_plateform', { length: 255 }).notNull(),
     task_speclization:varchar('task_speclization', { length: 255 }).notNull(),
-    submitted:date('submitted').notNull(),
-    duedate:date('duedate').notNull(),
+    submitted:date('submitted').defaultNow().notNull(),
+    duedate:date('duedate').defaultNow().notNull(),
     date: date('date').defaultNow().notNull(),
     created_by:uuid("created_by")
     .notNull()

@@ -23,31 +23,35 @@ export const labels = [
     label: "Documentation",
   },
 ]
-
 export const statuses = [
   {
-    value: "backlog",
-    label: "Backlog",
+    value: "queue",
+    label: "Queued",
     icon: QuestionMarkCircledIcon,
   },
   {
-    value: "todo",
-    label: "Todo",
+    value: "paused",
+    label: "Pause",
     icon: CircleIcon,
   },
   {
-    value: "in progress",
+    value: "inprogress",
     label: "In Progress",
     icon: StopwatchIcon,
   },
   {
-    value: "done",
-    label: "Done",
+    value: "readyforreview",
+    label: "Ready for Review",
+    icon: StopwatchIcon,
+  },
+  {
+    value: "completed",
+    label: "Completed",
     icon: CheckCircledIcon,
   },
   {
-    value: "canceled",
-    label: "Canceled",
+    value: "closed",
+    label: "Closed",
     icon: CrossCircledIcon,
   },
 ]

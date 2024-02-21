@@ -20,6 +20,21 @@ export class AuthenticationError extends Error {
   }
 }
 
+
+export const formatDateToLocal = (
+  dateStr: string,
+  locale: string = 'en-US',
+) => {
+  const date = new Date(dateStr);
+  const options: Intl.DateTimeFormatOptions = {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  };
+  const formatter = new Intl.DateTimeFormat(locale, options);
+  return formatter.format(date);
+};
+
 export function taskToCreateTaskDtoMapper(task: TaskEntity): CreateTaskDto {
   return {
     title: task.getTitle(),
@@ -32,7 +47,7 @@ export function taskToCreateTaskDtoMapper(task: TaskEntity): CreateTaskDto {
     task_service:task.getTaskService(),
     task_plateform:task.getTaskPlateform(),
     task_speclization:task.getTaskSpeclization(),
-    submitted:task.getSubmitted(),
+    //submitted:task.getSubmitted(),
     duedate:task.getDueDate(),
     date: task.getDate(),
     created_by:task.getCreatedBy(),

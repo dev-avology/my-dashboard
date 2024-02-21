@@ -14,9 +14,9 @@ export const taskSchema = z.object({
   task_service:z.string(),
   task_plateform:z.string(),
   task_speclization:z.string(),
-  submitted:z.string(),
-  duedate:z.string(),
-  date: z.string(),
+  submitted:z.date().nullable(),
+  duedate:z.date(),
+  date: z.date(),
   created_by:z.string(),
 })
 

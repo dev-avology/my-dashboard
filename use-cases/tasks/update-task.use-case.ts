@@ -38,6 +38,7 @@ export async function updateTaskUseCase(
 
   //task.setAssigned(data.assignedTo);
 
+
   await context.updateTask(taskToDto(task));
 
   return taskToDto(task);
