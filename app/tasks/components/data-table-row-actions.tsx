@@ -30,7 +30,7 @@ import {
 
 import { labels } from "../data/data"
 import { Task, taskSchema } from "../data/schema"
-import { ViewModal } from "../view-task/view-modal"
+//import { ViewModal } from "../view-task/view-modal"
 import ViewData from "./view-data";
 
 
