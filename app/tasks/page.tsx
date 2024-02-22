@@ -3,6 +3,8 @@ import { auth } from '@/auth';
 import { DataTable } from "./components/data-table"
 import { columns } from "./components/columns"
 import { getTasks } from "@/data-access/tasks/get-tasks.persistence";
+import Link from 'next/link';
+
 export default async  function Page() {
     let session = await auth();
 
@@ -16,7 +18,9 @@ export default async  function Page() {
                     <div className="flex items-center justify-between space-y-2">
                         <div></div>
                         <div className="flex items-center space-x-2">
-                            Add new
+                            <Link href="/tasks/create-task" className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base">
+                                Add new 
+                            </Link>
                         </div>
                     </div>
                     <DataTable data={items} columns={columns}></DataTable>

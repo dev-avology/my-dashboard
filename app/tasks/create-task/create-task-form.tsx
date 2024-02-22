@@ -76,7 +76,7 @@ export function CreateTaskForm() {
         className="flex-1 lg:max-w-2xl"
       >
 
-        <Label htmlFor="item-title">Item Title</Label>
+        <Label htmlFor="item-title" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">Item title</Label>
         <Input
           data-testid="item-title"
           defaultValue={formState.form.title}
@@ -86,13 +86,14 @@ export function CreateTaskForm() {
           hasError={
             formState.status === "field-errors" && !!formState.errors.title
           }
+          className="mb-3 block w-full rounded-md shadow-sm sm:text-sm border border-gray-300 placeholder-gray-300 focus:border-primary-500 focus:ring-primary-500"
         ></Input>
         {formState.status === "field-errors" && (
           <Error error={formState.errors.title} />
         )}
 
 
-        <Label htmlFor="description">Description</Label>
+        <Label htmlFor="description" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">Description</Label>
         <Input
           data-testid="description"
           defaultValue={formState.form.description}
@@ -102,6 +103,7 @@ export function CreateTaskForm() {
           hasError={
             formState.status === "field-errors" && !!formState.errors.description
           }
+          className="mb-3 block w-full rounded-md shadow-sm sm:text-sm border border-gray-300 placeholder-gray-300 focus:border-primary-500 focus:ring-primary-500"
         ></Input>
         {formState.status === "field-errors" && (
           <Error error={formState.errors.description} />
@@ -110,7 +112,7 @@ export function CreateTaskForm() {
        <div className="flex-1 lg:max-w-2xl"></div>
 
 
-       <Label htmlFor="status">status</Label>
+       <Label htmlFor="status" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">status</Label>
         <Input
           data-testid="status"
           defaultValue={formState.form.status}
@@ -120,6 +122,7 @@ export function CreateTaskForm() {
           hasError={
             formState.status === "field-errors" && !!formState.errors.status
           }
+          className="mb-3 block w-full rounded-md shadow-sm sm:text-sm border border-gray-300 placeholder-gray-300 focus:border-primary-500 focus:ring-primary-500"
         ></Input>
         {formState.status === "field-errors" && (
           <Error error={formState.errors.status} />
@@ -127,7 +130,7 @@ export function CreateTaskForm() {
 
 
 
-        <Label htmlFor="priority">priority</Label>
+        <Label htmlFor="priority" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">priority</Label>
         <Input
           data-testid="priority"
           defaultValue={formState.form.priority}
@@ -137,6 +140,7 @@ export function CreateTaskForm() {
           hasError={
             formState.status === "field-errors" && !!formState.errors.priority
           }
+          className="mb-3 block w-full rounded-md shadow-sm sm:text-sm border border-gray-300 placeholder-gray-300 focus:border-primary-500 focus:ring-primary-500"
         ></Input>
         {formState.status === "field-errors" && (
           <Error error={formState.errors.priority} />
@@ -144,7 +148,7 @@ export function CreateTaskForm() {
 
 
 
-        <Label htmlFor="service_type">service_type</Label>
+        <Label htmlFor="service_type" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">service_type</Label>
         <Input
           data-testid="service_type"
           defaultValue={formState.form.service_type}
@@ -154,12 +158,13 @@ export function CreateTaskForm() {
           hasError={
             formState.status === "field-errors" && !!formState.errors.service_type
           }
+          className="mb-3 block w-full rounded-md shadow-sm sm:text-sm border border-gray-300 placeholder-gray-300 focus:border-primary-500 focus:ring-primary-500"
         ></Input>
         {formState.status === "field-errors" && (
           <Error error={formState.errors.service_type} />
         )}
 
-        <Label htmlFor="service_category">service_category</Label>
+        <Label htmlFor="service_category" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">service_category</Label>
         <Input
           data-testid="service_category"
           defaultValue={formState.form.service_category}
@@ -169,13 +174,14 @@ export function CreateTaskForm() {
           hasError={
             formState.status === "field-errors" && !!formState.errors.service_category
           }
+          className="mb-3 block w-full rounded-md shadow-sm sm:text-sm border border-gray-300 placeholder-gray-300 focus:border-primary-500 focus:ring-primary-500"
         ></Input>
         {formState.status === "field-errors" && (
           <Error error={formState.errors.service_category} />
         )}
 
 
-       <Label htmlFor="task_type">task_type</Label>
+       <Label htmlFor="task_type" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">task_type</Label>
         <Input
           data-testid="task_type"
           defaultValue={formState.form.task_type}
@@ -185,12 +191,13 @@ export function CreateTaskForm() {
           hasError={
             formState.status === "field-errors" && !!formState.errors.task_type
           }
+          className="mb-3 block w-full rounded-md shadow-sm sm:text-sm border border-gray-300 placeholder-gray-300 focus:border-primary-500 focus:ring-primary-500"
         ></Input>
         {formState.status === "field-errors" && (
           <Error error={formState.errors.task_type} />
         )}
 
-      <Label htmlFor="task_service">task_service</Label>
+      <Label htmlFor="task_service" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">task_service</Label>
         <Input
           data-testid="task_service"
           defaultValue={formState.form.task_service}
@@ -200,12 +207,13 @@ export function CreateTaskForm() {
           hasError={
             formState.status === "field-errors" && !!formState.errors.task_service
           }
+          className="mb-3 block w-full rounded-md shadow-sm sm:text-sm border border-gray-300 placeholder-gray-300 focus:border-primary-500 focus:ring-primary-500"
         ></Input>
         {formState.status === "field-errors" && (
           <Error error={formState.errors.task_service} />
         )}
 
-       <Label htmlFor="task_plateform">task_plateform</Label>
+       <Label htmlFor="task_plateform" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">task_plateform</Label>
         <Input
           data-testid="task_plateform"
           defaultValue={formState.form.task_plateform}
@@ -215,12 +223,13 @@ export function CreateTaskForm() {
           hasError={
             formState.status === "field-errors" && !!formState.errors.task_plateform
           }
+          className="mb-3 block w-full rounded-md shadow-sm sm:text-sm border border-gray-300 placeholder-gray-300 focus:border-primary-500 focus:ring-primary-500"
         ></Input>
         {formState.status === "field-errors" && (
           <Error error={formState.errors.task_plateform} />
         )}
 
-        <Label htmlFor="task_speclization">task_speclization</Label>
+        <Label htmlFor="task_speclization" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">task_speclization</Label>
         <Input
           data-testid="task_speclization"
           defaultValue={formState.form.task_speclization}
@@ -230,13 +239,14 @@ export function CreateTaskForm() {
           hasError={
             formState.status === "field-errors" && !!formState.errors.task_speclization
           }
+          className="mb-3 block w-full rounded-md shadow-sm sm:text-sm border border-gray-300 placeholder-gray-300 focus:border-primary-500 focus:ring-primary-500"
         ></Input>
         {formState.status === "field-errors" && (
           <Error error={formState.errors.task_speclization} />
         )}
 
 
-       <Label htmlFor="submitted">submitted</Label>
+       <Label htmlFor="submitted" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">submitted</Label>
         <Input
           data-testid="submitted"
           defaultValue={formState.form.submitted}
@@ -246,13 +256,14 @@ export function CreateTaskForm() {
           hasError={
             formState.status === "field-errors" && !!formState.errors.submitted
           }
+          className="mb-3 block w-full rounded-md shadow-sm sm:text-sm border border-gray-300 placeholder-gray-300 focus:border-primary-500 focus:ring-primary-500"
         ></Input>
         {formState.status === "field-errors" && (
           <Error error={formState.errors.submitted} />
         )}
 
 
-       <Label htmlFor="duedate">duedate</Label>
+       <Label htmlFor="duedate" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">duedate</Label>
         <Input
           data-testid="duedate"
           defaultValue={formState.form.duedate}
@@ -262,6 +273,7 @@ export function CreateTaskForm() {
           hasError={
             formState.status === "field-errors" && !!formState.errors.duedate
           }
+          className="mb-3 block w-full rounded-md shadow-sm sm:text-sm border border-gray-300 placeholder-gray-300 focus:border-primary-500 focus:ring-primary-500"
         ></Input>
 
 
@@ -269,7 +281,7 @@ export function CreateTaskForm() {
           <Error error={formState.errors.duedate} />
         )}
 
-<Label htmlFor="date">date</Label>
+        <Label htmlFor="date" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">date</Label>
         <Input
           data-testid="date"
           defaultValue={formState.form.date}
@@ -279,12 +291,13 @@ export function CreateTaskForm() {
           hasError={
             formState.status === "field-errors" && !!formState.errors.date
           }
+          className="mb-3 block w-full rounded-md shadow-sm sm:text-sm border border-gray-300 placeholder-gray-300 focus:border-primary-500 focus:ring-primary-500"
         ></Input>
         {formState.status === "field-errors" && (
           <Error error={formState.errors.date} />
         )}
 
-    <Label htmlFor="created_by">created_by</Label>
+        <Label htmlFor="created_by" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">created_by</Label>
         <Input
           data-testid="created_by"
           defaultValue={formState.form.created_by}
@@ -294,6 +307,7 @@ export function CreateTaskForm() {
           hasError={
             formState.status === "field-errors" && !!formState.errors.created_by
           }
+          className="mb-3 block w-full rounded-md shadow-sm sm:text-sm border border-gray-300 placeholder-gray-300 focus:border-primary-500 focus:ring-primary-500"
         ></Input>
         {formState.status === "field-errors" && (
           <Error error={formState.errors.created_by} />
@@ -322,7 +336,7 @@ function SubmitButton({
     <Button
       {...props}
       className={cn(
-        "disabled:bg-gray-400 disabled:cursor-default",
+        "disabled:bg-gray-400 disabled:cursor-default mt-6",
         props.className
       )}
       disabled={pending}

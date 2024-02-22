@@ -18,31 +18,31 @@ export default function ServiceCard({
   Services: Services[];
 }) {
   return (
-    <div className="mx-auto grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
+    <div className="mx-auto grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3 mt-8 pt-3 pb-4">
       {Services.map((service, i) => {
         return (
-          <div key={service.id} className="flex flex-col overflow-hidden">
-            <Card>
+          <div key={service.id} className="flex flex-col overflow-hidden rounded-lg shadow ">
+            <Card className="border-0 ">
               <div className="relative flex-shrink-0">
                 <div className="aspect-square w-full bg-gray-100 object-contain !h-48 w-full !object-cover"></div>
               </div>
               <CardHeader>
-                <CardTitle>{service.amount}</CardTitle>
-                <CardDescription> 
+                <CardTitle className="py-2 text-base font-semibold text-gray-900">{service.amount}</CardTitle>
+                <CardDescription className="text-lg font-semibold leading-7 text-gray-900"> 
                 {service.title}
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                 <ScrollArea className="h-[200px] w-[350px] p-4 whitespace-pre-line text-base leading-6 text-gray-500">
+                 <ScrollArea className="h-[200px] w-[350px]  whitespace-pre-line text-base leading-6 text-gray-500">
                       {service.description && (
                     <div dangerouslySetInnerHTML={{ __html: service.description }} />
                   )}
                 </ScrollArea>
               </CardContent>
               <CardFooter>
-                <p>
-                <Button asChild>
-                   <Link href="#" target="_blank">Purchase Now <ArrowRightCircleIcon/></Link>
+                <p className="w-full">
+                <Button asChild className="w-full">
+                   <Link href="#" target="_blank">Purchase Now <ArrowRightCircleIcon style={{ height: '20px', width: '20px',marginLeft:'5px' }}/></Link>
                 </Button>
                 </p>
               </CardFooter>

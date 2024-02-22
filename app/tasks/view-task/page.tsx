@@ -1,6 +1,6 @@
 import { auth } from '@/auth';
 import { getTasks } from "@/data-access/tasks/get-tasks.persistence";
-import { CreateTaskForm } from './create-task-form';
+import { ViewModal } from './view-modal';
 export default async  function Page() {
     let session = await auth();
 
@@ -13,10 +13,7 @@ export default async  function Page() {
                     <div className='mt-6 w-full bg-white shadow-sm 2xl:rounded-md'>
                         <div className='py-5 pt-0'>
                             <div className='mx-auto max-w-3xl'>
-                                <div className="mt-4">
-                                    <div className="text-3xl font-bold leading-8 text-gray-900 mb-5">Create Task</div>
-                                </div>
-                                <CreateTaskForm></CreateTaskForm>
+                                <ViewModal></ViewModal>
                             </div>
                         </div>
                     </div>
