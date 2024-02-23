@@ -203,10 +203,10 @@ function ListTitle({ children }: { children: TaskTypeTitle }){
     <div className=" dark:text-gray-500  ">
        {children.children}
     </div>
-    <CardHeader className="p-4 bg-gray-50">
-      <CardTitle className="text-lg text-center">{children.heading}</CardTitle>
-      {/*<CardDescription>Deploy your new project in one-click.</CardDescription>*/}
-    </CardHeader>
+  <CardHeader className="p-4 bg-gray-50">
+    <CardTitle className="text-lg text-center">{children.heading}</CardTitle>
+    {/*<CardDescription>Deploy your new project in one-click.</CardDescription>*/}
+  </CardHeader>
   </Card>
 );
 }
