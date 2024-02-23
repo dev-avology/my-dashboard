@@ -180,7 +180,7 @@ export default function TaskView() {
               
               {categoryTitles.map((category,i)=>{
                 return <li key={i}>
-                  <ListIcon children={category}></ListIcon>
+                  <ListIcon>{category}</ListIcon>
                 </li>;
               })}
 
@@ -193,7 +193,7 @@ export default function TaskView() {
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-4">
               {taskTitles.map((title,i)=>{
                 return < div key={i}>
-                  <ListTitle children={title}></ListTitle>
+                  <ListTitle>{title}</ListTitle>
                 </div>;
               })}
             </div>
