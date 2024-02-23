@@ -32,7 +32,7 @@ export default function ServiceCard({
                 {service.title}
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="list-card">
                  <ScrollArea className="h-[200px] w-[350px]  whitespace-pre-line text-base leading-6 text-gray-500">
                       {service.description && (
                     <div dangerouslySetInnerHTML={{ __html: service.description }} />

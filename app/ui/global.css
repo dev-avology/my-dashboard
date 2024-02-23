@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-ul{
+.list-card ul{
     margin-top: 1.25em;
     padding-left: 1.2em;
 }
-ul li {
+.list-card ul li {
     padding-left: 0.375em;
     margin-top: 0.5em;
     margin-bottom: 0.5em;

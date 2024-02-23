@@ -25,7 +25,8 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
+} from "@/components/ui/popover";
+import TaskView from '../create-task/components/task-view'
 export function CreateTaskForm() {
   const { toast } = useToast();
 
@@ -63,6 +64,8 @@ export function CreateTaskForm() {
 
   return (
     <>
+    <TaskView />
+{/*
       {formState.status === "error" && (
         <Alert variant={"destructive"}>
           <Terminal className="h-4 w-4" />
@@ -313,7 +316,7 @@ export function CreateTaskForm() {
           <Error error={formState.errors.created_by} />
         )}
          <SubmitButton idleText="Create Task" submittingText="Creating Task..." />
-      </form>
+      </form>*/}
     </>
   );
 }
