@@ -1,5 +1,8 @@
 
 import { RadioTowerIcon,GaugeIcon, DicesIcon, ShoppingBasketIcon } from "lucide-react";
+
+type IconProps = React.SVGProps<SVGSVGElement>;
+
 import {
   Card,
   CardDescription,
@@ -12,7 +15,7 @@ import Image from "next/image"
 type CategoryTitle = {
   label:string,
   value:string,
-  icon:React.ReactNode,
+  icon:React.ForwardRefExoticComponent<IconProps & React.RefAttributes<SVGSVGElement>>,
   bg:string,
   color:string,
 }
@@ -22,7 +25,7 @@ type TaskTypeTitle = {
   heading:string,
   value:string,
   image:string,
-  children:React.ReactNode,
+  children:string,
   bg:string,
   color:string,
 }
@@ -32,7 +35,7 @@ const taskTitles: TaskTypeTitle[] = [
     heading:'Facebook',
     value:'',
     image:"https://placehold.co/600x400/png",
-    children:<><Image  src="https://placehold.co/600x400/png" width="100" height="100" alt="img" /></>,
+    children:'',
     bg:'',
     color:'',
   }, 
@@ -40,7 +43,7 @@ const taskTitles: TaskTypeTitle[] = [
     heading:'Instagram',
     value:'',
     image:"https://placehold.co/600x400/png",
-    children:<><Image src="https://placehold.co/600x400/png" width="100" height="100" alt="img" /></>,
+    children:'',
     bg:'',
     color:'',
   },
@@ -48,7 +51,7 @@ const taskTitles: TaskTypeTitle[] = [
     heading:'TikTok',
     value:'',
     image:"https://placehold.co/600x400/png",
-    children:<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>,
+    children:'',
     bg:'',
     color:'',
   },
@@ -56,7 +59,7 @@ const taskTitles: TaskTypeTitle[] = [
     heading:'Snapchat',
     value:'',
     image:"https://placehold.co/600x400/png",
-    children:<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>,
+    children:'',
     bg:'',
     color:'',
   },
@@ -64,7 +67,7 @@ const taskTitles: TaskTypeTitle[] = [
     heading:'Twiter',
     value:'',
     image:"https://placehold.co/600x400/png",
-    children:<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>,
+    children:'<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>',
     bg:'',
     color:'',
   },
@@ -72,7 +75,7 @@ const taskTitles: TaskTypeTitle[] = [
     heading:'Twitch',
     value:'',
     image:"https://placehold.co/600x400/png",
-    children:<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>,
+    children:'<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>',
     bg:'',
     color:'',
   },
@@ -80,7 +83,7 @@ const taskTitles: TaskTypeTitle[] = [
     heading:'Linkedin',
     value:'',
     image:"https://placehold.co/600x400/png",
-    children:<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>,
+    children:'<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>',
     bg:'',
     color:'',
   },
@@ -88,7 +91,7 @@ const taskTitles: TaskTypeTitle[] = [
     heading:'Pinterest',
     value:'',
     image:"https://placehold.co/600x400/png",
-    children:<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>,
+    children:'<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>',
     bg:'',
     color:'',
   },
@@ -96,7 +99,7 @@ const taskTitles: TaskTypeTitle[] = [
     heading:'YouTube',
     value:'',
     image:"https://placehold.co/600x400/png",
-    children:<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>,
+    children:'<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>',
     bg:'',
     color:'',
   },
@@ -104,7 +107,7 @@ const taskTitles: TaskTypeTitle[] = [
     heading:'Vemio',
     value:'',
     image:"https://placehold.co/600x400/png",
-    children:<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>,
+    children:'<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>',
     bg:'',
     color:'',
   },
@@ -112,7 +115,7 @@ const taskTitles: TaskTypeTitle[] = [
     heading:'ShareChat',
     value:'',
     image:"https://placehold.co/600x400/png",
-    children:<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>,
+    children:'<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>',
     bg:'',
     color:'',
   },
@@ -120,7 +123,7 @@ const taskTitles: TaskTypeTitle[] = [
     heading:'Telegram',
     value:'',
     image:"https://placehold.co/600x400/png",
-    children:<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>,
+    children:'<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>',
     bg:'',
     color:'',
   },
@@ -128,7 +131,7 @@ const taskTitles: TaskTypeTitle[] = [
     heading:'Whatsapp',
     value:'',
     image:"https://placehold.co/600x400/png",
-    children:<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>,
+    children:'<><Image src="https://placehold.co/600x400/png" width="100" alt="img" height="100" /></>',
     bg:'',
     color:'',
   },
@@ -140,28 +143,28 @@ const categoryTitles: CategoryTitle[] = [
   {
     label: "Most Used",
     value: "most used",
-    icon:<RadioTowerIcon/>,
+    icon:RadioTowerIcon,
     bg:"bg-green-100 ",
     color:"text-green-800"
   },
   {
     label: "Social Media ",
     value: "social-media",
-    icon:<GaugeIcon/>,
+    icon:GaugeIcon,
     bg:"bg-yellow-100",
     color:"text-yellow-800"
   },
   {
     label: "Others",
     value: "orthers",
-    icon:<DicesIcon/>,
+    icon:DicesIcon,
     bg:"bg-yellow-100",
     color:"text-yellow-800"
   },
   {
     label: "Products",
     value: "medium",
-    icon:<ShoppingBasketIcon/>,
+    icon:ShoppingBasketIcon,
     bg:"bg-yellow-100",
     color:"text-yellow-800"
   }
@@ -204,7 +207,7 @@ export default function TaskView() {
 function ListIcon({ children }: { children: CategoryTitle }){
   return (
   <a href="#" className="bg-white flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-sky-100 hover:text-blue-600 group">
-    {children.icon}
+    <children.icon />
     <span className="ms-3">{children.label}</span>
   </a>
   );
