@@ -130,9 +130,6 @@ export function CreateTaskForm() {
         {formState.status === "field-errors" && (
           <Error error={formState.errors.status} />
         )}
-
-
-
         <Label htmlFor="priority" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">priority</Label>
         <Input
           data-testid="priority"
@@ -148,9 +145,6 @@ export function CreateTaskForm() {
         {formState.status === "field-errors" && (
           <Error error={formState.errors.priority} />
         )}
-
-
-
         <Label htmlFor="service_type" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">service_type</Label>
         <Input
           data-testid="service_type"
@@ -182,8 +176,6 @@ export function CreateTaskForm() {
         {formState.status === "field-errors" && (
           <Error error={formState.errors.service_category} />
         )}
-
-
        <Label htmlFor="task_type" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">task_type</Label>
         <Input
           data-testid="task_type"
@@ -200,7 +192,7 @@ export function CreateTaskForm() {
           <Error error={formState.errors.task_type} />
         )}
 
-      <Label htmlFor="task_service" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">task_service</Label>
+        <Label htmlFor="task_service" className="block text-base font-semibold  text-gray-900 mb-1 capitalize">task_service</Label>
         <Input
           data-testid="task_service"
           defaultValue={formState.form.task_service}
