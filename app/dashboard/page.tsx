@@ -133,8 +133,8 @@ export default async  function Page() {
                 </AccordionItem>
             </Accordion>
             <div className="bg-white rounded-lg shadow overflow-visible">
-                <div>
-                    <div className="p-6 sm:flex text-sm font-medium "> Search area here </div>
+                <div className="pt-6">
+                   {/* <div className="p-6 sm:flex text-sm font-medium "> Search area here </div>*/}
                     <Tabs defaultValue="account" className="overflow-x-auto border-gray-200 sm:border-b md:px-6 !sm:border-b-0">
                         <TabsList className="border-b border-transparent">
                             <TabsTrigger value="account" >Open</TabsTrigger>
