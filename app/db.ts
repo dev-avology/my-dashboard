@@ -25,14 +25,14 @@ export type User = typeof users.$inferSelect;
 
 export const services = pgTable('services', {
   id: serial('id').primaryKey(),
-  title:varchar('title', { length: 64 }),
-  description: text('description'),
-  amount: doublePrecision('amount'),
-  recurring: integer('recurring'),
-  repeat: integer('repeat'),
-  status: varchar('status',{ enum: ['active', 'inactive']}),
+  title:varchar('title', { length: 64 }).notNull(),
+  description: text('description').notNull(),
+  amount: doublePrecision('amount').notNull(),
+  recurring: integer('recurring').notNull(),
+  repeat: integer('repeat').notNull(),
+  status: varchar('status',{ enum: ['active', 'inactive']}).notNull(),
   image_url: varchar('image_url', { length: 255 }),
-  date: date('date').defaultNow(),
+  date: date('date').defaultNow().notNull(),
 });
 
 export type Service = typeof services.$inferSelect;

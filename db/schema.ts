@@ -12,7 +12,7 @@ export const users = pgTable('users', {
   export type User = typeof users.$inferSelect;
   
   
-  export const services = pgTable('services', {
+  export const Service = pgTable('services', {
     id: serial('id').primaryKey(),
     title:varchar('title', { length: 64 }).notNull(),
     description: text('description').notNull(),
@@ -20,11 +20,11 @@ export const users = pgTable('users', {
     recurring: integer('recurring').notNull(),
     repeat: integer('repeat').notNull(),
     status: varchar('status',{ enum: ['active', 'inactive']}).notNull(),
-    image_url: varchar('image_url', { length: 255 }).notNull(),
+    image_url: varchar('image_url', { length: 255 }),
     date: date('date').defaultNow().notNull(),
   });
   
-  export type Service = typeof services.$inferSelect;
+  export type ServiceSchema = typeof Service.$inferSelect;
   
   
   

@@ -20,14 +20,14 @@ export type UserFields = {
 
 export type Services = {
   id: number;
-  title: string|null;
-  description: string|null;
-  amount: number|null;
-  recurring: number|null;
-  repeat: number|null;
-  status:'active'|'inactive'|null;
+  title: string;
+  description: string;
+  amount: number;
+  recurring: number;
+  repeat: number;
+  status:'active'|'inactive';
   image_url:string|null;
-  date: string|null;
+  date: string;
 }
 
 

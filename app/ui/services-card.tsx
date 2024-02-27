@@ -11,20 +11,26 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { ArrowRightIcon,ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 import { Button } from "@/components/ui/button"
 import Link from "next/link";
+import ServiceEdit from '../ui/components/service-edit'
+import {Service,ServiceSchema} from "@/db/schema";
 
 export default function ServiceCard({
   Services,
 }: {
-  Services: Services[];
+  Services: ServiceSchema[];
 }) {
   return (
     <div className="mx-auto grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3 mt-8 pt-3 pb-4">
+      
       {Services.map((service, i) => {
         return (
           <div key={service.id} className="flex flex-col overflow-hidden rounded-lg shadow ">
             <Card className="border-0 ">
               <div className="relative flex-shrink-0">
                 <div className="aspect-square w-full bg-gray-100 object-contain !h-48 w-full !object-cover"></div>
+                  <div className=" cursor-pointer absolute top-2 right-2">
+                    <ServiceEdit row={service} />
+                  </div>
               </div>
               <CardHeader>
                 <CardTitle className="py-2 text-base font-semibold text-gray-900">{service.amount}</CardTitle>
