@@ -93,7 +93,7 @@ export default async  function Page() {
                           
                             <hr className="mt-6" />
                         </div>
-                        <div className="md:px-6 md:py-4">
+                        {/*<div className="md:px-6 md:py-4">
                             <h3 className="text-lg font-bold text-gray-900">Popular solutions</h3>
 
                             <div className="flex flex-wrap gap-4 py-4">
@@ -126,7 +126,7 @@ export default async  function Page() {
                                 </div>
                             </div>
                             
-                        </div>
+                        </div>*/}
                         
 
 
