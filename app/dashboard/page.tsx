@@ -11,7 +11,6 @@ import { DataTable } from "../tasks/components/data-table";
 import { columns } from "../tasks/components/columns"
 import { getTasks } from "@/data-access/tasks/get-tasks.persistence";
 import { partition } from "lodash";
-import AddTeam from '../tasks/components/add-team-member'
 
 export default async  function Page() {
     let session = await auth();
@@ -112,7 +111,7 @@ export default async  function Page() {
                                         <div>
                                             <h4 className="text-base font-bold leading-5 text-gray-900">🧑&zwj;💻 Add new team member</h4>
                                             <p className="mt-2 text-sm leading-5 text-gray-500">Add team members so they can create, follow and collaborate on tasks.</p>
-                                            <p className="mt-6 cursor-pointer text-xs leading-4 text-blue-500"><AddTeam /></p>
+                                            <p className="mt-6 cursor-pointer text-xs leading-4 text-blue-500">Add team member</p>
                                         </div>
                                     </div>
                                 </div>
