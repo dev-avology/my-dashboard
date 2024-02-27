@@ -11,6 +11,7 @@ import { DataTable } from "../tasks/components/data-table";
 import { columns } from "../tasks/components/columns"
 import { getTasks } from "@/data-access/tasks/get-tasks.persistence";
 import { partition } from "lodash";
+import AddTeam from '../tasks/components/add-team-member'
 
 export default async  function Page() {
     let session = await auth();
@@ -102,7 +103,7 @@ export default async  function Page() {
                                         <div>
                                             <h4 className="text-base font-bold leading-5 text-gray-900">☑️ Create a task</h4>
                                             <p className="mt-2 text-sm leading-5 text-gray-500">Create and submit a request to get started.</p>
-                                            <p className="mt-6 cursor-pointer text-xs leading-4 text-blue-500"><a href="#" target="_blank">Create a new task</a></p>
+                                            <p className="mt-6 cursor-pointer text-xs leading-4 text-blue-500"><a href="/tasks/create-task" target="_blank">Create a new task</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -111,7 +112,7 @@ export default async  function Page() {
                                         <div>
                                             <h4 className="text-base font-bold leading-5 text-gray-900">🧑&zwj;💻 Add new team member</h4>
                                             <p className="mt-2 text-sm leading-5 text-gray-500">Add team members so they can create, follow and collaborate on tasks.</p>
-                                            <p className="mt-6 cursor-pointer text-xs leading-4 text-blue-500"><a href="#" target="_blank">Add team member</a></p>
+                                            <p className="mt-6 cursor-pointer text-xs leading-4 text-blue-500"><AddTeam /></p>
                                         </div>
                                     </div>
                                 </div>
@@ -127,11 +128,50 @@ export default async  function Page() {
                             </div>
                             
                         </div>
+                        
+
 
                      </div>
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
+            <div className="mb-5">
+                <div className="flex flex-col space-y-2 lg:flex-row lg:space-y-0 lg:space-x-[10px]">
+                    <div className="grow lg:max-w-[calc(33.33%_-_5px)]">
+                        <div className="rounded-t-md border border-b-0 bg-white p-6">
+                            <div className="flex">
+                                <div className="shrink-0">
+                                    <div className="rounded-md bg-black p-1.5 text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="icon-tabler icon-tabler-list h-6 w-6" width="24px"
+                                            height="24px"
+                                            viewBox="0 0 24 24"
+                                            stroke-width="2"
+                                            stroke="currentColor"
+                                            fill="none"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            aria-hidden="true"
+                                        >
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M9 6l11 0"></path>
+                                            <path d="M9 12l11 0"></path>
+                                            <path d="M9 18l11 0"></path>
+                                            <path d="M5 6l0 .01"></path>
+                                            <path d="M5 12l0 .01"></path>
+                                            <path d="M5 18l0 .01"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div className="grow pl-3">
+                                    <div className="text-sm font-medium leading-5 text-gray-500">Tasks</div>
+                                    <div className="text-2xl font-semibold leading-8 text-gray-900">150</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/tasks"><div className="cursor-pointer rounded-b-md border bg-gray-50 p-4 text-sm font-medium text-primary-400 hover:bg-gray-200 hover:text-primary-500">View all</div></a>
+                    </div>
+                </div>
+            </div>
             <div className="bg-white rounded-lg shadow overflow-visible">
                 <div className="pt-6">
                    {/* <div className="p-6 sm:flex text-sm font-medium "> Search area here </div>*/}

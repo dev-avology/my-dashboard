@@ -26,7 +26,7 @@ interface ViewDataProps {
     <>
       <Sheet>
       <SheetTrigger asChild>
-      <DotsHorizontalIcon className="h-4 w-4 border-0 focus:outline-none outline-none" />
+          <DotsHorizontalIcon className="h-4 w-4 border-0 focus:outline-none outline-none" />
       </SheetTrigger>
       <SheetContent className="px-0 overflow-auto" style={{ maxWidth: '800px', width: '100%' }}>
         <SheetHeader className="py-2 px-4">
