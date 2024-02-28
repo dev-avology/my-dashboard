@@ -34,7 +34,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Logo Design',
     value:'Logo Design',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Logo-Design.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -42,7 +42,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Business Cards',
     value:'Business Cards',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Business-Cards.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -50,7 +50,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Stationery Design',
     value:'Stationery Design',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Stationery-Design.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -58,7 +58,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Brand Guidelines',
     value:'Brand Guidelines',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Brand-Guidelines.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -66,7 +66,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Brochures',
     value:'Brochures',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Brochures.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -74,7 +74,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Flyers',
     value:'Flyers',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Flyers.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -82,7 +82,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Posters',
     value:'Posters',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Posters.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -90,7 +90,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Banners and Signage',
     value:'Banners and Signage',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Banners-and-Signage.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -98,7 +98,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Advertisements',
     value:'Advertisements',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Advertisements.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -106,7 +106,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Packaging Design',
     value:'Packaging Design',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Packaging-Design.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -114,7 +114,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Label Design',
     value:'Label Design',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Label-Design.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -122,7 +122,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Book Design',
     value:'Book Design',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Book-Design,jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -130,15 +130,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Magazine Layout',
     value:'Magazine Layout',
-    image:"https://placehold.co/600x400/png",
-    children:'Graphics',
-    bg:'',
-    color:'',
-  },
-  {
-    heading:'Magazine Layout',
-    value:'Magazine Layout',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Magazine-Layout.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -146,7 +138,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Newsletter Design',
     value:'Newsletter Design',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Newsletter-Design.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -154,7 +146,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Annual Reports',
     value:'Annual Reports',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Annual-Reports.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -162,7 +154,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Infographics',
     value:'Infographics',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Infographics.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -170,7 +162,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'UX/UI Design',
     value:'UX/UI Design',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/UXUI-Design.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -178,7 +170,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Landing Page Design',
     value:'Landing Page Design',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Landing-Page-Design.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -186,7 +178,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Website Design',
     value:'Website Design',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Website-Design.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -194,7 +186,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Mobile App Design',
     value:'Mobile App Design',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Mobile-App-Design.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -202,7 +194,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Email Templates',
     value:'Email Templates',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Email-Templates.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -210,7 +202,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Presentation Design',
     value:'Presentation Design',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Presentation-Design.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -218,7 +210,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Menu Design',
     value:'Menu Design',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Menu-Design.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -226,7 +218,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Exhibition Displays',
     value:'Exhibition Displays',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Exhibition-Displays.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -234,7 +226,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Vehicle Wraps',
     value:'Vehicle Wraps',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Vehicle-Wraps.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -242,7 +234,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'T-shirt and Merchandise Design',
     value:'T-shirt and Merchandise Design',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/T-shirt-and-Merchandise-Design.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -250,7 +242,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Invitation Design',
     value:'Invitation Design',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Invitation-Design.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -258,7 +250,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Branded Giveaways',
     value:'Branded Giveaways',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Branded-Giveaways.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -266,7 +258,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'3D Graphics',
     value:'3D Graphics',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/3D-Graphics.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -274,7 +266,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Video Editing',
     value:'Video Editing',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Video-Editing.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -282,7 +274,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Icon Design',
     value:'Icon Design',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Icon-Design.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -290,7 +282,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Typography',
     value:'Typography',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Typography.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -298,7 +290,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Photography Editing',
     value:'Photography Editing',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Photography-Editing.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -306,7 +298,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Interactive Design',
     value:'Interactive Design',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Interactive-Design.jpg",
     children:'Graphics',
     bg:'',
     color:'',
@@ -314,7 +306,7 @@ const taskTitles: TaskTypeTitle[] = [
   {
     heading:'Etsy',
     value:'Etsy',
-    image:"https://placehold.co/600x400/png",
+    image:"/services/Etsy.jpg",
     children:'Social Media Graphics',
     bg:'',
     color:'',
