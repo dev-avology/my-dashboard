@@ -2,10 +2,25 @@ import { auth } from '@/auth';
 import { getTasks } from "@/data-access/tasks/get-tasks.persistence";
 import { CreateTaskForm } from './create-task-form';
 import Search from '@/components/search';
-export default async  function Page() {
+import TaskView from './components/task-view';
+export default async  function Page({
+    searchParams,
+  }: {
+    searchParams?: {
+      query?: string;
+      term?: string;
+      service?:string;
+    };
+  }) {
+
     let session = await auth();
 
     const items = await getTasks();
+
+
+    const query = searchParams?.query || '';
+    const term = searchParams?.term || '';
+    const service = searchParams?.service || '';
 
     return (
         <div className="mx-auto max-w-screen-2xl">
@@ -14,13 +29,20 @@ export default async  function Page() {
                     <div className='mt-6 w-full bg-white shadow-sm 2xl:rounded-md'>
                         <div className='py-5 pt-0'>
                             <div className='mx-auto w-full px-6 '>
+                               {service === '' ? 
+                               <>
                                 <div className="mt-4 border-b-2 pb-5 mb-6">
                                     <div className="text-3xl font-bold leading-8 text-gray-900 mb-5 text-center">What are you looking to create?</div>
                                     <div className="w-full max-w-[300px] mx-auto">
                                             <Search placeholder='Search' />
                                     </div>
                                 </div>
-                                <CreateTaskForm></CreateTaskForm>
+                                <TaskView query={query} term={term} />
+                                </>
+                                :
+                                <></>
+                               }
+
                             </div>
                         </div>
                     </div>

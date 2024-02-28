@@ -1,8 +1,8 @@
 
+'use client';
+
 import { RadioTowerIcon,GaugeIcon, DicesIcon, ShoppingBasketIcon, BrushIcon, WavesIcon , WindIcon, CopyrightIcon, BadgeDollarSignIcon } from "lucide-react";
-
 type IconProps = React.SVGProps<SVGSVGElement>;
-
 import {
   Card,
   CardDescription,
@@ -11,6 +11,11 @@ import {
 } from "@/components/ui/card";
 
 import Image from "next/image"
+import { useSearchParams, usePathname, useRouter } from 'next/navigation';
+
+import { partition } from "lodash";
+import { useDebouncedCallback } from 'use-debounce';
+
 
 type CategoryTitle = {
   label:string,
@@ -751,10 +756,38 @@ const categoryTitles: CategoryTitle[] = [
     bg:"bg-yellow-100",
     color:"text-yellow-800"
   },
+  {
+    label: "All",
+    value: "",
+    icon:CopyrightIcon,
+    bg:"bg-yellow-100",
+    color:"text-yellow-800"
+  },
   
 ]
 
-export default function TaskView() {
+export default function TaskView({
+  query = '',
+  term = ''
+}: {
+    query?: string;
+    term?: string;
+}) {
+
+  //console.log(term);
+
+  const [matched,allTasks] = partition(
+    taskTitles,
+    (titles)=> term != '' ? titles.children === term : true
+  )
+
+  const [allmatched,allremain] = partition(
+    matched,
+    (titles)=> query != '' ? titles.value.toUpperCase().includes(query.toUpperCase()) : true
+  )
+ // console.log(matched);
+
+
   return (
     <>
     <div className="flex justify-between">
@@ -775,7 +808,7 @@ export default function TaskView() {
       <div className="p-4 w-3/4 max-h-screen overflow-auto  ">
         <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-4">
-              {taskTitles.map((title,i)=>{
+              {allmatched.map((title,i)=>{
                 return < div key={i}>
                   <ListTitle>{title}</ListTitle>
                 </div>;
@@ -789,8 +822,27 @@ export default function TaskView() {
 }
 
 function ListIcon({ children }: { children: CategoryTitle }){
+
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+
+  const handleClick = useDebouncedCallback((term) => {
+    //console.log(`Searching... ${term}`);
+   
+    const params = (searchParams === null )? new URLSearchParams():new URLSearchParams(searchParams);
+    if (term) {
+      params.set('term', term);
+    } else {
+      params.delete('term');
+    }
+    replace(`${pathname}?${params.toString()}`);
+
+  }, 300);
+
   return (
-  <a href="#" className="bg-white flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-sky-100 hover:text-blue-600 group">
+  <a  onClick={() => handleClick(children.value)} className="bg-white flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-sky-100 hover:text-blue-600 group">
     <children.icon />
     <span className="ms-3">{children.label}</span>
   </a>
@@ -799,9 +851,27 @@ function ListIcon({ children }: { children: CategoryTitle }){
 
 
 function ListTitle({ children }: { children: TaskTypeTitle }){
+
+  
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+  function handleClick(term: string = "") {
+   // console.log(term);
+
+    const params =  new URLSearchParams();
+    if (term) {
+      params.set('service', term);
+    } else {
+      params.delete('service');
+    }
+    replace(`${pathname}?${params.toString()}`);
+  }
+
   return (
  
-    <Card className=" rounded-lg overflow-hidden bg-gray-50 dark:bg-gray-800  transition hover:shadow-xl border">
+    <Card onClick={() => handleClick(children.value)} className=" rounded-lg overflow-hidden bg-gray-50 dark:bg-gray-800  transition hover:shadow-xl border">
       <div className=" dark:text-gray-500  ">
         {/* {children.children} */}
         <Image src={children.image} width="250" alt="img" height="200" />
