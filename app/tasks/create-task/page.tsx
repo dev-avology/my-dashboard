@@ -3,6 +3,7 @@ import { getTasks } from "@/data-access/tasks/get-tasks.persistence";
 import { CreateTaskForm } from './create-task-form';
 import Search from '@/components/search';
 import TaskView from './components/task-view';
+import AddTaskService from './components/add-task-service'
 export default async  function Page({
     searchParams,
   }: {
@@ -40,7 +41,9 @@ export default async  function Page({
                                 <TaskView query={query} term={term} />
                                 </>
                                 :
-                                <></>
+                                <>
+                                    <AddTaskService />
+                                </>
                                }
 
                             </div>
