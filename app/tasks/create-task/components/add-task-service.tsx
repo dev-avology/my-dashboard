@@ -89,11 +89,11 @@ const AddTaskService= () => {
                 <div className="  rounded-lg dark:border-gray-700">
                     <div>
                         <h3 className="tracking-tight py-2 text-base font-semibold text-gray-900">Directions</h3>
-                        <p className="text-base text-gray-500">Type general directions for your designer below. You can also click the "+" to add exact copy and leverage our built-in Al tools to assist with your creative brief.</p>
+                    <p className="text-base text-gray-500">Type general directions for your designer below. You can also click the{'"+"'} to add exact copy and leverage our built-in Al tools to assist with your creative brief.</p>
                         <div className="flex mt-6">
                             <button className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600 hover:bg-gray-100">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 text-gray-500 dark:text-gray-400">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-gray-500 dark:text-gray-400">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                                 </svg>
 
                             </button>
