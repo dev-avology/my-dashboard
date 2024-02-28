@@ -7,7 +7,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Checkbox } from "@/components/ui/checkbox";
+//import { Checkbox } from "@/components/ui/checkbox";
 import Image from "next/image"
 
 export function SizeDrop() {
@@ -19,119 +19,128 @@ export function SizeDrop() {
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-down h-4 w-4 opacity-50" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-96">
+      <PopoverContent className="w-96 overflow-auto h-96">
         <div className="grid gap-4">
           
           <div className="grid gap-2">
 
             <div className="grid  items-center gap-4">
-                <div className="items-top flex space-x-2">
-                  <Checkbox id="terms2" />
-                  <div className="grid gap-1.5 leading-none">
-                    <label
-                      htmlFor="terms2"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                        {/*<Image
-                          src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
+                <div className="items-top py-2.5 px-5  text-gray-900  rounded border border-gray-200 bg-gray-100   dark:border-gray-600 ">
+              
+                <img
+                          src="/services/portrate.png"
                           alt="Photo by Drew Beamer"
-                          fill
-                          className="rounded-md object-cover"
-                        />*/}
+                         
+                          className="rounded-md object-cover w-[80px] mx-auto mb-4"
+                        />
+                    <h4  className="text-center text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                        
                       Twitter Header Photo 
-                      <p>1500x500</p>
-                    </label>
-                  </div>
+                      <p className="text-base text-gray-500 text-sm text-center">1500x500</p>
+                    </h4>
+                 
                 </div>
             </div>
             <div className="grid items-center gap-4">
-                <div className="items-top flex space-x-2">
-                  <Checkbox id="terms3" />
-                  <div className="grid gap-1.5 leading-none">
-                    <label
-                      htmlFor="terms3"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                <div className="items-top  py-2.5 px-5  text-gray-900  rounded border border-gray-200 bg-gray-100   dark:border-gray-600">
+                
+                <img
+                          src="/services/portrate.png"
+                          alt="Photo by Drew Beamer"
+                         
+                          className="rounded-md object-cover w-[80px] mx-auto mb-4"
+                        />
+                  <h4  className="text-center  text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                        
                       Facebook Shared Image 
-                      <p>1200 x 630</p>
-                    </label>
-                  </div>
+                      <p className="text-base text-gray-500 text-sm text-center">1200 x 630</p>
+                    </h4>
+                 
                 </div>
             </div>
             <div className="grid items-center gap-4">
-                <div className="items-top flex space-x-2">
-                  <Checkbox id="terms4" />
-                  <div className="grid gap-1.5 leading-none">
-                    <label
-                      htmlFor="terms4"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                <div className="items-top  py-2.5 px-5  text-gray-900  rounded border border-gray-200 bg-gray-100   dark:border-gray-600">
+                  
+                <img
+                          src="/services/portrate.png"
+                          alt="Photo by Drew Beamer"
+                        
+                          className="rounded-md object-cover w-[80px] mx-auto mb-4"
+                        />
+                  <h4  className=" text-center text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                        
                       YouTube Channel Cover Photo 
-                      <p>2560 x 1440</p>
-                    </label>
-                  </div>
+                      <p className="text-base text-gray-500 text-sm text-center">2560 x 1440</p>
+                    </h4>
+                  
                 </div>
             </div>
             <div className="grid items-center gap-4">
-                <div className="items-top flex space-x-2">
-                  <Checkbox id="terms5" />
-                  <div className="grid gap-1.5 leading-none">
-                    <label
-                      htmlFor="terms5"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                <div className="items-top  py-2.5 px-5  text-gray-900  rounded border border-gray-200 bg-gray-100   dark:border-gray-600">
+                <img
+                          src="/services/landscape.png"
+                          alt="Photo by Drew Beamer"
+                          
+                          className="rounded-md object-cover w-[50px] mx-auto mb-4"
+                        />
+                  
+                  <h4  className=" text-center text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                        
                       Instagram Stories/ Ad 
-                      <p>1080 x 1920</p>
-                    </label>
-                  </div>
+                      <p className="text-base text-gray-500 text-sm text-center">1080 x 1920</p>
+                    </h4>
+                 
                 </div>
             </div>
             <div className="grid items-center gap-4">
-                <div className="items-top flex space-x-2">
-                  <Checkbox id="terms6" />
-                  <div className="grid gap-1.5 leading-none">
-                    <label
-                      htmlFor="terms6"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                <div className="items-top  py-2.5 px-5  text-gray-900  rounded border border-gray-200 bg-gray-100   dark:border-gray-600">
+                  
+                <img
+                          src="/services/portrate.png"
+                          alt="Photo by Drew Beamer"
+                         
+                          className="rounded-md object-cover w-[80px] mx-auto mb-4"
+                        />
+                  <h4  className=" text-center text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                        
                       YouTube Video Upload 
-                      <p>1280 x 720</p>
-                    </label>
-                  </div>
+                      <p className="text-base text-gray-500 text-sm text-center">1280 x 720</p>
+                    </h4>
+                  
                 </div>
             </div>
             <div className="grid items-center gap-4">
-                <div className="items-top flex space-x-2">
-                  <Checkbox id="terms7" />
-                  <div className="grid gap-1.5 leading-none">
-                    <label
-                      htmlFor="terms7"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                      Twitter Profile Photo 
-                      <p>400 x 400</p>
-                    </label>
-                  </div>
-                </div>
-            </div>
-            <div className="grid items-center gap-4">
-                <div className="items-top flex space-x-2">
-                  <Checkbox id="terms7" />
-                  <div className="grid gap-1.5 leading-none">
-                    <label
-                      htmlFor="terms7"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                <div className="items-top  py-2.5 px-5  text-gray-900  rounded border border-gray-200 bg-gray-100   dark:border-gray-600">
+                  
+                <img
+                          src="/services/portrate.png"
+                          alt="Photo by Drew Beamer"
+                          
+                          className="rounded-md object-cover w-[80px] mx-auto mb-4"
+                        />
+                  <h4  className=" text-center text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                        
                       LinkedIn Company Page Banner 
-                      <p>646 x 220 min.</p>
-                    </label>
-                  </div>
+                      <p className="text-base text-gray-500 text-sm text-center">646 x 220 min.</p>
+                    </h4>
+                
                 </div>
             </div>
             <div className="grid items-center gap-4">
-                <div className="items-top flex space-x-2">
-                  <Checkbox id="terms7" />
-                  <div className="grid gap-1.5 leading-none">
-                    <label
-                      htmlFor="terms7"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                <div className="items-top py-2.5 px-5  text-gray-900  rounded border border-gray-200 bg-gray-100   dark:border-gray-600">
+                  
+                <img
+                          src="/services/portrate.png"
+                          alt="Photo by Drew Beamer"
+                        
+                          className=" text-center rounded-md object-cover w-[80px] mx-auto mb-4"
+                        />
+                    <h4  className="text-center w-full text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                        
                       Facebook Cover Photo  
-                      <p>820 x 312</p>
-                    </label>
-                  </div>
+                      <p className="text-base text-gray-500 text-sm text-center">820 x 312</p>
+                    </h4>
+                 
                 </div>
             </div>
           </div>
