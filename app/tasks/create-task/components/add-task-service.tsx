@@ -13,7 +13,9 @@ import {
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select";
-  import SizeDrop from './size-drop';
+import SizeDrop from './size-drop';
+import FormatDrop from './format-drop';
+import BrandDrop from './brand-drop'
 
 
 const AddTaskService= () => {
@@ -38,8 +40,8 @@ const AddTaskService= () => {
         </div>
 
         <div className="border-t-2 border-b-2  border-gray-200 border-dashed py-4 my-4">
-            <div className="flex justify-between">
-                <div className="px-2 border-r-2  border-gray-200 border-solid w-1/5">
+        <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                <div className="px-2">
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Request Type*</Label>
                     <Select>
                         <SelectTrigger className="">
@@ -57,14 +59,40 @@ const AddTaskService= () => {
                         </SelectContent>
                     </Select>
                 </div>
-                <div className="px-2 border-r-2  border-gray-200 border-solid w-1/5">
+                <div className="px-2">
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Size(s)*</Label>
                      <SizeDrop />
                 </div>
+                <div className="px-2">
+                    <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Format(s)*</Label>
+                    <FormatDrop />
+                </div>
+                <div className="px-2">
+                    <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Brand Profile</Label>
+                    <BrandDrop />
+                </div>
+                <div className="px-2">
+                    <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Preferred Designer</Label>
+                    <Select>
+                        <SelectTrigger className="">
+                            <SelectValue placeholder="Select a types" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectGroup>
+                                <SelectLabel>No Preference</SelectLabel>
+                                <SelectItem value="Other Social Media Graphics">Designer one</SelectItem>
+                                <SelectItem value="Social Media Graphics">Designer tTwo</SelectItem>
+                                <SelectItem value="Paid Ads">Designer Three</SelectItem>
+                                <SelectItem value="Apparel">Designer Four</SelectItem>
+                                <SelectItem value="Motion Graphics">Designer Five</SelectItem>
+                            </SelectGroup>
+                        </SelectContent>
+                    </Select>
+                </div>
             </div>
         </div>
-        <div className="flex justify-between">
-            <aside id="default-sidebar" className="border-r-2 border-gray-200 border-dashed px-5 bg-gray-50 dark:bg-gray-800 sticky top-5 w-1/4 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+        <div className="flex justify-between flex-wrap">
+            <aside id="default-sidebar" className="border-r-2 border-gray-200 border-dashed px-5 bg-gray-50 dark:bg-gray-800 sticky top-5 w-full xl:w-1/4 h-screen transition-transform " aria-label="Sidebar">
                 <div className="h-full  pt-4 overflow-y-auto  relative pb-[110px]">
                     <div>
                         <h3 className="tracking-tight py-2 text-base font-semibold text-gray-900">Media</h3>
@@ -85,7 +113,7 @@ const AddTaskService= () => {
                     </div>
                 </div>
             </aside>
-            <div className="px-4 w-3/4 max-h-screen overflow-auto">
+            <div className="px-4 w-full xl:w-3/4 max-h-screen overflow-auto">
                 <div className="  rounded-lg dark:border-gray-700">
                     <div>
                         <h3 className="tracking-tight py-2 text-base font-semibold text-gray-900">Directions</h3>
