@@ -52,7 +52,7 @@ export async function updateServiceAction(
 
   const serviceId = formData.get("serviceId") as string;
 
-  console.log(formData,serviceId);
+  // console.log(formData,serviceId);
 
 
   const submittedForm = {
@@ -65,6 +65,7 @@ export async function updateServiceAction(
     status:formData.get('status') as 'active'|'inactive',
     date:formData.get('date') as string,
   }
+
   try {
     
     await updateServiceUseCase(
@@ -78,7 +79,7 @@ export async function updateServiceAction(
         title: submittedForm.title.toLowerCase(),
         description: submittedForm.description,
         amount:submittedForm.amount,
-        recurring:submittedForm.recurring,
+        recurring: Number.isNaN(submittedForm.recurring) ? 0:submittedForm.recurring,
         repeat:submittedForm.repeat,
         image_url:submittedForm.image_url,
         status:submittedForm.status,
