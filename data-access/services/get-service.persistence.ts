@@ -5,7 +5,7 @@ import { Service, ServiceSchema } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { ServiceDto } from "@/use-cases/services/types";
 
-export type ServiceId = number;
+export type ServiceId = string;
 
 export function toDtoMapper(service: ServiceSchema) {
   return {
