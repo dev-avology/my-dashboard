@@ -26,7 +26,7 @@ export class ServiceEntity {
   private repeat: number;
   private image_url: string|null;
   private status:'active'|'inactive';
-  private date?:string;
+  private date:string;
 
 
   constructor({
