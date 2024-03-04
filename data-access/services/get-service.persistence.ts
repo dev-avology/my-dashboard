@@ -1,35 +1,29 @@
 import "server-only";
 
 import { db } from "@/db";
-import { Task, tasks } from "@/db/schema";
+import { Service, ServiceSchema } from "@/db/schema";
 import { eq } from "drizzle-orm";
-import { TaskDto } from "@/use-cases/tasks/types";
+import { ServiceDto } from "@/use-cases/services/types";
 
-export type TaskId = number;
+export type ServiceId = string;
 
-export function toDtoMapper(task: Task) {
+export function toDtoMapper(service: ServiceSchema) {
   return {
-    id: task.id,
-    title: task.title,
-    description: task.description,
-    status: task.status,
-    priority: task.priority,
-    service_type:task.service_type,
-    service_category:task.service_category,
-    task_type:task.task_type,
-    task_service:task.task_service,
-    task_plateform:task.task_plateform,
-    task_speclization:task.task_speclization,
-    submitted:task.submitted,
-    duedate:task.duedate,
-    date: task.date,
-    created_by:task.created_by
+    id: service.id,
+    title: service.title,
+    description: service.description,
+    amount:service.amount,
+    recurring:service.recurring,
+    repeat:service.repeat,
+    image_url:service.image_url,
+    status: service.status,
+    date: service.date,
   };
 }
 
-export async function getTask(taskId: number): Promise<TaskDto> {
-  const foundTask = await db.query.tasks.findFirst({
-    where: eq(tasks.id, taskId),
+export async function getService(serviceId: string): Promise<ServiceDto> {
+  const foundTask = await db.query.Service.findFirst({
+    where: eq(Service.id, serviceId),
   });
 
   if (!foundTask) {

@@ -10,7 +10,7 @@ export async function updateTaskUseCase(
     getTask: GetTask;
   },
   data: { 
-    taskId: number,
+    taskId: string,
     title: string;
     description: string;
     status: 'queue'|'paused'|'inprogress'|'readyforreview'| 'completed'|'closed';

@@ -19,7 +19,7 @@ export type UserFields = {
 };
 
 export type Services = {
-  id: number;
+  id: string;
   title: string;
   description: string;
   amount: number;

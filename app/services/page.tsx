@@ -6,7 +6,7 @@ import AddServiceCard from "../ui/components/add-service-card"
 export default async function Page() {
 
     const allServices = await getServices();
-    console.log(allServices)
+    //console.log(allServices)
     return (
         <div className="mx-auto max-w-screen-2xl">
             <div className="p-4">

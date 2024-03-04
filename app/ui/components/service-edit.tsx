@@ -5,6 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { updateServiceAction } from "@/app/services/_actions/update-service.action";
+import { useToast } from "@/components/ui/use-toast";
+import { useFormState, useFormStatus } from "react-dom";
+import { cn } from "@/lib/utils";
+
 
 import {
   Sheet,
@@ -16,7 +21,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { useState } from 'react';
+import { HTMLAttributes, useEffect,useState, useRef } from 'react';
 //import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 //import {format} from "date-fns";
 
@@ -26,18 +31,41 @@ interface ServiceEditProps {
 
 
 const ServiceEdit: React.FC<ServiceEditProps> = ({ row }) => {
-    const [isRecurring, setIsRecurring] = useState(false);
+
+
+      const { toast } = useToast();
+
+
+      const [formState, onUpdateServiceAction] = useFormState(updateServiceAction, {
+        form: {
+          title: '',
+          description: '',
+          amount:0,
+          recurring:0,
+          repeat:0,
+          image_url:null,
+          status:'active',
+          date:'',
+        },
+        status: "default",
+      });
+
+      const formRef = useRef<HTMLFormElement>(null);
+      const [isRecurring, setIsRecurring] = useState(false);
+    
+      const handleCheckboxChange = () => {
+        setIsRecurring((prev) => !prev);
+      };
+    
   
-    const handleCheckboxChange = () => {
-      setIsRecurring((prev) => !prev);
-    };
+    
    
   return (
     <>
       <Sheet>
       <SheetTrigger asChild>
         <button type="button" className="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-md text-sm px-3 py-1 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 mb-2">
-        <svg className=" me-1 -ms-1" aria-hidden="true" focusable="false" data-prefix="fab"  width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />  <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" /></svg>
+        <svg className=" me-1 -ms-1" aria-hidden="true" focusable="false" data-prefix="fab"  width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />  <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" /></svg>
             Edit
         </button>
       </SheetTrigger>
@@ -49,15 +77,18 @@ const ServiceEdit: React.FC<ServiceEditProps> = ({ row }) => {
           </SheetDescription>
         </SheetHeader>
         <div className="py-2">
-            <form className="w-full">
-                
+            <form  
+                ref={formRef}
+                action={onUpdateServiceAction}     
+                className="w-full">
+                <input type="hidden" name="serviceId" value={row.id}/>
                 <div className="mb-5 px-4">
                     <Label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Add Title</Label>
-                    <Input type="text" id="" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required value={row.title} />
+                    <Input type="text" name="title" id="title" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" autoFocus  defaultValue={row.title}  />
                 </div>
                 <div className="mb-5 px-4">
                     <Label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Add Description</Label>
-                    <Textarea id="" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required value={row.description}/>
+                    <Textarea id="description" name="description" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" autoFocus  defaultValue={row.description}/>
                 </div>
                 <div className="mb-5 px-4">
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Add Amount</Label>
@@ -66,22 +97,24 @@ const ServiceEdit: React.FC<ServiceEditProps> = ({ row }) => {
                             
                             <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"  viewBox="0 0 24 24"  fill="none"  stroke="#6b7280"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <line x1="12" y1="1" x2="12" y2="23" />  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
                         </div>
-                        <Input type="text" id="" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5 pl-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required value={row.amount} />
+                        <Input type="text" id="amount" name="amount" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5 pl-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" autoFocus  defaultValue={row.amount} />
                     </div>
                 </div>
                 <div className="mb-5 px-4">
                     <Label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Add Status</Label>
-                    <Input type="text" id="" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required value={row.status} />
+                    <Input type="text" id="status" name="status" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" autoFocus defaultValue={row.status} />
                 </div>
                 
                 <div className="mb-5 px-4 ">
                     <hr className="my-6"></hr>
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white inline-flex items-center cursor-pointer">
                         <Input
-                        type="checkbox"
-                        checked={isRecurring}
-                        onChange={handleCheckboxChange}
-                        className="sr-only peer"
+                         type="checkbox"
+                         name="recurring"
+                         checked={isRecurring}
+                         onChange={handleCheckboxChange}
+                         className="sr-only peer"
+                         autoFocus  defaultValue={row.recurring}
                         />
                         <span className="mr-3 text-sm font-medium text-gray-900 dark:text-gray-300">
                         Recurring
@@ -94,18 +127,18 @@ const ServiceEdit: React.FC<ServiceEditProps> = ({ row }) => {
                     <Input
                     type="text"
                     id="text"
+                    name="repeat"
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                     placeholder=""
-                    required
-                    value={row.repeat}
+                    autoFocus  defaultValue={row.repeat}
                     />
                     <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Month</span> 
                 </div>
-                <hr className="my-6"></hr>
 
                 <div className="my-5 px-4">
-                    
-                     <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button>
+                <hr className="my-6"></hr>
+                <UpdateButton idleText="Save" submittingText="Saving Services..."></UpdateButton>
+                     {/* <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button> */}
                 </div>
             </form>
       
@@ -122,5 +155,34 @@ const ServiceEdit: React.FC<ServiceEditProps> = ({ row }) => {
     </>
   );
   };
+  function Error({ error }: { error?: string }) {
+    return error ? <span className="text-red-400">{error}</span> : null;
+  }
+
+
+  function UpdateButton({
+    idleText,
+    submittingText,
+    ...props
+  }: HTMLAttributes<HTMLButtonElement> & {
+    idleText: string;
+    submittingText: string;
+  }) {  
+    const { pending } = useFormStatus();
+  
+    return (
+      <Button
+        {...props}
+        className={cn(
+          "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800",
+          props.className
+        )}
+        disabled={pending}
+      >
+        {pending ? submittingText : idleText}
+      </Button>
+    );
+  }
+
   
   export default ServiceEdit;

@@ -1,7 +1,7 @@
 //import { User } from "@/db/schema";
 
 export type ServiceDto = {
-    id: number;
+    id: string;
     title: string;
     description: string;
     amount:number;
@@ -26,8 +26,8 @@ export type ServiceDto = {
     userId: string;
   };
   export type CreateService = (task: CreateServiceDto) => void;
-  export type DeleteService = (serviceId: number) => void;
+  export type DeleteService = (serviceId: string) => void;
   export type UpdateService = (service: ServiceDto) => void;
   export type GetUser = () => User | undefined;
-  export type GetService = (serviceId: number) => Promise<ServiceDto>;
+  export type GetService = (serviceId: string) => Promise<ServiceDto>;
  

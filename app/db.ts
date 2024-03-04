@@ -24,7 +24,7 @@ export type User = typeof users.$inferSelect;
 
 
 export const services = pgTable('services', {
-  id: serial('id').primaryKey(),
+  id: uuid("id").defaultRandom().primaryKey().notNull(),
   title:varchar('title', { length: 64 }).notNull(),
   description: text('description').notNull(),
   amount: doublePrecision('amount').notNull(),
@@ -40,7 +40,7 @@ export type Service = typeof services.$inferSelect;
 
 
 export const tasks = pgTable('tasks', {
-  id: serial('id').primaryKey(),
+  id: uuid("id").defaultRandom().primaryKey().notNull(),
   title: varchar('title', { length: 64 }),
   description: text('description'),
   status:varchar('status',{ enum: ['queue','paused','inprogress','readyforreview','completed','closed']}),
@@ -65,7 +65,7 @@ export type Task = typeof tasks.$inferSelect;
 
 
 export const assignedTo = pgTable('assignedTo', {
-  id: serial('id').primaryKey(),
+  id: uuid("id").defaultRandom().primaryKey().notNull(),
   taskId:uuid("taskId")
   .notNull()
   .references(() => tasks.id, { onDelete: "cascade" }),
@@ -83,7 +83,7 @@ export async function getServices() {
   return await db.select().from(services).where(eq(services.status, 'active'));
 }
 
-export async function getService(id:number) {
+export async function getService(id:string) {
   return await db.select().from(services).where(eq(services.id, id));
 }
 
@@ -93,7 +93,7 @@ export async function createSrevice(title:string,description: string, amount: nu
 
 
 
-export async function updateService(id:number,title:string,description: string, amount: number,recurring:number,repeat:number,status:'active'|'inactive',image_url:string){
+export async function updateService(id:string,title:string,description: string, amount: number,recurring:number,repeat:number,status:'active'|'inactive',image_url:string){
   
   return await db.update(services).set({ 
                                         title:title,

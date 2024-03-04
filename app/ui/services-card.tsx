@@ -9,7 +9,7 @@ import {
 import { Services } from '@/app/lib/definitions';
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { ArrowRightIcon,ArrowRightCircleIcon } from "@heroicons/react/24/outline";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import ServiceEdit from '../ui/components/service-edit'
 import {Service,ServiceSchema} from "@/db/schema";

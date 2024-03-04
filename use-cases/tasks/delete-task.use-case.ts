@@ -3,7 +3,7 @@ import { AuthenticationError } from "./utils";
 
 export async function deleteTaskUseCase(
   context: { getUser: GetUser; deleteTask: DeleteTask },
-  data: { taskId: number }
+  data: { taskId: string }
 ) {
   const user = context.getUser();
 
