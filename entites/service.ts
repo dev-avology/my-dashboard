@@ -18,7 +18,7 @@ export class TaskEntityValidationError extends Error {
 }
 
 export class ServiceEntity {
-  private id?: number;
+  private id?: string;
   private title: string;
   private description: string;
   private amount: number;
@@ -26,7 +26,7 @@ export class ServiceEntity {
   private repeat: number;
   private image_url: string|null;
   private status:'active'|'inactive';
-  private date:string;
+  private date?:string;
 
 
   constructor({
@@ -40,7 +40,7 @@ export class ServiceEntity {
     status = 'active',
     date = format(new Date(),'MM/dd/yyyy'),
   }: {
-    id?: number;
+    id?: string;
     title: string;
     description: string;
     amount:number;
@@ -84,7 +84,9 @@ export class ServiceEntity {
     return this.date;
   }
 
-
+  setId(id:string) {
+   this.id=id;
+  }
   setTitle(title:string){
     this.title = title;
   }
@@ -143,8 +145,7 @@ export class ServiceEntity {
     const taskSchema = z.object({
       title: z
         .string()
-        .min(1)
-        .regex(/^[a-z]+$/, "Name must only contain lower case letters"),
+        .min(1),
       description: z.string().min(1), 
       status:z.string()
     });

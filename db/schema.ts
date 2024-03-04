@@ -2,7 +2,7 @@ import { pgTable,uuid, serial, varchar,text,doublePrecision,integer, date } from
 
 
 export const users = pgTable('users', {
-    id: serial('id').primaryKey(),
+    id:uuid("id").defaultRandom().primaryKey().notNull(),
     name:varchar('name', { length: 64 }).notNull(),
     email: varchar('email', { length: 64 }).notNull(),
     password: varchar('password', { length: 64 }).notNull(),
@@ -13,7 +13,7 @@ export const users = pgTable('users', {
   
   
   export const Service = pgTable('services', {
-    id: serial('id').primaryKey(),
+    id:  uuid("id").defaultRandom().primaryKey().notNull(),
     title:varchar('title', { length: 64 }).notNull(),
     description: text('description').notNull(),
     amount: doublePrecision('amount').notNull(),
@@ -29,7 +29,7 @@ export const users = pgTable('users', {
   
   
   export const tasks = pgTable('tasks', {
-    id: serial('id').primaryKey(),
+    id: uuid("id").defaultRandom().primaryKey().notNull(),
     title: varchar('title', { length: 64 }).notNull(),
     description: text('description').notNull(),
     status:varchar('status',{ enum: ['queue','paused','inprogress','readyforreview','completed','closed']}).notNull(),
@@ -54,7 +54,7 @@ export const users = pgTable('users', {
   
   
   export const assignedTo = pgTable('assignedTo', {
-    id: serial('id').primaryKey(),
+    id:uuid("id").defaultRandom().primaryKey().notNull(),
     taskId:uuid("taskId")
     .notNull()
     .references(() => tasks.id, { onDelete: "cascade" }),
