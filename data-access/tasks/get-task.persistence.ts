@@ -5,7 +5,7 @@ import { Task, tasks } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { TaskDto } from "@/use-cases/tasks/types";
 
-export type TaskId = number;
+export type TaskId = string;
 
 export function toDtoMapper(task: Task) {
   return {
@@ -27,7 +27,7 @@ export function toDtoMapper(task: Task) {
   };
 }
 
-export async function getTask(taskId: number): Promise<TaskDto> {
+export async function getTask(taskId: string): Promise<TaskDto> {
   const foundTask = await db.query.tasks.findFirst({
     where: eq(tasks.id, taskId),
   });
