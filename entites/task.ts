@@ -17,7 +17,7 @@ export class TaskEntityValidationError extends Error {
 }
 
 export class TaskEntity {
-  private id?: number;
+  private id?: string;
   private title: string;
   private description: string;
   private status:'queue'|'paused'|'inprogress'|'readyforreview'| 'completed'|'closed';
@@ -52,7 +52,7 @@ export class TaskEntity {
     date,
     created_by,
   }: {
-    id?: number;
+    id?: string;
     title: string;
     description: string;
     status: 'queue'|'paused'|'inprogress'|'readyforreview'| 'completed'|'closed';

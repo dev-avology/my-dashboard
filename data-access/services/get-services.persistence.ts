@@ -2,9 +2,11 @@ import "server-only";
 
 import { db } from "@/db";
 import { toDtoMapper } from "./get-service.persistence";
-import { TaskDto } from "@/use-cases/tasks/types";
+import { ServiceDto } from "@/use-cases/services/types";
+import { Service, ServiceSchema } from "@/db/schema";
 
-export async function getTasks(): Promise<TaskDto[]> {
-  const tasks = await db.query.tasks.findMany();
+
+export async function getServices(): Promise<ServiceDto[]> {
+  const tasks = await db.query.Service.findMany();
   return tasks.map(toDtoMapper);
 }
