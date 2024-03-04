@@ -8,9 +8,28 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 //import { Checkbox } from "@/components/ui/checkbox";
+import { taskTitles } from "@/use-cases/global-data";
+import { TaskSizes } from "@/use-cases/global-types";
+
 import Image from "next/image"
 
-export function SizeDrop() {
+import { keyBy } from "lodash";
+
+
+
+
+
+export function SizeDrop({
+  service = '',
+}: {
+    service?: string;
+}) {
+
+
+const selectedTaskSizes = taskTitles.find((item) => item.value === service)?.sizes;
+
+console.log(selectedTaskSizes)
+
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -23,14 +42,14 @@ export function SizeDrop() {
         <div className="grid gap-4">
           
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className=" flex justify-center text-6xl  bg-gray-100">
-                <div className="items-top w-full py-2.5 px-5  text-gray-900  rounded border border-gray-200 bg-gray-100dark:border-gray-600 ">
-                <div className="w-[60px] h-[60px] mx-auto "><img src="/services/portrate.png" alt="Photo by Drew Beamer" className="rounded-md object-contain w-[100%] h-[100%] mx-auto mb-4"/></div>
-                    <h4 className="text-center text-sm font-medium leading-none my-3">Twitter Header Photo</h4>
-                    <p className="text-base text-gray-500 text-sm text-center">1500x500</p>
-                </div>
-            </div>
-            <div className="flex justify-center text-6xl  bg-gray-100">
+            {selectedTaskSizes?.map((title,i)=>{
+                return <div className=" flex justify-center text-6xl  bg-gray-100" key={i}>
+                  <SizeIcon>{title}</SizeIcon>
+                </div>;
+              })}
+            
+
+            {/* <div className="flex justify-center text-6xl  bg-gray-100">
                 <div className="items-top w-full py-2.5 px-5 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600">
                 <div className="w-[60px] h-[60px] mx-auto "><img src="/services/portrate.png" alt="Photo by Drew Beamer" className="rounded-md object-contain w-[100%] h-[100%] mx-auto mb-4"/></div>
                   <h4  className="text-center  text-sm font-medium leading-none my-3">Facebook Shared Image</h4>
@@ -78,11 +97,33 @@ export function SizeDrop() {
                     <h4  className="text-center w-full text-sm font-medium leading-none my-3">Facebook Cover Photo </h4> 
                     <p className="text-base text-gray-500 text-sm text-center">820 x 312</p>
                 </div>
-            </div>
+            </div> */}
+
           </div>
         </div>
       </PopoverContent>
     </Popover>
   )
 }
+
+
+
+function SizeIcon({ children }: { children: TaskSizes }){
+
+
+  return (
+      <> <div className="items-top w-full py-2.5 px-5  text-gray-900  rounded border border-gray-200 bg-gray-100dark:border-gray-600 ">
+                  <div className="w-[60px] h-[60px] mx-auto " style={{position: 'relative'}}>
+                   <Image fill={true}  src={children.placeholder} alt="Photo by Drew Beamer" className="rounded-md object-contain w-[100%] h-[100%] mx-auto mb-4"/>
+                  </div>
+                    <h4 className="text-center text-sm font-medium leading-none my-3">{children.label}</h4>
+                    <p className="text-base text-gray-500 text-sm text-center">{children.text}</p>
+                </div>
+      </>
+  );
+}
+
+
+
+
 export default SizeDrop;
