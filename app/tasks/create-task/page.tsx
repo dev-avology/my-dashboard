@@ -42,7 +42,7 @@ export default async  function Page({
                                 </>
                                 :
                                 <>
-                                    <AddTaskService />
+                                <AddTaskService service={service} />
                                 </>
                                }
 

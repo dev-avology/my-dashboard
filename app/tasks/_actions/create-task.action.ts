@@ -57,6 +57,8 @@ export async function createTaskAction(
   const { getUser }  = await getSessionUser();
     
 
+  console.log(formData);
+
   const submittedForm = {
     title: formData.get("title") as string,
     description: formData.get("description") as string,
