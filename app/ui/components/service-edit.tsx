@@ -9,6 +9,8 @@ import { updateServiceAction } from "@/app/services/_actions/update-service.acti
 import { useToast } from "@/components/ui/use-toast";
 import { useFormState, useFormStatus } from "react-dom";
 import { cn } from "@/lib/utils";
+import React, { useState, useEffect, useRef } from 'react';
+
 
 
 import {
@@ -21,20 +23,21 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { HTMLAttributes, useEffect,useState, useRef } from 'react';
+import { HTMLAttributes, } from 'react';
 //import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 //import {format} from "date-fns";
+
 
 interface ServiceEditProps {
     row: ServiceSchema; // or the correct type for viewData
   }
 
 
-const ServiceEdit: React.FC<ServiceEditProps> = ({ row }) => {
+const ServiceEdit: React.FC<ServiceEditProps> = ({ row}) => {
 
-
+      
       const { toast } = useToast();
-
+     
 
       const [formState, onUpdateServiceAction] = useFormState(updateServiceAction, {
         form: {
@@ -49,22 +52,37 @@ const ServiceEdit: React.FC<ServiceEditProps> = ({ row }) => {
         },
         status: "default",
       });
-
+      
       const formRef = useRef<HTMLFormElement>(null);
+      
       const [isRecurring, setIsRecurring] = useState(false);
     
       const handleCheckboxChange = () => {
         setIsRecurring((prev) => !prev);
       };
+
+      const [open, setOpen] = React.useState(false);
+
+      
     
-  
+  useEffect(() => {
+    if (formState.status === "success") {
+      toast({
+        title: "Service Added",
+        description: "service has been added",
+      });
+      setOpen(false);
+      console.log(open)
+      formRef.current?.reset();
+    }
+  }, [toast, formState]);
     
    
   return (
-    <>
-      <Sheet>
+    <div>
+      <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <button type="button" className="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-md text-sm px-3 py-1 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 mb-2">
+        <button type="button"  className="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-md text-sm px-3 py-1 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 mb-2">
         <svg className=" me-1 -ms-1" aria-hidden="true" focusable="false" data-prefix="fab"  width="14" height="14" viewBox="0 0 24 24" stroke-width="2" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />  <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" /></svg>
             Edit
         </button>
@@ -79,7 +97,7 @@ const ServiceEdit: React.FC<ServiceEditProps> = ({ row }) => {
         <div className="py-2">
             <form  
                 ref={formRef}
-                action={onUpdateServiceAction}     
+                action={onUpdateServiceAction}
                 className="w-full">
                 <input type="hidden" name="serviceId" value={row.id}/>
                 <div className="mb-5 px-4">
@@ -137,7 +155,7 @@ const ServiceEdit: React.FC<ServiceEditProps> = ({ row }) => {
 
                 <div className="my-5 px-4">
                 <hr className="my-6"></hr>
-                <UpdateButton idleText="Save" submittingText="Saving Services..."></UpdateButton>
+                <UpdateButton   idleText="Save" submittingText="Saving Services..."></UpdateButton>
                      {/* <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button> */}
                 </div>
             </form>
@@ -152,7 +170,7 @@ const ServiceEdit: React.FC<ServiceEditProps> = ({ row }) => {
         </SheetFooter>*/}
       </SheetContent>
     </Sheet>
-    </>
+    </div>
   );
   };
   function Error({ error }: { error?: string }) {
