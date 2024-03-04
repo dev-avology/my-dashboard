@@ -34,7 +34,11 @@ export async function updateServiceUseCase(
 
   service.setTitle(data.title);
   service.setDescrition(data.description);
-  
+  service.setAmount(data.amount);
+  service.setRecurring(data.recurring);
+  service.setRepeat(data.repeat);
+  service.setStatus(data.status);
+
   service.setDate(formatISO(new Date()));
   //task.setAssigned(data.assignedTo);
 
