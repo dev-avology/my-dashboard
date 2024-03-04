@@ -18,23 +18,33 @@ import FormatDrop from './format-drop';
 import BrandDrop from './brand-drop'
 
 
-const AddTaskService= () => {
+const AddTaskService= ({
+    service = '',
+  }: {
+      service?: string;
+  }) => {
+
+
+
+
+
 
    
+
   return (
     <>
     <div>
         <div className="flex">
             <div className="w-1/2 pr-5">
                 <form className="mr-auto max-w-sm flex  gap-x-4">
-                    <Label  className="sr-only">Email address</Label>
-                    <Input id="email-address" name="email" type="text" className="bg-gray-50 border border-gray-300  text-sm rounded-lg flex-auto rounded-md  px-3.5 py-2  shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6" placeholder="Enter your email" />
+                    <Label  className="sr-only">Task Title</Label>
+                    <Input id="title" name="title" type="text" className="bg-gray-50 border border-gray-300  text-sm rounded-lg flex-auto rounded-md  px-3.5 py-2  shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6" placeholder="Enter your email" />
 
                     <button type="submit" className="text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Draft</button>
                 </form>
             </div>
             <div className="w-1/2 pl-5 flex justify-end">
-                <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Save to my designer</button>
+                {/* <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Save to my designer</button> */}
                 <button type="button" className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Save and Close</button>
             </div>
         </div>
@@ -44,7 +54,9 @@ const AddTaskService= () => {
                 <div className="px-2">
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Request Type*</Label>
                     <div  className="flex h-10 w-full items-center justify-between rounded-md border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 dark:border-slate-800 dark:bg-slate-950 dark:ring-offset-slate-950 dark:placeholder:text-slate-400 dark:focus:ring-slate-300">
-                        <span>Logo Design</span>
+                    <Input id="service" name="service" defaultValue={service} type="text" className="bg-gray-50 border border-gray-300  text-sm rounded-lg flex-auto rounded-md  px-3.5 py-2  shadow-sm ring-1 ring-white/10 sm:text-sm sm:leading-6" />
+
+                        {/* <span>Logo Design</span> */}
                         {/*<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-down h-4 w-4 opacity-50" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>*/}
                     </div>
                     {/*<Select>
@@ -65,7 +77,7 @@ const AddTaskService= () => {
                 </div>
                 <div className="px-2">
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Size(s)*</Label>
-                     <SizeDrop />
+                     <SizeDrop service={service} />
                 </div>
                 <div className="px-2">
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Format(s)*</Label>
@@ -75,7 +87,8 @@ const AddTaskService= () => {
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Brand Profile</Label>
                     <BrandDrop />
                 </div>
-                <div className="px-2">
+
+                {/* <div className="px-2">
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Preferred Designer</Label>
                     <Select>
                         <SelectTrigger className="">
@@ -92,7 +105,8 @@ const AddTaskService= () => {
                             </SelectGroup>
                         </SelectContent>
                     </Select>
-                </div>
+                </div> */}
+
             </div>
         </div>
         <div className="flex justify-between flex-wrap">
