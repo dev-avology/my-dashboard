@@ -11,6 +11,7 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      brandingType:'logo',
       sizes:[
         {
           text: '1500x500',
@@ -67,6 +68,7 @@ export const taskTitles: TaskTypeTitle[] = [
       value:'Business Cards',
       image:"/services/Business-Cards.jpg",
       children:'Graphics',
+      brandingType:'business-card',
       bg:'',
       color:'',
     },
@@ -75,6 +77,7 @@ export const taskTitles: TaskTypeTitle[] = [
       value:'Stationery Design',
       image:"/services/Stationery-Design.jpg",
       children:'Graphics',
+      brandingType:'design',
       bg:'',
       color:'',
     },
@@ -83,6 +86,7 @@ export const taskTitles: TaskTypeTitle[] = [
       value:'Brand Guidelines',
       image:"/services/Brand-Guidelines.jpg",
       children:'Graphics',
+      brandingType:'brand',
       bg:'',
       color:'',
     },

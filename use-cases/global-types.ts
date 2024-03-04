@@ -18,6 +18,7 @@ export type CategoryTitle = {
     children:string,
     bg:string,
     color:string,
+    brandingType?:string,
     sizes?:TaskSizes[]
   }
   
