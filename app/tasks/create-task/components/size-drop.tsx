@@ -8,8 +8,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 //import { Checkbox } from "@/components/ui/checkbox";
-import { taskTitles } from "@/use-cases/global-data";
-import { TaskSizes } from "@/use-cases/global-types";
+import { taskTitles,sizes } from "@/use-cases/global-data";
+import { TaskSizeType } from "@/use-cases/global-types";
 
 import Image from "next/image"
 import { useState } from "react";
@@ -25,21 +25,25 @@ export function SizeDrop({ formRef, service }: SizeDropProps) {
 
 
 const selectedTaskSizes = taskTitles.find((item) => item.value === service)?.sizes;
+
 const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
 
-const handleCheckboxChange = (value: string, isChecked: boolean) => {
+const handleCheckboxChange = (value?: string, isChecked?: boolean) => {
   // Handle checkbox changes here, you can use the formRef to access the form
-  setSelectedSizes((prevSizes) => {
-    // If checkbox is checked and value is not in selectedSizes, add it
-    if (isChecked && !prevSizes.includes(value)) {
-      return [...prevSizes, value];
-    }
-    // If checkbox is unchecked, remove the value from selectedSizes
-    if (!isChecked) {
-      return prevSizes.filter((size) => size !== value);
-    }
-    return prevSizes;
-  });
+  if(value !== undefined){
+    setSelectedSizes((prevSizes) => {
+      // If checkbox is checked and value is not in selectedSizes, add it
+      if (isChecked && !prevSizes.includes(value)) {
+        return [...prevSizes, value];
+      }
+      // If checkbox is unchecked, remove the value from selectedSizes
+      if (!isChecked) {
+        return prevSizes.filter((size) => size !== value);
+      }
+      return prevSizes;
+    });
+  }
+  
 
   console.log(`Checkbox with value ${value} is ${isChecked ? 'checked' : 'unchecked'}`);
 };
@@ -60,8 +64,9 @@ const handleCheckboxChange = (value: string, isChecked: boolean) => {
           
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {selectedTaskSizes?.map((title,i)=>{
+              const size = sizes.find((item)=> item.value==title)
                 return <div className=" flex justify-center text-6xl  bg-gray-100" key={i}>
-                  <SizeIcon formRef={formRef} onCheckboxChange={handleCheckboxChange} checked={selectedSizes.includes(title.value)}>{title}</SizeIcon>
+                  {size && <SizeIcon formRef={formRef} onCheckboxChange={handleCheckboxChange} checked={selectedSizes.includes(size.value)}>{size}</SizeIcon>}
                 </div>;
               })}
           </div>
@@ -76,11 +81,15 @@ const handleCheckboxChange = (value: string, isChecked: boolean) => {
   )
 }
 
+
+
+
+
 interface SizeIconProps {
   formRef: React.RefObject<HTMLInputElement>; // Correct the type to RefObject<HTMLInputElement>
-  children: TaskSizes;
-  onCheckboxChange: (value: string, isChecked: boolean) => void; // Add a prop for handling checkbox changes
-  checked:boolean;
+  children: TaskSizeType;
+  onCheckboxChange: (value?: string, isChecked?: boolean) => void; // Add a prop for handling checkbox changes
+  checked?:boolean;
 }
 
 const SizeIcon: React.FC<SizeIconProps> = ({ formRef, children,onCheckboxChange,checked  }) => {
@@ -88,7 +97,7 @@ const SizeIcon: React.FC<SizeIconProps> = ({ formRef, children,onCheckboxChange,
   const [isChecked, setIsChecked] = useState(checked);
 
   const handleClick = () => {
-    const newValue = children.value;
+    const newValue = children?.value;
     setIsChecked(!isChecked);
     onCheckboxChange(newValue, !isChecked);
   };

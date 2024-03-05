@@ -1,5 +1,6 @@
 import { RadioTowerIcon,GaugeIcon, DicesIcon, ShoppingBasketIcon, BrushIcon, WavesIcon , WindIcon, CopyrightIcon, BadgeDollarSignIcon } from "lucide-react";
-import { TaskTypeTitle,CategoryTitle } from "./global-types";
+import { TaskTypeTitle,CategoryTitle,BrandInfoType, DocFormatType,TaskSizeType } from "./global-types";
+import { inter,lusitana, notoSans, openSans, roboto } from "@/app/ui/fonts";
 
 
 
@@ -12,56 +13,7 @@ export const taskTitles: TaskTypeTitle[] = [
       bg:'',
       color:'',
       brandingType:'logo',
-      sizes:[
-        {
-          text: '1500x500',
-          placeholder:'/services/portrate.png',
-          label:'Twitter Header Photo',
-          value: 'twitter 1500x500'
-        },
-        {
-          text: '1200 x 630',
-          placeholder:'/services/portrate.png',
-          label:'Facebook Shared Image',
-          value: 'facebook 1200 x 630'
-        },
-        {
-          text: '2560 x 1440',
-          placeholder:'/services/portrate.png',
-          label:'YouTube Channel Cover Photo',
-          value: 'youtube 2560 x 1440'
-        },
-        {
-          text: '1080 x 1920',
-          placeholder:'/services/landscape.png',
-          label:'Instagram Stories/ Ad',
-          value: 'Instagram 1080 x 1920'
-        },
-        {
-          text: '1280 x 720',
-          placeholder:'/services/portrate.png',
-          label:'YouTube Video Upload',
-          value: 'YouTube Video 1280 x 720'
-        },
-        {
-          text: '646 x 220 min',
-          placeholder:'/services/portrate.png',
-          label:'LinkedIn Company Page Banner',
-          value: '646 x 220 min.'
-        },
-        {
-          text: '400 x 400',
-          placeholder:'/services/square.png',
-          label:'Twiter Profile Photo',
-          value: 'Twiter Profile 400 x 400'
-        },
-        {
-          text: '820 x 312',
-          placeholder:'/services/portrate.png',
-          label:'Facebook Cover Photo',
-          value: 'Facebook Cover 820 x 312'
-        }
-      ]
+      sizes:['twitter 1500x500','facebook 1200 x 630','youtube 2560 x 1440','Instagram 1080 x 1920','YouTube Video 1280 x 720','LinkedIn Company Page Banner 646 x 220 min','Twiter Profile 400 x 400','Facebook Cover 820 x 312' ]
     }, 
     {
       heading:'Business Cards',
@@ -121,32 +73,7 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
-      sizes:[
-        {
-            text: '1280 x 720',
-            placeholder:'/services/portrate.png',
-            label:'YouTube Video Upload',
-            value: 'YouTube Video 1280 x 720'
-          },
-          {
-            text: '646 x 220 min',
-            placeholder:'/services/portrate.png',
-            label:'LinkedIn Company Page Banner',
-            value: '646 x 220 min.'
-          },
-          {
-            text: '400 x 400',
-            placeholder:'/services/square.png',
-            label:'Twiter Profile Photo',
-            value: 'Twiter Profile 400 x 400'
-          },
-          {
-            text: '820 x 312',
-            placeholder:'/services/portrate.png',
-            label:'Facebook Cover Photo',
-            value: 'Facebook Cover 820 x 312'
-          }
-      ]
+      sizes:[ 'YouTube Video 1280 x 720','LinkedIn Company Page Banner 646 x 220 min','Twiter Profile 400 x 400','Facebook Cover 820 x 312' ]
     },
     {
       heading:'Advertisements',
@@ -759,49 +686,198 @@ export const categoryTitles: CategoryTitle[] = [
       value: "Graphics",
       icon:BrushIcon,
       bg:"bg-green-100 ",
-      color:"text-green-800"
+      color:"text-green-800",
+      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name']
     },
     {
       label: "Social Media Graphics",
       value: "Social Media Graphics",
       icon:RadioTowerIcon,
       bg:"bg-yellow-100",
-      color:"text-yellow-800"
+      color:"text-yellow-800",
+      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name']
     },
     {
       label: "Paid Ads",
       value: "Paid Ads",
       icon:BadgeDollarSignIcon,
       bg:"bg-yellow-100",
-      color:"text-yellow-800"
+      color:"text-yellow-800",
+      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name']
     },
     {
       label: "Apparel",
       value: "Apparel",
       icon:WavesIcon,
       bg:"bg-yellow-100",
-      color:"text-yellow-800"
+      color:"text-yellow-800",
+      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name']
     },
     {
       label: "Motion Graphics",
       value: "Motion Graphics",
       icon:WindIcon,
       bg:"bg-yellow-100",
-      color:"text-yellow-800"
+      color:"text-yellow-800",
+      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name']
     },
     {
       label: "CopyWriting",
       value: "CopyWriting",
       icon:CopyrightIcon,
       bg:"bg-yellow-100",
-      color:"text-yellow-800"
+      color:"text-yellow-800",
+      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name']
     },
     {
       label: "All",
       value: "",
       icon:CopyrightIcon,
       bg:"bg-yellow-100",
-      color:"text-yellow-800"
+      color:"text-yellow-800",
+      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name']
     },
     
-  ]
+  ];
+
+
+export const Brandprofiles: BrandInfoType[] = [
+ { 
+  label:'7 - Eleven',
+  name:false,
+  colors: ['#fb6d02','#057452','#f10e2a','#ffc71d','#ff9903','#00e483','#0cae4d','#ff62b3','#c70104'],
+  style:['brand-one.png','brand-two.png','brand-three.png','brand-four.png'],
+  fonts:[
+         {name:'Roboto',font:roboto},
+         {name:'Lusitana',font:lusitana},
+         {name:'Inter',font:inter}
+         ]
+ },
+ { 
+  label:'7 - Eleven Other set',
+  name:false,
+  colors: ['#fb6d02','#057452','#f10e2a','#0cae4d','#ff62b3','#c70104'],
+  style:['brand-one.png','brand-two.png','brand-three.png','brand-four.png'],
+  fonts:[
+    {name:'Open Sans',font:openSans},
+    {name:'Noto Sans',font:notoSans},
+    ]
+ },
+ { 
+  label:'7 - Eleven with name',
+  name:true,
+  colors: ['#fb6d02','#057452','#f10e2a','#ffc71d'],
+  style:['brand-one.png','brand-two.png','brand-three.png','brand-four.png'],
+  fonts:[
+    {name:'Roboto',font:roboto},
+    {name:'Lusitana',font:lusitana},
+    {name:'Inter',font:inter},
+    {name:'Open Sans',font:openSans},
+    {name:'Noto Sans',font:notoSans},
+    ]
+ },
+ { 
+  label:'7 - Eleven 2',
+  name:false,
+  colors: ['#fb6d02','#057452','#f10e2a','#ffc71d','#ff9903','#00e483','#0cae4d','#ff62b3','#c70104'],
+  style:['brand-one.png','brand-two.png','brand-three.png','brand-four.png'],
+  fonts:[
+    {name:'Roboto',font:roboto},
+    {name:'Lusitana',font:lusitana},
+    {name:'Inter',font:inter}
+    ]
+ },
+ { 
+  label:'7 - Eleven 3',
+  name:false,
+  colors: ['#fb6d02','#057452','#f10e2a','#ffc71d','#ff9903','#00e483','#0cae4d','#ff62b3','#c70104'],
+  style:['brand-one.png','brand-two.png','brand-three.png','brand-four.png'],
+  fonts:[
+    {name:'Roboto',font:roboto},
+    {name:'Lusitana',font:lusitana},
+    {name:'Inter',font:inter}
+    ]
+ }
+
+] ;
+
+
+export const sizes:TaskSizeType[] = [
+  {
+    text: '1500x500',
+    placeholder:'/services/portrate.png',
+    label:'Twitter Header Photo',
+    value: 'twitter 1500x500'
+  },
+  {
+    text: '1200 x 630',
+    placeholder:'/services/portrate.png',
+    label:'Facebook Shared Image',
+    value: 'facebook 1200 x 630'
+  },
+  {
+    text: '2560 x 1440',
+    placeholder:'/services/portrate.png',
+    label:'YouTube Channel Cover Photo',
+    value: 'youtube 2560 x 1440'
+  },
+  {
+    text: '1080 x 1920',
+    placeholder:'/services/landscape.png',
+    label:'Instagram Stories/ Ad',
+    value: 'Instagram 1080 x 1920'
+  },
+  {
+    text: '1280 x 720',
+    placeholder:'/services/portrate.png',
+    label:'YouTube Video Upload',
+    value: 'YouTube Video 1280 x 720'
+  },
+  {
+    text: '646 x 220 min',
+    placeholder:'/services/portrate.png',
+    label:'LinkedIn Company Page Banner',
+    value: 'LinkedIn Company Page Banner 646 x 220 min'
+  },
+  {
+    text: '400 x 400',
+    placeholder:'/services/square.png',
+    label:'Twiter Profile Photo',
+    value: 'Twiter Profile 400 x 400'
+  },
+  {
+    text: '820 x 312',
+    placeholder:'/services/portrate.png',
+    label:'Facebook Cover Photo',
+    value: 'Facebook Cover 820 x 312'
+  }
+]
+
+
+
+export const DocFormats:DocFormatType[] = [
+  {
+    name:'.jpg',
+    icon:'jpg.png',
+  },
+  {
+    name:'.png',
+    icon:'png.png',
+  },
+  {
+    name:'canva',
+    icon:'canva.png',
+  },
+  {
+    name:'.psd',
+    icon:'psd.png',
+  },
+  {
+    name:'.ai',
+    icon:'ai.png',
+  },
+  {
+    name:'.pdf',
+    icon:'pdf.png',
+  }
+]

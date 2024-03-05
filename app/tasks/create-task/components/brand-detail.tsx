@@ -13,15 +13,91 @@ import {
     DrawerTrigger,
   } from "@/components/ui/drawer"
 
-export function BrandDetail() {
+  import { taskTitles,categoryTitles,Brandprofiles } from "@/use-cases/global-data"
+import Image from "next/image"
+import { CheckCheckIcon } from "lucide-react"
+import { useEffect, useState } from "react"
+
+  interface BrandDetailProps {
+    formRef: React.RefObject<HTMLFormElement>;
+    service?: string;
+    onBrandProfileChange: (value: string[]) => void; // Add a prop for handling checkbox changes
+    selectedBrandProfile:string[],
+  }
+
+export function BrandDetail({ formRef, service,onBrandProfileChange, selectedBrandProfile}: BrandDetailProps) {
+
+  const selectedCategoryBrandProfiles = categoryTitles.find((item) => item.value === taskTitles.find((item) => item.value === service)?.children)?.brandType;
+  
+  const [selectedBrandProfiles, setSelectedBrandProfiles] = useState<string[]>(selectedBrandProfile);
+
+  const handleDrawerChange = (value: string, isChecked: boolean) => {
+    // Handle checkbox changes here, you can use the formRef to access the form
+    if (isChecked) {
+      // Add the checked brand profile to the array
+      setSelectedBrandProfiles([value]);
+      onBrandProfileChange([value]);
+    } else {
+      // Remove the unchecked brand profile from the array
+      setSelectedBrandProfiles([]);
+      onBrandProfileChange([]);
+    }
+  };
+
+  useEffect(() => {
+    setSelectedBrandProfiles(selectedBrandProfiles);
+
+  },[selectedBrandProfiles]);
+
   return (
     <>
-    <Drawer>
+       {selectedCategoryBrandProfiles?.map((brandProfile,i)=>{
+        return <div key={i}>
+           <BrandDrawer formRef={formRef} brandProfile={brandProfile} onDrawerChange={handleDrawerChange} checked={selectedBrandProfiles.includes(brandProfile)} ></BrandDrawer>
+        </div>;
+       })}
+
+    </>
+  )
+}
+export default BrandDetail;
+
+interface BrandDrawerProps {
+  formRef: React.RefObject<HTMLFormElement>;
+  brandProfile?: string;
+  onDrawerChange: (value: string, isChecked: boolean) => void; // Add a prop for handling checkbox changes
+  checked:boolean;
+}
+
+const BrandDrawer: React.FC<BrandDrawerProps> = ({ formRef, brandProfile,onDrawerChange,checked}) => {
+
+  const CurrentBrandProfile = Brandprofiles.find((item) => item.label===brandProfile);
+
+  const [isChecked, setIsChecked] = useState(checked);
+
+  const handleClick = () => {
+    const newValue = CurrentBrandProfile?.label;
+
+    setIsChecked(!isChecked);
+    onDrawerChange(newValue??'', !isChecked);
+  };
+
+
+  useEffect(() => {
+    // Update the isChecked state when the checked prop changes
+    setIsChecked(checked);
+  }, [checked]);
+
+ return <>
+ {CurrentBrandProfile !== undefined && 
+  <Drawer >
         <DrawerTrigger asChild>
-            <div  className="flex items-center justify-between py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                7 - Eleven
+            <div  className={`flex items-center justify-between py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 ${
+        isChecked ? 'bg-green-400' : ''
+      }`}>
+                {CurrentBrandProfile.label}
                 <span className="flex items-center justify-between">
-                    <span className=" m-1 inline-block w-[20px] h-[20px] rounded-full bg-[#d33938]"></span>
+                    <span className=" m-1 inline-block w-[20px] h-[20px] rounded-full bg-[#d33938]" ></span>
                     <span className="m-1 inline-block w-[20px] h-[20px] rounded-full bg-[#ec8023]"></span>
                     <span className="m-1 inline-block w-[20px] h-[20px] rounded-full bg-[#457c60]"></span>
                 </span>
@@ -31,7 +107,14 @@ export function BrandDetail() {
       <DrawerContent className="overflow-auto">
         <div className="mx-auto w-full overflow-auto h-[70vh]">
           <DrawerHeader>
-            <DrawerTitle>7 - Eleven</DrawerTitle>
+            <DrawerTitle>{CurrentBrandProfile.label}
+            
+            <Button onClick={handleClick} disabled={isChecked} className={`float-right ${
+        isChecked ? 'bg-green-400' : ''
+      }`} >
+              <CheckCheckIcon></CheckCheckIcon>
+            </Button>
+            </DrawerTitle>
             {/*<DrawerDescription>Set your daily activity goal.</DrawerDescription>*/}
           </DrawerHeader>
           <div className="p-4 pb-0">
@@ -39,49 +122,37 @@ export function BrandDetail() {
             <div className="mb-4">
                 <h3 className="tracking-tight py-2 text-base font-semibold text-gray-900 mb-2">Brand Colors</h3>
                 <div className="flex items-center flex-wrap">
-                    <span className="m-1 inline-block w-[20px] h-[20px] rounded-full bg-[#fb6d02]"></span>
-                    <span className="m-1 inline-block w-[20px] h-[20px] rounded-full bg-[#057452]"></span>
-                    <span className="m-1 inline-block w-[20px] h-[20px] rounded-full bg-[#f10e2a]"></span>
-                    <span className="m-1 inline-block w-[20px] h-[20px] rounded-full bg-[#ffc71d]"></span>
-                    <span className="m-1 inline-block w-[20px] h-[20px] rounded-full bg-[#ff9903]"></span>
-                    <span className="m-1 inline-block w-[20px] h-[20px] rounded-full bg-[#00e483]"></span>
-                    <span className="m-1 inline-block w-[20px] h-[20px] rounded-full bg-[#0cae4d]"></span>
-                    <span className="m-1 inline-block w-[20px] h-[20px] rounded-full bg-[#ff62b3]"></span>
-                    <span className="m-1 inline-block w-[20px] h-[20px] rounded-full bg-[#c70104]"></span>
+                         {CurrentBrandProfile.colors.map((color,i)=>{
+                          return <><span className={`m-1 inline-block w-[20px] h-[20px] rounded-full`} style={{backgroundColor:color}}></span></>;
+                         })}
                 </div>
             </div>
             <div className="mb-4">
-                <h3 className="tracking-tight py-2 text-base font-semibold text-gray-900 mb-2">Brand Assets</h3>
+                <h3 className="tracking-tight py-2 text-base font-semibold text-gray-900 mb-2">Brand Styles</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                    <div className="p-2 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600">
-                       <img src="/services/brand-one.png" alt="img" className="w-full h-[100px] max-w-[150px] block mx-auto object-contain" />
-                       <p className="text-base text-gray-500 text-center mt-2">brand-one.png</p>
-                    </div>
-                    <div className="p-2 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600">
-                       <img src="/services/brand-two.png" alt="img" className="ww-full h-[100px] max-w-[150px] block mx-auto object-contain" />
-                       <p className="text-base text-gray-500 text-center mt-2">brand-two.png</p>
-                    </div>
-                    <div className="p-2 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600">
-                       <img src="/services/brand-three.png" alt="img" className="w-full h-[100px] max-w-[150px] block mx-auto object-contain" />
-                       <p className="text-base text-gray-500 text-center mt-2">brand-three.png</p>
-                    </div>
-                    <div className="p-2 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600">
-                       <img src="/services/brand-four.png" alt="img" className="w-full h-[100px] max-w-[150px] block mx-auto object-contain" />
-                       <p className="text-base text-gray-500 text-center mt-2">brand-four.png</p>
-                    </div>
+                       {CurrentBrandProfile.style.map((style)=>{
+                          return <>
+                                  <div className="p-2 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600" >
+                                    <div className="w-[100px] h-[100px] mx-auto" style={{position: 'relative'}}><Image fill={true} src={`/services/${style}`} alt="img" className="w-full h-[100%] max-w-[100%] block mx-auto object-contain"></Image></div>
+                                  <p className="text-base text-gray-500 text-center mt-2">{style}</p>
+                                  </div>
+                                </>;
+                         })}                   
                 </div>
             </div>
             <div className="mb-4">
                 <h3 className="tracking-tight py-2 text-base font-semibold text-gray-900 mb-2">Brand Fonts</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                    <div className="p-2 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600">
-                       <h2 className="block text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 text-center">Aa</h2>
-                       <p className="text-base text-gray-500 text-center mt-2">ui-sans-serif.zip</p>
-                    </div>
-                    <div className="p-2 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600">
-                    <h2 className="block text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 text-center">Aa</h2>
-                       <p className="text-base text-gray-500 text-center mt-2">ui-sans-serif.zip</p>
-                    </div>
+
+                    {CurrentBrandProfile.fonts.map((font)=>{
+                          return <>
+                                  <div className="p-2 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600">
+                                    <h2 className={`block text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 text-center ${font.font.className}`}>Preview Text</h2>
+                                    <p className="text-base text-gray-500 text-center mt-2">{font.name}</p>
+                                  </div>
+                                </>;
+                         })}                   
+
                 </div>
             </div>
           </div>
@@ -93,8 +164,7 @@ export function BrandDetail() {
           </DrawerFooter>
         </div>
       </DrawerContent>
-    </Drawer>
-    </>
-  )
+    </Drawer>}
+ </>
+
 }
-export default BrandDetail;
