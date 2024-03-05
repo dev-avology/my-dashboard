@@ -102,11 +102,11 @@ const { toast } = useToast();
                 }
                 <div className="px-2">
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Format(s)*</Label>
-                    <FormatDrop />
+                    <FormatDrop formRef={formRef}/>
                 </div>
                 <div className="px-2">
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Brand Profile</Label>
-                    <BrandDrop />
+                    <BrandDrop formRef={formRef} service={service}/>
                 </div>
 
                 {/* <div className="px-2">
