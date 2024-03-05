@@ -12,6 +12,7 @@ import { taskTitles } from "@/use-cases/global-data";
 import { createTaskAction } from "../../_actions/create-task.action";
 import { useToast } from "@/components/ui/use-toast";
 import { cn } from "@/lib/utils";
+import  AssetsUpload  from "./assets-upload";
 
 
 
@@ -48,6 +49,7 @@ const { toast } = useToast();
   });
   const sizeRef = useRef<HTMLInputElement>(null)
   const formRef = useRef<HTMLFormElement>(null);
+
   useEffect(() => {
     if (formState.status === "success") {
       toast({
@@ -85,7 +87,7 @@ const { toast } = useToast();
             </div>
         </div>
 
-        <div className="border-t-2 border-b-2  border-gray-200 border-dashed py-4 my-4">
+        <div className="border-t-2 border-b-2  border-gray-200 border-dashed py-4 mt-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-5 gap-6">
                 <div className="px-2">
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Request Type*</Label>
@@ -131,27 +133,10 @@ const { toast } = useToast();
             </div>
         </div>
         <div className="flex justify-between flex-wrap">
-            <aside id="default-sidebar" className="border-r-2 border-gray-200 border-dashed px-5 bg-gray-50 dark:bg-gray-800 sticky top-5 w-full xl:w-1/4 h-screen transition-transform " aria-label="Sidebar">
-                <div className="h-full  pt-4 overflow-y-auto  relative pb-[110px]">
-                    <div>
-                        <h3 className="tracking-tight py-2 text-base font-semibold text-gray-900">Media</h3>
-                        <p className="text-base text-gray-500">Upload images and/or files and use our annotation tool to provide contextual directions for your designer.</p>
-                    </div>
-                    <div className="mt-5 absolute bottom-0 left-0 right-0">
-                         <button type="button" className="w-full py-2 px-5  mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Stock Libraries</button>
-                         <div>
-                            
-                         <div className="mb-3">
-                            <input
-                                className="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
-                                type="file"
-                                id="formFile" placeholder="Start typing general direction" />
-                            </div>
-                         </div>
 
-                    </div>
-                </div>
-            </aside>
+            
+              <AssetsUpload></AssetsUpload>
+
             <div className="px-4 w-full xl:w-3/4 max-h-screen overflow-auto">
                 <div className="  rounded-lg dark:border-gray-700">
                     <div>
