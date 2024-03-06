@@ -13,6 +13,7 @@ import { TaskSizeType } from "@/use-cases/global-types";
 
 import Image from "next/image"
 import { useState } from "react";
+import { CustomSizePopOver } from "./custom-size-popover";
 
 
 interface SizeDropProps {
@@ -24,7 +25,7 @@ interface SizeDropProps {
 export function SizeDrop({ formRef, service }: SizeDropProps) {
 
 
-const selectedTaskSizes = taskTitles.find((item) => item.value === service)?.sizes;
+const selectedTaskSizes = taskTitles.find((item) => item.value === service)?.custom;
 
 const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
 
@@ -59,16 +60,29 @@ const handleCheckboxChange = (value?: string, isChecked?: boolean) => {
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-down h-4 w-4 opacity-50" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[100%] max-w-[800px] overflow-auto h-96" ref={formRef}>
+      <PopoverContent className="w-[100%] min-w-[200px] overflow-auto" ref={formRef}>
         <div className="grid gap-4">
           
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {selectedTaskSizes?.map((title,i)=>{
-              const size = sizes.find((item)=> item.value==title)
-                return <div className=" flex justify-center text-6xl  bg-gray-100" key={i}>
-                  {size && <SizeIcon formRef={formRef} onCheckboxChange={handleCheckboxChange} checked={selectedSizes.includes(size.value)}>{size}</SizeIcon>}
-                </div>;
-              })}
+        {selectedTaskSizes?.map((title, i) => {
+            const type = title.type;
+
+            if (type === 'custom' || type === 'scalable') {
+              return <CustomSizePopOver key={i} />;
+            } else {
+              return (
+                <div className="flex justify-center text-6xl bg-gray-100" key={i}>
+                  <SizeIcon
+                    formRef={formRef}
+                    onCheckboxChange={handleCheckboxChange}
+                    checked={selectedSizes.includes(title.value)}
+                  >
+                    {title}
+                  </SizeIcon>
+                </div>
+              );
+            }
+          })}
           </div>
         </div>
       </PopoverContent>
@@ -116,6 +130,46 @@ const SizeIcon: React.FC<SizeIconProps> = ({ formRef, children,onCheckboxChange,
       </>
   );
 };
+
+
+
+
+interface CustomSizeProps {
+  formRef: React.RefObject<HTMLInputElement>; // Correct the type to RefObject<HTMLInputElement>
+  children: TaskSizeType;
+  onCheckboxChange: (value?: string, isChecked?: boolean) => void; // Add a prop for handling checkbox changes
+  checked?:boolean;
+}
+
+const CustomSize: React.FC<SizeIconProps> = ({ formRef, children,onCheckboxChange,checked  }) => {
+
+  const [isChecked, setIsChecked] = useState(checked);
+
+  const handleClick = () => {
+    const newValue = children?.value;
+    setIsChecked(!isChecked);
+    onCheckboxChange(newValue, !isChecked);
+  };
+
+  return (
+      <> <div onClick={handleClick} className={`items-top w-full py-2.5 px-5 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600 ${
+        isChecked ? 'bg-green-200' : ''
+      }`}>
+                  <div className="w-[60px] h-[60px] mx-auto " style={{position: 'relative'}}>
+                   <Image fill={true}  src={children.placeholder} alt="Photo by Drew Beamer" className="rounded-md object-contain w-[100%] h-[100%] mx-auto mb-4"/>
+                  </div>
+                    <h4 className="text-center text-sm font-medium leading-none my-3">{children.label}</h4>
+                    <p className="text-base text-gray-500 text-sm text-center">{children.text}</p>
+                    <input ref={formRef} type="checkbox" name="tasksizes[]"  onChange={handleClick} checked={isChecked} value={children.value}  style={{ display: 'none' }}/>
+                </div>
+      </>
+  );
+};
+
+
+
+
+
 
 
 

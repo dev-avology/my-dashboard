@@ -21,14 +21,16 @@ export type CategoryTitle = {
     bg:string,
     color:string,
     brandingType?:string,
-    sizes?:string[]
+    sizes?:string[],
+    custom?:TaskSizeType[],
   }
   
   export type TaskSizeType = {
-     text:string,
+     text?:string,
      placeholder:string,
      label:string,
      value:string,
+     type?:string,
   }
   
   export type BrandInfoType = {

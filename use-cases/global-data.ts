@@ -13,7 +13,15 @@ export const taskTitles: TaskTypeTitle[] = [
       bg:'',
       color:'',
       brandingType:'logo',
-      sizes:['twitter 1500x500','facebook 1200 x 630','youtube 2560 x 1440','Instagram 1080 x 1920','YouTube Video 1280 x 720','LinkedIn Company Page Banner 646 x 220 min','Twiter Profile 400 x 400','Facebook Cover 820 x 312' ]
+      sizes:['twitter 1500x500','facebook 1200 x 630','youtube 2560 x 1440','Instagram 1080 x 1920','YouTube Video 1280 x 720','LinkedIn Company Page Banner 646 x 220 min','Twiter Profile 400 x 400','Facebook Cover 820 x 312' ],
+      custom:[
+        {
+          label:'Scalable Vector Format',
+          placeholder:'/services/portrate.png',
+          value: 'scalable',
+          type:'scalable'
+        },
+    ]
     }, 
     {
       heading:'Business Cards',
@@ -23,6 +31,14 @@ export const taskTitles: TaskTypeTitle[] = [
       brandingType:'business-card',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'3.5" x 2"',
+          value: '3.5" x 2"',
+          placeholder:'/services/portrate.png',
+          type:'fix'
+        }
+      ]
     },
     {
       heading:'Stationery Design',
@@ -32,6 +48,20 @@ export const taskTitles: TaskTypeTitle[] = [
       brandingType:'design',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'Letterhead (8.5" x 11")',
+          value: 'Letterhead (8.5" x 11")',
+          placeholder:'/services/portrate.png',
+          type:'Letterhead'
+        },
+        {
+          label:'Envelope 4 1/8" x 9 1/2"',
+          value: 'Envelope 4 1/8" x 9 1/2"',
+          placeholder:'/services/portrate.png',
+          type:'envelope'
+        }
+      ]
     },
     {
       heading:'Brand Guidelines',
@@ -41,6 +71,22 @@ export const taskTitles: TaskTypeTitle[] = [
       brandingType:'brand',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: 'Page Orientation Landscape',
+          placeholder:'/services/landscape.png',
+          label:'Page Orientation Landscape',
+          value: 'Page Orientation Landscape',
+          type:'fix'
+        },
+        {
+          text: 'Page Orientation Portrait',
+          placeholder:'/services/portrate.png',
+          label:'Page Orientation Portrait',
+          value: 'Page Orientation Portrait',
+          type:'fix'
+        }
+      ]
     },
     {
       heading:'Brochures',
@@ -49,6 +95,22 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '8.5" x 11" (tri-fold)',
+          placeholder:'/services/landscape.png',
+          label:'8.5" x 11" (tri-fold)',
+          value: 'tri-fold',
+          type:'fix'
+        },
+        {
+          text: '11" x 17" (bi-fold)',
+          placeholder:'/services/portrate.png',
+          label:'11" x 17" (bi-fold)',
+          value: 'bi-fold',
+          type:'fix'
+        }
+      ]
     },
     {
       heading:'Flyers',
@@ -57,6 +119,15 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '8.5" x 11" ',
+          placeholder:'/services/landscape.png',
+          label:'8.5" x 11"',
+          value: '8.5" x 11" flyer',
+          type:'fix'
+        }
+      ]
     },
     {
       heading:'Posters',
@@ -65,6 +136,22 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '18" x 24"',
+          placeholder:'/services/landscape.png',
+          label:'18" x 24"',
+          value: '18" x 24" poster',
+          type:'fix'
+        },
+        {
+          text: '24" x 36" ',
+          placeholder:'/services/landscape.png',
+          label:'24" x 36"',
+          value: '24" x 36" poster',
+          type:'fix'
+        }
+      ]
     },
     {
       heading:'Banners and Signage',
@@ -73,7 +160,15 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
-      sizes:[ 'YouTube Video 1280 x 720','LinkedIn Company Page Banner 646 x 220 min','Twiter Profile 400 x 400','Facebook Cover 820 x 312' ]
+      sizes:[ 'YouTube Video 1280 x 720','LinkedIn Company Page Banner 646 x 220 min','Twiter Profile 400 x 400','Facebook Cover 820 x 312' ],
+      custom:[
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'custom'
+        }
+      ]
     },
     {
       heading:'Advertisements',
@@ -82,6 +177,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'custom'
+        }
+      ]
     },
     {
       heading:'Packaging Design',
@@ -90,6 +193,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'custom'
+        }
+      ]
     },
     {
       heading:'Label Design',
@@ -98,6 +209,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'custom'
+        }
+      ]
     },
     {
       heading:'Book Design',
@@ -106,6 +225,28 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '6" x 9" (standard trade)',
+          placeholder:'/services/landscape.png',
+          label:'6" x 9"',
+          value: '6" x 9" (standard trade)',
+          type:'fix'
+        },
+        {
+          text: '8.5" x 11" (textbook)',
+          placeholder:'/services/landscape.png',
+          label:'8.5" x 11"',
+          value: '8.5" x 11" (textbook)',
+          type:'fix'
+        },
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'custom'
+        }
+      ]  
     },
     {
       heading:'Magazine Layout',
@@ -850,7 +991,43 @@ export const sizes:TaskSizeType[] = [
     placeholder:'/services/portrate.png',
     label:'Facebook Cover Photo',
     value: 'Facebook Cover 820 x 312'
-  }
+  },
+  {
+    text: 'Scalable Vector Format',
+    placeholder:'/services/portrate.png',
+    label:'Scalable Vector Format',
+    value: 'scalable vector' 
+  },
+  {
+    text: '3.5" x 2"',
+    placeholder:'/services/portrate.png',
+    label:'3.5" x 2"',
+    value: '3.5" x 2"' 
+  },
+  {
+    text: 'Letterhead (8.5" x 11")',
+    placeholder:'/services/portrate.png',
+    label:'Letterhead (8.5" x 11")',
+    value: 'Letterhead (8.5" x 11")' 
+  },
+  {
+    text: 'Envelopes (#10 envelope 4 1/8" x 9 1/2")',
+    placeholder:'/services/portrate.png',
+    label:'Envelopes (#10 envelope 4 1/8" x 9 1/2")',
+    value: 'Envelopes (#10 envelope 4 1/8" x 9 1/2")' 
+  },
+  {
+    text: '8.5" x 11" (tri-fold)',
+    placeholder:'/services/portrate.png',
+    label:'8.5" x 11" (tri-fold)',
+    value: '8.5" x 11" (tri-fold)' 
+  },
+  {
+    text: '11" x 17" (bi-fold)',
+    placeholder:'/services/portrate.png',
+    label:'11" x 17" (bi-fold)',
+    value: '11" x 17" (bi-fold)' 
+  }, 
 ]
 
 

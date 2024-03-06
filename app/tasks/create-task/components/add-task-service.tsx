@@ -13,6 +13,7 @@ import { createTaskAction } from "../../_actions/create-task.action";
 import { useToast } from "@/components/ui/use-toast";
 import { cn } from "@/lib/utils";
 import  AssetsUpload  from "./assets-upload";
+import Link from 'next/link';
 
 
 
@@ -83,6 +84,9 @@ const { toast } = useToast();
             <div className="w-1/2 pl-5 flex justify-end">
                 {/* <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Save to my designer</button> */}
                 {/* <button type="button" className="">Save and Close</button> */}
+                <Link href="/tasks/create-task" className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                Go Back
+                  </Link>
                 <SaveButton idleText="Save and Close" submittingText="Saving task..."></SaveButton>
             </div>
         </div>
@@ -92,16 +96,22 @@ const { toast } = useToast();
                 <div className="px-2">
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Request Type*</Label>
                     <div  className="flex h-10 w-full items-center justify-between rounded-md border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 dark:border-slate-800 dark:bg-slate-950 dark:ring-offset-slate-950 dark:placeholder:text-slate-400 dark:focus:ring-slate-300">
-                    <Input id="service_type" name="service_type" defaultValue={service} type="text" className="bg-gray-50 border border-gray-300  text-sm rounded-lg flex-auto rounded-md  px-3.5 py-2  shadow-sm ring-1 ring-white/10 sm:text-sm sm:leading-6" />
+                    {/* <Input id="service_type" disabled name="service_type" defaultValue={service} type="text" className="bg-gray-50 border border-gray-300  text-sm rounded-lg flex-auto rounded-md  px-3.5 py-2  shadow-sm ring-1 ring-white/10 sm:text-sm sm:leading-6" /> */}
+                    {service}
+                    <input type="hidden" name="service_type" value={service}></input>
                     <input type="hidden" name="service_category" value={selectedTaskSizes?.children}></input>
                     </div>
                 </div>
-                {selectedTaskSizes?.sizes?.length &&
+                {selectedTaskSizes?.custom?.length &&
                 <div className="px-2" >
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Size(s)*</Label>
                       <SizeDrop formRef={sizeRef} service={service} />
                 </div>
                 }
+
+
+
+
                 <div className="px-2">
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Format(s)*</Label>
                     <FormatDrop formRef={formRef}/>

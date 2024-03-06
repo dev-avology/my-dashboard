@@ -95,7 +95,7 @@ function ListIcon({ children }: { children: CategoryTitle }){
   }, 300);
 
   return (
-  <a  onClick={() => handleClick(children.value)} className="bg-white flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-sky-100 hover:text-blue-600 group">
+  <a  onClick={() => handleClick(children.value)} className="bg-white flex items-center p-2 cursor-pointer text-gray-900 rounded-lg dark:text-white hover:bg-sky-100 hover:text-blue-600 group">
     <children.icon />
     <span className="ms-3">{children.label}</span>
   </a>
@@ -124,7 +124,7 @@ function ListTitle({ children }: { children: TaskTypeTitle }){
 
   return (
  
-    <Card onClick={() => handleClick(children.value)} className=" rounded-lg overflow-hidden bg-gray-50 dark:bg-gray-800  transition hover:shadow-xl border">
+    <Card onClick={() => handleClick(children.value)} className="cursor-pointer rounded-lg overflow-hidden bg-gray-50 dark:bg-gray-800  transition hover:shadow-xl border">
       <div className=" dark:text-gray-500  ">
         {/* {children.children} */}
         <Image src={children.image} width="250" alt="img" height="200" />
