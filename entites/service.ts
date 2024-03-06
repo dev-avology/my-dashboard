@@ -2,9 +2,9 @@ import { ZodError, z } from "zod";
 import { User } from "@/app/db";
 import {format} from "date-fns";
 
-type ValidatedFields = "title" | "description" | "status";
+type ValidatedFields = "title" | "description" | "status" | "amount";
 
-export class TaskEntityValidationError extends Error {
+export class ServiceEntityValidationError extends Error {
   private errors: Record<ValidatedFields, string | undefined>;
 
   constructor(errors: Record<ValidatedFields, string | undefined>) {
@@ -141,24 +141,33 @@ export class ServiceEntity {
   }
 
 
-  private validate() {
+  public validate() {
+    
     const taskSchema = z.object({
-      title: z
-        .string()
-        .min(1),
-      description: z.string().min(1), 
-      status:z.string()
+    title: z.string().min(1),
+    description: z.string().refine(value => value !== '', {
+      message: 'Description must not be an empty string',
+      path: ['description']
+    }),
+    status:z.enum(["active", "inactive"]),
+    amount: z.number().min(1),
     });
 
     try {
+
       taskSchema.parse(this);
+
     } catch (err) {
+      
       const error = err as ZodError;
       const errors = error.flatten().fieldErrors;
-      throw new TaskEntityValidationError({
+
+      throw new ServiceEntityValidationError({
         title: errors.title?.[0],
-        description: errors.descrition?.[0],
+        description: errors.description?.[0],
         status:errors.status?.[0],
+        amount:errors.amount?.[0]
+              
       });
     }
   }
