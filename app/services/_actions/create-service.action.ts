@@ -4,8 +4,10 @@ import {updateService} from "@/data-access/services/update-service.persistence";
 
 import { getSessionUser } from "@/auth";
 import { createServiceUseCase } from "@/use-cases/services/create-service.use-case";
-import { ValidationError } from "@/use-cases/tasks/utils";
+import { ValidationError } from "@/use-cases/services/utils";
 import { revalidatePath } from "next/cache";
+import {format,formatISO} from "date-fns";
+
 
 type Form = {
   title: string;
@@ -72,11 +74,11 @@ export async function createServiceAction(
         title: submittedForm.title.toLowerCase(),
         description: submittedForm.description,
         amount:submittedForm.amount,
-        recurring:submittedForm.recurring,
+        recurring:Number.isNaN(submittedForm.recurring) ? 0:submittedForm.recurring,
         repeat:submittedForm.repeat,
         image_url:submittedForm.image_url,
         status:submittedForm.status,
-        date:submittedForm.date,
+        date: formatISO(new Date()),
       }
     );
     revalidatePath("/");
@@ -86,7 +88,7 @@ export async function createServiceAction(
         description: '',
         amount:0,
         recurring:0,
-        repeat:0,
+        repeat:1,
         image_url:null,
         status:'active',
         date:'',
@@ -97,6 +99,7 @@ export async function createServiceAction(
   } catch (err) {
     const error = err as Error;
     if (error instanceof ValidationError) {
+    
       return {
         form: submittedForm,
         status: "field-errors",

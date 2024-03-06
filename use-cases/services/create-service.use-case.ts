@@ -1,4 +1,4 @@
-import { ServiceEntity, TaskEntityValidationError } from "@/entites/service";
+import { ServiceEntity, ServiceEntityValidationError } from "@/entites/service";
 import {
   AuthenticationError,
   serviceToDto,
@@ -6,6 +6,7 @@ import {
   serviceToCreateServiceDtoMapper,
 } from "./utils";
 import { CreateService, GetUser, UpdateService } from "./types";
+
 
 export async function createServiceUseCase(
   context: {
@@ -34,12 +35,16 @@ export async function createServiceUseCase(
     const newItem = new ServiceEntity({
       title: data.title,
       description: data.description,
-      amount:data.amount
+      amount:data.amount,
+      status:data.status,
+      recurring:data.recurring,
+      repeat:data.repeat,
+      date:data.date
     });
     await context.createService(serviceToCreateServiceDtoMapper(newItem));
   } catch (err) {
-    console.log(err);
-    const error = err as TaskEntityValidationError;
+    
+    const error = err as ServiceEntityValidationError;
     throw new ValidationError(error.getErrors());
   }
 }
