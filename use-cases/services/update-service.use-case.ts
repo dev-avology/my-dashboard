@@ -1,5 +1,5 @@
-import { ServiceEntity } from "@/entites/service";
-import { AuthenticationError, serviceToDto } from "./utils";
+import { ServiceEntity,ServiceEntityValidationError} from "@/entites/service";
+import { AuthenticationError, serviceToDto,ValidationError } from "./utils";
 import { GetService, GetUser, UpdateService } from "./types";
 import { User } from "@/db/schema";
 import {format,formatISO} from "date-fns";
@@ -28,25 +28,28 @@ export async function updateServiceUseCase(
     throw new AuthenticationError();
   }
 
-  const dataService = await context.getService(data.serviceId);
+  try {
+
+
+    const dataService = await context.getService(data.serviceId);
+    
+    const service = new ServiceEntity(dataService);
   
-  const service = new ServiceEntity(dataService);
+    service.setTitle(data.title);
+    service.setDescrition(data.description);
+    service.setAmount(data.amount);
+    service.setRecurring(data.recurring);
+    service.setRepeat(data.repeat);
+    service.setStatus(data.status);
+    service.setDate(formatISO(new Date()));
+    
+    service.validate();
 
-  service.setTitle(data.title);
-  service.setDescrition(data.description);
-  service.setAmount(data.amount);
-  service.setRecurring(data.recurring);
-  service.setRepeat(data.repeat);
-  service.setStatus(data.status);
-
-  service.setDate(formatISO(new Date()));
-  //task.setAssigned(data.assignedTo);
-
-
-  await context.updateService(serviceToDto(service));
-
-
-  console.log('updated service',serviceToDto(service));
-
-  return serviceToDto(service);
+    await context.updateService(serviceToDto(service));
+  
+    return serviceToDto(service);
+  } catch (err) {
+    const error = err as ServiceEntityValidationError;
+    throw new ValidationError(error.getErrors());
+}
 }
