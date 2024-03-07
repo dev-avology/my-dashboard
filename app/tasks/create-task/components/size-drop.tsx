@@ -12,7 +12,7 @@ import { taskTitles,sizes } from "@/use-cases/global-data";
 import { TaskSizeType } from "@/use-cases/global-types";
 
 import Image from "next/image"
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { CustomSizePopOver } from "./custom-size-popover";
 
 
@@ -25,9 +25,16 @@ interface SizeDropProps {
 export function SizeDrop({ formRef, service }: SizeDropProps) {
 
 
-const selectedTaskSizes = taskTitles.find((item) => item.value === service)?.custom;
+  const selectedTask = taskTitles.find((item) => item.value === service);
+  const selectedTaskSizes = selectedTask?.custom;
 
 const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
+
+const [selectedCustomSizes, setSelectedCustomSizes] = useState<string>('100|100|cm');
+
+
+
+const frmRef = useRef<HTMLFormElement>(null);
 
 const handleCheckboxChange = (value?: string, isChecked?: boolean) => {
   // Handle checkbox changes here, you can use the formRef to access the form
@@ -45,15 +52,32 @@ const handleCheckboxChange = (value?: string, isChecked?: boolean) => {
     });
   }
   
-
   console.log(`Checkbox with value ${value} is ${isChecked ? 'checked' : 'unchecked'}`);
 };
 
 
 
+const handleCustomSize = (value?: string, isChecked?: boolean) => {
+  
+  const updatedValue = value || "";
+
+  setSelectedCustomSizes(updatedValue);
+
+  console.log(`Checkbox with value ${value} is ${isChecked ? 'checked' : 'unchecked'}`);
+};
+
+
+ 
+
+
+
   return (
     <>
-    <Popover  >
+    {selectedTask?.children !== 'CopyWriting' &&  <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Size(s)*</Label>}
+    {selectedTask?.children === 'CopyWriting' &&  <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Number of words</Label>}
+
+
+    {selectedTask?.children !== 'CopyWriting' && <><Popover >
       <PopoverTrigger asChild>
           <Button variant="outline" className="flex h-10 w-full items-center justify-between rounded-md border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 dark:border-slate-800 dark:bg-slate-950 dark:ring-offset-slate-950 dark:placeholder:text-slate-400 dark:focus:ring-slate-300">
             <span>Select Sizes</span>
@@ -68,7 +92,7 @@ const handleCheckboxChange = (value?: string, isChecked?: boolean) => {
             const type = title.type;
 
             if (type === 'custom' || type === 'scalable') {
-              return <CustomSizePopOver key={i} />;
+              return <CustomSizePopOver key={i} formRef={frmRef} size={title} onCheckboxChange={handleCustomSize} checked={selectedCustomSizes} />;
             } else {
               return (
                 <div className="flex justify-center text-6xl bg-gray-100" key={i}>
@@ -87,10 +111,13 @@ const handleCheckboxChange = (value?: string, isChecked?: boolean) => {
         </div>
       </PopoverContent>
     </Popover>
-   
-    {selectedSizes?.map((size, i) => (
+     {selectedSizes?.map((size, i) => (
         <input key={i} type="hidden" name={`tasksize[${i}]`} value={size} />
       ))}
+     </>
+     }
+
+
    </>
   )
 }
@@ -141,7 +168,7 @@ interface CustomSizeProps {
   checked?:boolean;
 }
 
-const CustomSize: React.FC<SizeIconProps> = ({ formRef, children,onCheckboxChange,checked  }) => {
+const CustomSize: React.FC<CustomSizeProps> = ({ formRef, children,onCheckboxChange,checked  }) => {
 
   const [isChecked, setIsChecked] = useState(checked);
 
