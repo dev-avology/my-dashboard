@@ -104,7 +104,6 @@ const { toast } = useToast();
                 </div>
                 {selectedTaskSizes?.custom?.length &&
                 <div className="px-2" >
-                    <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Size(s)*</Label>
                       <SizeDrop formRef={sizeRef} service={service} />
                 </div>
                 }
