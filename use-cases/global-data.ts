@@ -255,6 +255,23 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '8.5" x 11" (standard )',
+          placeholder:'/services/landscape.png',
+          label:'8.5" x 11"',
+          value: '8.5" x 11" (standard)',
+          type:'fix'
+        },
+      
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'size vary'
+        }
+      ]  
+
     },
     {
       heading:'Newsletter Design',
@@ -263,6 +280,22 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: '8.5" x 11" (print )',
+        placeholder:'/services/landscape.png',
+        label:'8.5" x 11"',
+        value: '8.5" x 11" (print)',
+        type:'fix'
+        },
+
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'variable for digital'
+        }
+      ]
     },
     {
       heading:'Annual Reports',
@@ -271,6 +304,15 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: '8.5" x 11"',
+        placeholder:'/services/landscape.png',
+        label:'8.5" x 11"',
+        value: '8.5" x 11"',
+        type:'fix'
+        }
+      ]
     },
     {
       heading:'Infographics',
@@ -279,6 +321,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'Scalable Vector Format',
+          placeholder:'/services/portrate.png',
+          value: 'scalable',
+          type:'scalable'
+        }
+    ]
     },
     {
       heading:'UX/UI Design',
@@ -287,6 +337,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'Built to be Responsive',
+          placeholder:'/services/portrate.png',
+          value: 'custom',
+          type:'custom'
+        }
+      ]
     },
     {
       heading:'Landing Page Design',
@@ -295,6 +353,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'Built to be Responsive',
+          placeholder:'/services/portrate.png',
+          value: 'custom',
+          type:'custom'
+        }
+      ]
     },
     {
       heading:'Website Design',
@@ -303,6 +369,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'Built to be Responsive',
+          placeholder:'/services/portrate.png',
+          value: 'custom',
+          type:'custom'
+        }
+      ]
     },
     {
       heading:'Mobile App Design',
@@ -311,6 +385,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'Built to be Responsive',
+          placeholder:'/services/portrate.png',
+          value: 'custom',
+          type:'custom'
+        }
+      ]
     },
     {
       heading:'Email Templates',
@@ -319,6 +401,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'Built to be Responsive',
+          placeholder:'/services/portrate.png',
+          value: 'custom',
+          type:'custom'
+        }
+      ]
     },
     {
       heading:'Presentation Design',
@@ -327,6 +417,23 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: '16" x 9"',
+        placeholder:'/services/landscape.png',
+        label:'16" x 9"',
+        value: '16" x 9"',
+        type:'fix'
+        },
+        {
+          text: '4" x 3"',
+          placeholder:'/services/landscape.png',
+          label:'4" x 3"',
+          value: '4" x 3"',
+          type:'fix'
+          }
+
+      ]
     },
     {
       heading:'Menu Design',
@@ -335,6 +442,28 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: '8.5" x 11"',
+        placeholder:'/services/landscape.png',
+        label:'8.5" x 11"',
+        value: '8.5" x 11"',
+        type:'fix'
+        },
+        {
+          text: '8.5" x 14"',
+          placeholder:'/services/landscape.png',
+          label:'8.5" x 14"',
+          value: '8.5" x 14"',
+          type:'fix'
+          },
+          {
+            label:'custom',
+            value: 'custom',
+            placeholder:'/services/portrate.png',
+            type:'custom'
+          }
+      ]   
     },
     {
       heading:'Exhibition Displays',
@@ -343,6 +472,22 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '10" x 10"(standard)',
+          placeholder:'/services/landscape.png',
+          label:'8.5" x 14"',
+          value: '8.5" x 14"',
+          type:'fix'
+        },
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'custom'
+        }
+
+      ]
     },
     {
       heading:'Vehicle Wraps',
@@ -351,6 +496,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'custom' 
+        }
+      ]
     },
     {
       heading:'T-shirt and Merchandise Design',
@@ -359,6 +512,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'custom'
+        }
+      ]
     },
     {
       heading:'Invitation Design',
@@ -367,6 +528,22 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+      {
+        
+        text: '5" x 7"',
+        placeholder:'/services/landscape.png',
+        label:'5" x 7"',
+        value: '5" x 7"',
+        type:'fix'
+      },
+      {
+        label:'custom',
+        value: 'custom',
+        placeholder:'/services/portrate.png',
+        type:'custom'
+      }
+      ]
     },
     {
       heading:'Branded Giveaways',
@@ -375,6 +552,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+        label:'custom',
+        value: 'custom',
+        placeholder:'/services/portrate.png',
+        type:'custom'
+        }
+      ]
     },
     {
       heading:'3D Graphics',
@@ -383,6 +568,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'Built to be Responsive',
+          placeholder:'/services/portrate.png',
+          value: 'custom',
+          type:'custom'
+        }
+      ]
     },
     {
       heading:'Video Editing',
@@ -391,6 +584,50 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        { 
+          text: '16" x 9"',
+          placeholder:'/services/landscape.png',
+          label:'16" x 9"',
+          value: '16" x 9"',
+          type:'fix'
+        },
+        { 
+          text: '9" x 16"',
+          placeholder:'/services/portrate.png',
+          label:'9" x 16"',
+          value: '9" x 16"',
+          type:'fix'
+        },
+        { 
+          text: '1" x 1"',
+          placeholder:'/services/square.png',
+          label:'1" x 1"',
+          value: '1" x 1"',
+          type:'fix'
+        },
+        { 
+          text: '4" x 5"',
+          placeholder:'/services/square.png',
+          label:'4" x 5"',
+          value: '4" x 5"',
+          type:'fix'
+        },
+        { 
+          text: '2" x 3"',
+          placeholder:'/services/square.png',
+          label:'2" x 3"',
+          value: '2" x 3"',
+          type:'fix'
+        },
+        { 
+          text: '3" x 4"',
+          placeholder:'/services/square.png',
+          label:'3" x 4"',
+          value: '3" x 4"',
+          type:'fix'
+        },
+      ]
     },
     {
       heading:'Icon Design',
@@ -399,6 +636,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'Scalable Vector Format',
+          placeholder:'/services/portrate.png',
+          value: 'scalable',
+          type:'scalable'
+        }
+    ]
     },
     {
       heading:'Typography',
@@ -423,6 +668,15 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'Scalable Vector Format',
+          placeholder:'/services/portrate.png',
+          value: 'scalable',
+          type:'scalable'
+        }
+    ]
+
     },
     {
       heading:'Etsy',
@@ -431,6 +685,16 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Social Media Graphics',
       bg:'',
       color:'',
+      custom:[
+        { 
+          text: '2000" x 2000"',
+          placeholder:'/services/square.png',
+          label:'2000" x 2000"',
+          value: '2000" x 2000"',
+          type:'fix'
+        },
+      ]
+
     },
     {
       heading:'Facebook',
@@ -439,6 +703,22 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Social Media Graphics',
       bg:'',
       color:'',
+      custom:[
+        { 
+          text: '1200" x 630"',
+          placeholder:'/services/portrate.png',
+          label:'1200" x 630"',
+          value: '1200" x 630"',
+          type:'fix'
+        },
+        { 
+          text: '1280" x 720"',
+          placeholder:'/services/portrate.png',
+          label:'1200" x 630"( 16:9 for landscape or 9:16 for portrait)',
+          value: '1200" x 630"',
+          type:'fix'
+        }
+      ]
     },
     {
       heading:'Instagram',
@@ -447,6 +727,37 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Social Media Graphics',
       bg:'',
       color:'',
+      custom:[
+        { 
+          text: '1080" x 1080"',
+          placeholder:'/services/square.png',
+          label:'1080" x 1080"',
+          value: '1080" x 1080"',
+          type:'fix'
+        },
+        { 
+          text: '1080" x 1350"',
+          placeholder:'/services/portrate.png',
+          label:'1080" x 1350"( ratio of 4:5)',
+          value: '1080" x 1350"',
+          type:'fix'
+        },
+        { 
+          text: '1080" x 566"',
+          placeholder:'/services/landscape.png',
+          label:'1080" x 566""( ratio of 1.91:1)',
+          value: '1080" x 566"',
+          type:'fix'
+        },
+        { 
+          text: '1080" x 1920"',
+          placeholder:'/services/landscape.png',
+          label:'1080" x 1920""( ratio of 9:16)',
+          value: '1080" x 1920"',
+          type:'fix'
+        }
+      ]
+      
     },
     {
       heading:'LinkedIn',
@@ -455,6 +766,38 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Social Media Graphics',
       bg:'',
       color:'',
+      custom:[
+        { 
+          text: '1200" x 1200"',
+          placeholder:'/services/square.png',
+          label:'1200" x 1200"',
+          value: '1200" x 1200"',
+          type:'fix'
+        },
+        { 
+          text: '1080" x 1350"',
+          placeholder:'/services/portrate.png',
+          label:'1080" x 1350"',
+          value: '1080" x 1350"',
+          type:'fix'
+        },
+        { 
+          text: '1200" x 628"',
+          placeholder:'/services/portrate.png',
+          label:'1200" x 628"',
+          value: '1200" x 628"',
+          type:'fix'
+        },
+        { 
+          text: '2556" x 1440"',
+          placeholder:'/services/landscape.png',
+          label:'2556" x 1440"(ratio of 16:9)',
+          value: '2556" x 1440"',
+          type:'fix'
+        }
+
+      ]
+
     },
     {
       heading:'Other Social Media Graphics',
@@ -996,37 +1339,50 @@ export const sizes:TaskSizeType[] = [
     text: 'Scalable Vector Format',
     placeholder:'/services/portrate.png',
     label:'Scalable Vector Format',
-    value: 'scalable vector' 
+    value: 'scalable vector',
+    type:'scalable-vector' 
   },
   {
     text: '3.5" x 2"',
     placeholder:'/services/portrate.png',
     label:'3.5" x 2"',
-    value: '3.5" x 2"' 
+    value: '3.5" x 2"',
+    type:'size' 
   },
   {
     text: 'Letterhead (8.5" x 11")',
     placeholder:'/services/portrate.png',
     label:'Letterhead (8.5" x 11")',
-    value: 'Letterhead (8.5" x 11")' 
+    value: 'Letterhead (8.5" x 11")',
+    type:'size'  
   },
   {
-    text: 'Envelopes (#10 envelope 4 1/8" x 9 1/2")',
+    text: 'Envelopes (4 1/8" x 9 1/2")',
     placeholder:'/services/portrate.png',
-    label:'Envelopes (#10 envelope 4 1/8" x 9 1/2")',
-    value: 'Envelopes (#10 envelope 4 1/8" x 9 1/2")' 
+    label:'Envelopes (4 1/8" x 9 1/2")',
+    value: 'Envelopes (4 1/8" x 9 1/2")' ,
+    type:'size' 
   },
   {
     text: '8.5" x 11" (tri-fold)',
     placeholder:'/services/portrate.png',
     label:'8.5" x 11" (tri-fold)',
-    value: '8.5" x 11" (tri-fold)' 
+    value: '8.5" x 11" (tri-fold)' ,
+    type:'size' 
   },
   {
     text: '11" x 17" (bi-fold)',
     placeholder:'/services/portrate.png',
     label:'11" x 17" (bi-fold)',
-    value: '11" x 17" (bi-fold)' 
+    value: '11" x 17" (bi-fold)',
+    type:'size'  
+  }, 
+  {
+    text: '8.5" x 11"',
+    placeholder:'/services/portrate.png',
+    label:'8.5" x 11"',
+    value: '8.5" x 11"',
+    type:'size'  
   }, 
 ]
 
