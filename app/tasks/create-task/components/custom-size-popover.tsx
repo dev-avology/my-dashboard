@@ -21,10 +21,12 @@ import { useDebouncedCallback } from 'use-debounce';
 
 
   interface CustomSizeProps {
+
     formRef: React.RefObject<HTMLFormElement>; // Correct the type to RefObject<HTMLInputElement>
     size: TaskSizeType;
     onCheckboxChange: (value?: string, isChecked?: boolean) => void; // Add a prop for handling checkbox changes
     checked?:string;
+
   }
   
  export const CustomSizePopOver: React.FC<CustomSizeProps> = ({ formRef, size,onCheckboxChange,checked  }) => {
@@ -32,9 +34,11 @@ import { useDebouncedCallback } from 'use-debounce';
    const custom_sizes = checked?.split('|');
 
    const [customSizes, setcustomSizes] = useState({
+
     width:custom_sizes?.at(0),
     height:custom_sizes?.at(1),
     unit:custom_sizes?.at(2),
+
    });
    
 
@@ -75,9 +79,7 @@ import { useDebouncedCallback } from 'use-debounce';
                 id="width"
                 defaultValue={custom_sizes?.at(0)}
                 className="col-span-2 h-8"
-                onChange={(e) => {
-                  handleChange({width:e.target.value,height:customSizes.height,unit:customSizes.unit});
-                }}
+                onChange={(e) => { handleChange({width:e.target.value,height:customSizes.height,unit:customSizes.unit}); }}
               />
             </div>
             <div className="grid grid-cols-3 items-center gap-4">
@@ -86,16 +88,12 @@ import { useDebouncedCallback } from 'use-debounce';
                 id="height"
                 defaultValue={custom_sizes?.at(1)}
                 className="col-span-2 h-8"
-                onChange={(e) => {
-                  handleChange({width:customSizes.width,height:e.target.value,unit:customSizes.unit});
-                }}
+                onChange={(e) => { handleChange({width:customSizes.width,height:e.target.value,unit:customSizes.unit}); }}
               />
             </div>
             <div className="grid grid-cols-3 items-center gap-4">
               <Label htmlFor="maxHeight">Unit</Label>
-              <Select onValueChange={(e) => {
-                  handleChange({width:customSizes.width,height:customSizes.height,unit:e});
-                }}>
+              <Select onValueChange={(e) => {handleChange({width:customSizes.width,height:customSizes.height,unit:e});}}>
                         <SelectTrigger className="">
                             <SelectValue placeholder="Select a types" />
                         </SelectTrigger>
@@ -107,7 +105,7 @@ import { useDebouncedCallback } from 'use-debounce';
                                 <SelectItem value="px" aria-selected={custom_sizes?.at(2) === 'px'}>Pixcel</SelectItem>
                             </SelectGroup>
                         </SelectContent>
-                    </Select>
+              </Select>
             </div>
           </div>
         </div>
