@@ -1,7 +1,7 @@
 "use client"
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { CrossIcon } from "lucide-react";
+import { CrossIcon, MinusCircleIcon } from "lucide-react";
 import { Cross1Icon } from "@radix-ui/react-icons";
 
 interface AssetsUploadProps {
@@ -88,18 +88,16 @@ const AssetsUpload: React.FC<AssetsUploadProps> = () => {
                 <h3 className="tracking-tight py-2 text-base font-semibold text-gray-900">Media</h3>
                 <p className="text-base text-gray-500">Upload images and/or files and use our annotation tool to provide contextual directions for your designer.</p>
             </div>
-            <div className="mt-5  relative left-0 right-0 text-base text-gray-500" onClick={openFileExplorer}>
+            <div className="mt-5  relative left-0 right-0 text-base text-gray-500" >
                 {/* <button type="button" className="w-full py-2 px-5  mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Stock Libraries</button> */}
                 <div>
 
                     <div className="mb-3">
-
-
                         <p>
                             Drag & Drop files or{" "}
                             <span
                                 className=""
-
+                                onClick={openFileExplorer}
                             >
                                 <u>Select files</u>
                             </span>{" "}
@@ -109,17 +107,26 @@ const AssetsUpload: React.FC<AssetsUploadProps> = () => {
                         <div className="grid grid-cols-4 gap-2 grid-flow-row mt-4  ">
                             {files.map((file: any, idx: any) => (
                                 <div key={idx} className="relative mb-4 group">
-                                     <div className="hidden absolute -mt-4 right-0 group-hover:block bg-white rounded-md border border-slate-300 hover:border-red-300  ">
+                                     <div className="hidden absolute -mt-4 right-0 group-hover:block z-10 ">
                                         <span
-                                            className="text-red-500 cursor-pointer "
+                                            className="text-red-500 cursor-pointer"
                                             onClick={() => removeFile(file.name, idx)}
                                         >
-                                            <Cross1Icon className="h-5 w-5"></Cross1Icon>
+                                            <MinusCircleIcon className="h-5 w-5"></MinusCircleIcon>
                                         </span>
                                     </div>
-                                    <div className="flex flex-col items-center space-y-2 shadow-lg rounded-md ">
-                                    <div className="w-[60px] h-[60px] mx-auto   " style={{position: 'relative'}}>
-                                        <Image src={URL.createObjectURL(file)} fill={true} alt={file.name} className="rounded-md object-contain w-[100%] h-[100%] mx-auto mb-4  " />
+                                    <div className="flex flex-col items-center space-y-2 rounded-md">
+                                    <div className="w-[60px] h-[60px] mx-auto" style={{position: 'relative'}}>
+                                    {file.type.startsWith('image/') || file.type === 'application/pdf' || file.type === 'application/postscript' ? (
+                                        <Image
+                                            src={file.type === 'application/pdf' ? '/services/pdf.png' : file.type === 'application/postscript' ? '/services/ai.png' : URL.createObjectURL(file)}
+                                            fill={true}
+                                            alt={file.name}
+                                            className="rounded-md object-contain mx-auto mb-4 scale-80"
+                                        />
+                                    ) : <span className="scale-80 display-block">{file.name}</span>}
+                                    
+                                  
                                         {/* <span>{file.name}</span> */}
                                         </div>
                                     </div>
@@ -145,7 +152,6 @@ const AssetsUpload: React.FC<AssetsUploadProps> = () => {
                         id="formFile" placeholder="Start typing general direction" /> */}
                     </div>
                 </div>
-
             </div>
         </div>
     </aside>;
