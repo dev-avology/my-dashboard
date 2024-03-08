@@ -108,7 +108,7 @@ export function SizeDrop({ formRef, service }: SizeDropProps) {
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-down h-4 w-4 opacity-50" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-[100%] min-w-[200px] overflow-auto" ref={formRef}>
+        <PopoverContent className="w-[100%] min-w-[200px]  max-h-[400px] overflow-auto" ref={formRef}>
           <div className="grid gap-4">
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
