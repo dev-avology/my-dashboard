@@ -806,6 +806,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Social Media Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'custom'
+          }
+      ]
     },
     {
       heading:'Pinterest',
@@ -814,6 +822,43 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Social Media Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '1000" x 1500"',
+          placeholder:'/services/portrate.png',
+          label:'1000" x 1500""(ratio of 2:3)',
+          value: '1000" x 1500"',
+          type:'fix'
+        },
+        { 
+          text: '1" x 1"',
+          placeholder:'/services/square.png',
+          label:'1" x 1"',
+          value: '1" x 1"',
+          type:'fix'
+        },
+        { 
+          text: '2" x 3"',
+          placeholder:'/services/portrate.png',
+          label:'2" x 3"',
+          value: '2" x 3"',
+          type:'fix'
+        },
+        { 
+          text: '9" x 16"',
+          placeholder:'/services/portrate.png',
+          label:'9" x 16"',
+          value: '9" x 16"',
+          type:'fix'
+        },
+        { 
+          text: '1080" x 1920"',
+          placeholder:'/services/portrate.png',
+          label:'1080" x 1920"',
+          value: '1080" x 1920"',
+          type:'fix'
+        },
+      ]
     },
     {
       heading:'Social Media Collateral',
@@ -822,6 +867,29 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Social Media Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '820" x 312"',
+          placeholder:'/services/landscape.png',
+          label:'820" x 312"',
+          value: '820" x 312"',
+          type:'fix'
+        },
+        { 
+          text: '1500" x 1500"',
+          placeholder:'/services/square.png',
+          label:'1500" x 1500"',
+          value: '1500" x 1500"',
+          type:'fix'
+        },
+        {
+          text: '1584" x 396"',
+          placeholder:'/services/landscape.png',
+          label:'1584" x 396"',
+          value: '1584" x 396"',
+          type:'fix'
+        },
+      ]
     },
     {
       heading:'Tik Tok',
@@ -830,6 +898,15 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Social Media Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '1080" x 1920"',
+          placeholder:'/services/landscape.png',
+          label:'1080" x 1920" ( ratio of 9:16)',
+          value: '1080" x 1920"',
+          type:'fix'
+        },   
+      ]
     },
     {
       heading:'X (Twitter Post)',
@@ -838,6 +915,36 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Social Media Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '1200" x 675"',
+          placeholder:'/services/portrate.png',
+          label:'1200" x 675" ( ratio of 16:9)',
+          value: '1200" x 675"',
+          type:'fix'
+        },
+        {
+          text: '1200" x 720"',
+          placeholder:'/services/landscape.png',
+          label:'1200" x 720" ( ratio of 16:9) ',
+          value: '1200" x 720"',
+          type:'fix'
+        },
+        {
+          text: '720" x 1280"',
+          placeholder:'/services/portrate.png',
+          label:'720" x 1280" ( ratio of 9:16)',
+          value: '720" x 1280"',
+          type:'fix'
+        },
+        {
+          text: '720" x 720"',
+          placeholder:'/services/square.png',
+          label:'720" x 720" ( ratio of 1:1)',
+          value: '720" x 720"',
+          type:'fix'
+        }
+      ]
     },
     {
       heading:'Youtube',
@@ -846,6 +953,22 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Social Media Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '1920" x 1080"',
+          placeholder:'/services/portrate.png',
+          label:'1920" x 1080"( ratio of 16:9)',
+          value: '1920" x 1080"',
+          type:'fix'
+        },
+        {
+          text: '1280" x 720"',
+          placeholder:'/services/portrate.png',
+          label:'1280" x 720"',
+          value: '1280" x 720"',
+          type:'fix'
+        }
+      ]
     },
     {
       heading:'PPC Ads',
@@ -862,6 +985,371 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Paid Ads',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '300" x 100"',
+          placeholder:'/services/landscape.png',
+          label:'300" x 100"',
+          value: '300" x 100"',
+          type:'fix'
+        },
+        {
+          text: '750" x 300"',
+          placeholder:'/services/landscape.png',
+          label:'750" x 300"',
+          value: '750" x 300"',
+          type:'fix'
+        },
+        {
+          text: '750" x 200"',
+          placeholder:'/services/landscape.png',
+          label:'750" x 200"',
+          value: '750" x 200"',
+          type:'fix'
+        },
+        {
+          text: '750" x 100"',
+          placeholder:'/services/landscape.png',
+          label:'750" x 100"',
+          value: '750" x 100"',
+          type:'fix'
+        },
+        {
+          text: '950" x 90"',
+          placeholder:'/services/landscape.png',
+          label:'950" x 90"',
+          value: '950" x 90"',
+          type:'fix'
+        },
+        {
+          text: '88" x 31"',
+          placeholder:'/services/landscape.png',
+          label:'88" x 31"',
+          value: '88" x 31"',
+          type:'fix'
+        },
+        {
+          text: '220" x 90"',
+          placeholder:'/services/landscape.png',
+          label:'220" x 90"',
+          value: '220" x 90"',
+          type:'fix'
+        },
+        {
+          text: '300" x 31"',
+          placeholder:'/services/landscape.png',
+          label:'300" x 31"',
+          value: '300" x 31"',
+          type:'fix'
+        },
+        {
+          text: '980" x90"',
+          placeholder:'/services/landscape.png',
+          label:'980" x90"',
+          value: '980" x90"',
+          type:'fix'
+        },
+        {
+          text: '240" x 133"',
+          placeholder:'/services/landscape.png',
+          label:'240" x 133"',
+          value: '240" x 133"',
+          type:'fix'
+        },
+
+        {
+          text: '200" x 446"',
+          placeholder:'/services/portrate.png',
+          label:'200" x 446"',
+          value: '200" x 446"',
+          type:'fix'
+        },
+        {
+          text: '292" x 30"',
+          placeholder:'/services/landscape.png',
+          label:'292" x 30"',
+          value: '292" x 30"',
+          type:'fix'
+        },
+        {
+          text: '960" x 90"',
+          placeholder:'/services/landscape.png',
+          label:'960" x 90"',
+          value: '960" x 90"',
+          type:'fix'
+        },
+        {
+          text: '970" x 66"',
+          placeholder:'/services/landscape.png',
+          label:'960" x 90"',
+          value: '960" x 90"',
+          type:'fix'
+        },
+        {
+          text: '300" x 57"',
+          placeholder:'/services/landscape.png',
+          label:'300" x 57"',
+          value: '300" x 57"',
+          type:'fix'
+        },
+        {
+          text: '120" x 60"',
+          placeholder:'/services/landscape.png',
+          label:'120" x 60"',
+          value: '120" x 60"',
+          type:'fix'
+        },
+        {
+          text: '320" x 400"',
+          placeholder:'/services/portrate.png',
+          label:'320" x 400"',
+          value: '320" x 400"',
+          type:'fix'
+        },
+        {
+          text: '600" x 314"',
+          placeholder:'/services/landscape.png',
+          label:'600" x 314"',
+          value: '600" x 314"',
+          type:'fix'
+        },
+        {
+          text: '468" x 60"',
+          placeholder:'/services/landscape.png',
+          label:'468" x 60"',
+          value: '468" x 60"',
+          type:'fix'
+        },
+        {
+          text: '728" x 90"',
+          placeholder:'/services/landscape.png',
+          label:'728" x 90"',
+          value: '728" x 90"',
+          type:'fix'
+        },
+        {
+          text: '250" x 250"',
+          placeholder:'/services/square.png',
+          label:'250" x 250"',
+          value: '250" x 250"',
+          type:'fix'
+        },
+        {
+          text: '200" x 200"',
+          placeholder:'/services/square.png',
+          label:'200" x 200"',
+          value: '200" x 200"',
+          type:'fix'
+        },
+        {
+          text: '336" x 280"',
+          placeholder:'/services/landscape.png',
+          label:'336" x 280"',
+          value: '336" x 280"',
+          type:'fix'
+        },
+        {
+          text: '300" x 250"',
+          placeholder:'/services/landscape.png',
+          label:'300" x 250"',
+          value: '300" x 250"',
+          type:'fix'
+        },
+        {
+          text: '120" x 600"',
+          placeholder:'/services/portrate.png',
+          label:'120" x 600"',
+          value: '120" x 600"',
+          type:'fix'
+        },
+        {
+          text: '160" x 600"',
+          placeholder:'/services/portrate.png',
+          label:'160" x 600"',
+          value: '160" x 600"',
+          type:'fix'
+        },
+        {
+          text: '320" x 50"',
+          placeholder:'/services/landscape.png',
+          label:'320" x 50"',
+          value: '320" x 50"',
+          type:'fix'
+        },
+        {
+          text: '425" x 600"',
+          placeholder:'/services/portrate.png',
+          label:'425" x 600"',
+          value: '425" x 600"',
+          type:'fix'
+        },
+        {
+          text: '300" x 600"',
+          placeholder:'/services/portrate.png',
+          label:'300" x 600"',
+          value: '300" x 600"',
+          type:'fix'
+        },
+        {
+          text: '970" x 90"',
+          placeholder:'/services/landscape.png',
+          label:'970" x 90"',
+          value: '970" x 90"',
+          type:'fix'
+        },
+        {
+          text: '240" x 400"',
+          placeholder:'/services/portrate.png',
+          label:'240" x 400"',
+          value: '240" x 400"',
+          type:'fix'
+        },
+        {
+          text: '980" x 120"',
+          placeholder:'/services/landscape.png',
+          label:'980" x 120"',
+          value: '980" x 120"',
+          type:'fix'
+        },
+        {
+          text: '930" x 180"',
+          placeholder:'/services/landscape.png',
+          label:'930" x 180"',
+          value: '930" x 180"',
+          type:'fix'
+        },
+        {
+          text: '250" x 360"',
+          placeholder:'/services/portrate.png',
+          label:'250" x 360"',
+          value: '250" x 360"',
+          type:'fix'
+        },
+        {
+          text: '580" x 400"',
+          placeholder:'/services/landscape.png',
+          label:'580" x 400"',
+          value: '580" x 400"',
+          type:'fix'
+        },
+        {
+          text: '300" x 1050"',
+          placeholder:'/services/portrate.png',
+          label:'300" x 1050"',
+          value: '300" x 1050"',
+          type:'fix'
+        },
+        {
+          text: '480" x 320"',
+          placeholder:'/services/landscape.png',
+          label:'480" x 320"',
+          value: '480" x 320"',
+          type:'fix'
+        },
+        {
+          text: '320" x 480"',
+          placeholder:'/services/portrate.png',
+          label:'320" x 480"',
+          value: '320" x 480"',
+          type:'fix'
+        },
+        {
+          text: '768" x 1024"',
+          placeholder:'/services/portrate.png',
+          label:'768" x 1024"',
+          value: '768" x 1024"',
+          type:'fix'
+        },
+        {
+          text: '1024" x 768"',
+          placeholder:'/services/landscape.png',
+          label:'1024" x 768"',
+          value: '1024" x 768"',
+          type:'fix'
+        },
+        {
+          text: '480" x 32"',
+          placeholder:'/services/landscape.png',
+          label:'480" x 32"',
+          value: '480" x 32"',
+          type:'fix'
+        },
+        {
+          text: '1024" x 90"',
+          placeholder:'/services/landscape.png',
+          label:'1024" x 90"',
+          value: '1024" x 90"',
+          type:'fix'
+        },
+        {
+          text: '970" x 250"',
+          placeholder:'/services/landscape.png',
+          label:'970" x 250"',
+          value: '970" x 250"',
+          type:'fix'
+        },
+        {
+          text: '375" x 50"',
+          placeholder:'/services/landscape.png',
+          label:'375" x 50"',
+          value: '375" x 50"',
+          type:'fix'
+        },
+        {
+          text: '414" x 736"',
+          placeholder:'/services/portrate.png',
+          label:'414" x 736"',
+          value: '414" x 736"',
+          type:'fix'
+        },
+        {
+          text: '736" x 414"',
+          placeholder:'/services/landscape.png',
+          label:'736" x 414"',
+          value: '736" x 414"',
+          type:'fix'
+        },
+        {
+          text: '1.91" x 1"',
+          placeholder:'/services/landscape.png',
+          label:'1.91" x 1"',
+          value: '1.91" x 1"',
+          type:'fix'
+        },
+        {
+          label:'Responsive display',
+          value: 'Responsive display',
+          placeholder:'/services/portrate.png',
+          type:'Responsive display'
+        },
+        {
+          text: '1" x 1"',
+          placeholder:'/services/square.png',
+          label:'1" x 1"(300 x 300)',
+          value: '1" x 1"',
+          type:'fix'
+        },
+        {
+          label:'Responsive display',
+          value: 'Responsive display',
+          placeholder:'/services/portrate.png',
+          type:'Responsive display'
+        },
+        {
+          text: '1" x 1"',
+          placeholder:'/services/square.png',
+          label:'1" x 1"(128 x 128)',
+          value: '1" x 1"',
+          type:'fix'
+        },
+        {
+          text: '4" x 1"',
+          placeholder:'/services/landscape.png',
+          label:'4" x 1"(512 x 128)',
+          value: '4" x 1"',
+          type:'fix'
+        },
+      ]
     },
     {
       heading:'Meta Ads',
@@ -870,6 +1358,57 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Paid Ads',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '1200" x 628"',
+          placeholder:'/services/landscape.png',
+          label:'1200" x 628"(Facebook Image Ads)',
+          value: '1200" x 628"',
+          type:'fix'
+        },
+        {
+          text: '1280" x 720"',
+          placeholder:'/services/landscape.png',
+          label:'1280" x 720"(Facebook Video Ads)',
+          value: '1280" x 720"',
+          type:'fix'
+        },
+        {
+          text: '1080" x 1080"',
+          placeholder:'/services/square.png',
+          label:'1080" x 1080"(Instagram Image Ads)',
+          value: '1080" x 1080"',
+          type:'fix'
+        },
+        {
+          text: '1200" x 628"',
+          placeholder:'/services/landscape.png',
+          label:'1200" x 628"(Instagram Image Ads)',
+          value: '1200" x 628"',
+          type:'fix'
+        },
+        {
+          text: '1080" x 1080"',
+          placeholder:'/services/square.png',
+          label:'1080" x 1080"(Instagram video Ads)',
+          value: '1080" x 1080"',
+          type:'fix'
+        },
+        {
+          text: '1200" x 628"',
+          placeholder:'/services/landscape.png',
+          label:'1200" x 628"(Instagram video Ads)',
+          value: '1200" x 628"',
+          type:'fix'
+        },
+        {
+          text: '1080" x 1080"',
+          placeholder:'/services/square.png',
+          label:'1080" x 1080"(Carousel Ads)',
+          value: '1080" x 1080"',
+          type:'fix'
+        },
+      ]
     },
     {
       heading:'X (Twitter) Ads',
@@ -878,6 +1417,57 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Paid Ads',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '800" x 418"',
+          placeholder:'/services/landscape.png',
+          label:'800" x 418"(ratio 1.91:1)',
+          value: '800" x 418"',
+          type:'fix'
+        },
+        {
+          text: '800" x 800"',
+          placeholder:'/services/square.png',
+          label:'800" x 800"(ratio 1:1)',
+          value: '800" x 800"',
+          type:'fix'
+        },
+        {
+          text: '800" x 418"',
+          placeholder:'/services/landscape.png',
+          label:'800" x 418"(App Card)',
+          value: '800" x 418"',
+          type:'fix'
+        },
+        {
+          text: '800" x 800"',
+          placeholder:'/services/square.png',
+          label:'800" x 800"(App Card)',
+          value: '800" x 800"',
+          type:'fix'
+        },
+        {
+          text: '800" x 418"',
+          placeholder:'/services/landscape.png',
+          label:'800" x 418"(Carousel Ads)',
+          value: '800" x 418"',
+          type:'fix'
+        },
+        {
+          text: '800" x 800"',
+          placeholder:'/services/square.png',
+          label:'800" x 800"(Carousel Ads)',
+          value: '800" x 800"',
+          type:'fix'
+        },
+        {
+          text: '600" x 335"',
+          placeholder:'/services/landscape.png',
+          label:'600" x 335"(Image Ads)',
+          value: '600" x 335"',
+          type:'fix'
+        },
+      ]
     },
     {
       heading:'Pinterst Ads',
@@ -886,6 +1476,36 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Paid Ads',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '1000" x 1500"',
+          placeholder:'/services/landscape.png',
+          label:'1000" x 1500"(Standard Pins)',
+          value: '1000" x 1500"',
+          type:'fix'
+        },
+        {
+          text: '1000" x 1500"',
+          placeholder:'/services/landscape.png',
+          label:'1000" x 1500"(Video Pins)',
+          value: '1000" x 1500"',
+          type:'fix'
+        },
+        {
+          text: '1" x 1"',
+          placeholder:'/services/square.png',
+          label:'1" x 1"(Video Pins)',
+          value: '1" x 1',
+          type:'fix'
+        },
+        {
+          text: '1000" x 1500"',
+          placeholder:'/services/landscape.png',
+          label:'1000" x 1500"(Carousel Ads)',
+          value: '1000" x 1500"',
+          type:'fix'
+        },
+      ]  
     },
     {
       heading:'LinkedIn Ads',
@@ -894,6 +1514,29 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Paid Ads',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '1200" x 627"',
+          placeholder:'/services/landscape.png',
+          label:'1200" x 627"',
+          value: '1200" x 627"',
+          type:'fix'
+        },
+        {
+          text: '300" x 250"',
+          placeholder:'/services/landscape.png',
+          label:'300" x 250"',
+          value: '300" x 250"',
+          type:'fix'
+        },
+        {
+          text: '100" x 100"',
+          placeholder:'/services/square.png',
+          label:'100" x 100"',
+          value: '100" x 100"',
+          type:'fix'
+        }
+      ]
     },
     {
       heading:'Tik Tok Ads',
@@ -902,6 +1545,29 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Paid Ads',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: '1080" x 1920"',
+          placeholder:'/services/landscape.png',
+          label:'1080" x 1920"(In-Feed Ads)',
+          value: '1080" x 1920"',
+          type:'fix'
+        },
+        {
+          text: '1080" x 1920"',
+          placeholder:'/services/landscape.png',
+          label:'1080" x 1920"(TopView Ads)',
+          value: '1080" x 1920"',
+          type:'fix'
+        },
+        {
+          text: '1080" x 1920"',
+          placeholder:'/services/landscape.png',
+          label:'1080" x 1920"(Brand Takeover Ads )',
+          value: '1080" x 1920"',
+          type:'fix'
+        },
+      ]
     },
     {
       heading:'Billboard',
@@ -910,6 +1576,22 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Paid Ads',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: 'No fixed pixel size due to the variation in physical size"',
+        placeholder:'/services/portrate.png',
+        label:'No fixed pixel size due to the variation in physical size"(Standard Billboards )',
+        value: 'Standard Billboards"',
+        type:'fix'
+        },
+        {
+          text: 'Resolution and size vary depending on the location and  billboard"',
+          placeholder:'/services/landscape.png',
+          label:'Resolution and size vary depending on the location and  billboard"(Digital Billboards)',
+          value: 'Digital Billboards"',
+          type:'fix'
+          }
+      ]
     },
     {
       heading:'Brand Kit',
@@ -918,6 +1600,23 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Paid Ads',
       bg:'',
       color:'',
+      custom:[
+        {
+          text: 'Page Orientation Landscape',
+          placeholder:'/services/landscape.png',
+          label:'Page Orientation Landscape',
+          value: 'Page Orientation Landscape',
+          type:'fix'
+        },
+        {
+          text: 'Page Orientation Portrait',
+          placeholder:'/services/portrate.png',
+          label:'Page Orientation Portrait',
+          value: 'Page Orientation Portrait',
+          type:'fix'
+        }
+      ]
+
     },
     {
       heading:'Swag Site',
@@ -926,6 +1625,16 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Paid Ads',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'Responsive ',
+          value: 'Responsive ',
+          placeholder:'/services/portrate.png',
+          type:'Responsive '
+        }
+      ]
+    
+
     },
     {
       heading:'Corporate Merchaindise Bundle',
@@ -934,6 +1643,15 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Apparel',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'custom'
+          }
+      ]
+
     },
     {
       heading:'Pen Design',
@@ -942,6 +1660,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Apparel',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'custom'
+          }
+      ]
     },
     {
       heading:'Mug Graphics',
@@ -950,6 +1676,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Apparel',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'custom'
+          }
+      ]
     },
     {
       heading:'Other Merchandise',
@@ -958,6 +1692,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Apparel',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'custom'
+          }
+      ]
     },
     {
       heading:'Shirt Graphics',
@@ -966,6 +1708,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Apparel',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'custom'
+          }
+      ]
     },
     {
       heading:'Stickers',
@@ -974,6 +1724,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Apparel',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'custom'
+          }
+      ]
     },
     {
       heading:'Explainer Videos',
@@ -982,6 +1740,15 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Motion Graphics',
       bg:'',
       color:'',
+      custom:[
+        { 
+          text: '16" x 9"',
+          placeholder:'/services/landscape.png',
+          label:'16" x 9"',
+          value: '16" x 9"',
+          type:'fix'
+        },
+      ]
     },
     {
       heading:'Animated Logos',
@@ -990,6 +1757,23 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Motion Graphics',
       bg:'',
       color:'',
+      custom:[
+        { 
+          text: '16" x 9"',
+          placeholder:'/services/landscape.png',
+          label:'16" x 9"',
+          value: '16" x 9"',
+          type:'fix'
+        },
+        { 
+          text: '1" x 1"',
+          placeholder:'/services/square.png',
+          label:'1" x 1"',
+          value: '1" x 1"',
+          type:'fix'
+        }
+
+      ]
     },
     {
       heading:'Animated Infographics',
@@ -998,6 +1782,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Motion Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'Responsive ',
+          value: 'Responsive ',
+          placeholder:'/services/portrate.png',
+          type:'Responsive '
+        }
+      ]
     },
     {
       heading:'Animated Intro/Outro',
@@ -1006,6 +1798,23 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Motion Graphics',
       bg:'',
       color:'',
+      custom:[
+        { 
+          text: '16" x 9"',
+          placeholder:'/services/landscape.png',
+          label:'16" x 9"',
+          value: '16" x 9"',
+          type:'fix'
+        },
+        { 
+          text: '1" x 1"',
+          placeholder:'/services/square.png',
+          label:'1" x 1"',
+          value: '1" x 1"',
+          type:'fix'
+        }
+
+      ]
     },
     {
       heading:'Social Media Animations',
@@ -1014,6 +1823,30 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Motion Graphics',
       bg:'',
       color:'',
+      custom:[
+        { 
+          text: '16" x 9"',
+          placeholder:'/services/landscape.png',
+          label:'16" x 9"',
+          value: '16" x 9"',
+          type:'fix'
+        },
+        { 
+          text: '1" x 1"',
+          placeholder:'/services/square.png',
+          label:'1" x 1"',
+          value: '1" x 1"',
+          type:'fix'
+        },
+        { 
+          text: '9" x 16"',
+          placeholder:'/services/portrate.png',
+          label:'9" x 16',
+          value: '9" x 16',
+          type:'fix'
+        }
+
+      ]
     },
     {
       heading:'Event Invitations and Promotions',
@@ -1022,6 +1855,30 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Motion Graphics',
       bg:'',
       color:'',
+      custom:[
+        { 
+          text: '16" x 9"',
+          placeholder:'/services/landscape.png',
+          label:'16" x 9"',
+          value: '16" x 9"',
+          type:'fix'
+        },
+        { 
+          text: '1" x 1"',
+          placeholder:'/services/square.png',
+          label:'1" x 1"',
+          value: '1" x 1"',
+          type:'fix'
+        },
+        { 
+          text: '9" x 16"',
+          placeholder:'/services/portrate.png',
+          label:'9" x 16',
+          value: '9" x 16',
+          type:'fix'
+        }
+
+      ]
     },
     {
       heading:'Product Demos',
@@ -1030,6 +1887,15 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Motion Graphics',
       bg:'',
       color:'',
+      custom:[
+        { 
+          text: '16" x 9"',
+          placeholder:'/services/landscape.png',
+          label:'16" x 9"',
+          value: '16" x 9"',
+          type:'fix'
+        },
+      ]
     },
     {
       heading:'GIF',
@@ -1038,6 +1904,14 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'Motion Graphics',
       bg:'',
       color:'',
+      custom:[
+        {
+          label:'custom',
+          value: 'custom',
+          placeholder:'/services/portrate.png',
+          type:'custom'
+          }
+      ]
     },
     {
       heading:'Radio Scripts',
@@ -1046,6 +1920,17 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'CopyWriting',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: 'text-script',
+        placeholder:'/services/landscape.png',
+        label:'text-script',
+        value: 'text-script',
+        type:'text-script'
+        }
+
+      ]
+
     },
     {
       heading:'Blog',
@@ -1054,6 +1939,16 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'CopyWriting',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: 'text-words',
+        placeholder:'/services/landscape.png',
+        label:'text-words',
+        value: 'text-words',
+        type:'text-words'
+        }
+
+      ]
     },
     {
       heading:'Product Desciptions',
@@ -1062,6 +1957,16 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'CopyWriting',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: 'text-products',
+        placeholder:'/services/landscape.png',
+        label:'text-products',
+        value: 'text-products',
+        type:'text-products'
+        }
+
+      ]
     },
     {
       heading:'User Manuals',
@@ -1070,6 +1975,16 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'CopyWriting',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: 'text-pages',
+        placeholder:'/services/landscape.png',
+        label:'text-pages',
+        value: 'text-pages',
+        type:'text-pages'
+        }
+
+      ]
     },
     {
       heading:'Techincal Guide',
@@ -1078,6 +1993,16 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'CopyWriting',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: 'text-pages',
+        placeholder:'/services/landscape.png',
+        label:'text-pages',
+        value: 'text-pages',
+        type:'text-pages'
+        }
+
+      ]
     },
     {
       heading:'FAQ Section',
@@ -1086,6 +2011,16 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'CopyWriting',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: 'text-questions',
+        placeholder:'/services/landscape.png',
+        label:'text-questions',
+        value: 'text-questions',
+        type:'text-questions'
+        }
+
+      ]
     },
     {
       heading:'Interview Questions',
@@ -1094,6 +2029,16 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'CopyWriting',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: 'text-questions',
+        placeholder:'/services/landscape.png',
+        label:'text-questions',
+        value: 'text-questions',
+        type:'text-questions'
+        }
+
+      ]
     },
     {
       heading:'Presentation Scripts',
@@ -1102,6 +2047,16 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'CopyWriting',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: 'text-slides',
+        placeholder:'/services/landscape.png',
+        label:'text-slides',
+        value: 'text-slides',
+        type:'text-slides'
+        }
+
+      ]
     },
     {
       heading:'Whitepaper',
@@ -1110,6 +2065,16 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'CopyWriting',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: 'text-pages',
+        placeholder:'/services/landscape.png',
+        label:'text-pages',
+        value: 'text-pages',
+        type:'text-pages'
+        }
+
+      ]
     },
     {
       heading:'Casestudies',
@@ -1118,6 +2083,16 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'CopyWriting',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: 'text-pages',
+        placeholder:'/services/landscape.png',
+        label:'text-pages',
+        value: 'text-pages',
+        type:'text-pages'
+        }
+
+      ]
     },
     {
       heading:'Internall Communciations',
@@ -1126,6 +2101,16 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'CopyWriting',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: 'text-pages',
+        placeholder:'/services/landscape.png',
+        label:'text-pages',
+        value: 'text-pages',
+        type:'text-pages'
+        }
+
+      ]
     },
     {
       heading:'Slogans & Taglines',
@@ -1134,6 +2119,16 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'CopyWriting',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: 'text-Variations',
+        placeholder:'/services/landscape.png',
+        label:'text-Variations',
+        value: 'text-Variations',
+        type:'text-Variations'
+        }
+
+      ]
     },
     {
       heading:'Press Release',
@@ -1142,6 +2137,16 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'CopyWriting',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: 'text-pages',
+        placeholder:'/services/landscape.png',
+        label:'text-pages',
+        value: 'text-pages',
+        type:'text-pages'
+        }
+
+      ]
     },
     {
       heading:'Email Campaigns',
@@ -1150,6 +2155,16 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'CopyWriting',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: 'text-emails',
+        placeholder:'/services/landscape.png',
+        label:'text-emails',
+        value: 'text-emails',
+        type:'text-emails'
+        }
+
+      ]
     },
     {
       heading:'Direct Mailers',
@@ -1158,6 +2173,15 @@ export const taskTitles: TaskTypeTitle[] = [
       children:'CopyWriting',
       bg:'',
       color:'',
+      custom:[
+        {
+        text: 'text-Variations',
+        placeholder:'/services/landscape.png',
+        label:'text-Variations',
+        value: 'text-Variations',
+        type:'text-Variations'
+        }
+      ]
     },  
   
   ];
