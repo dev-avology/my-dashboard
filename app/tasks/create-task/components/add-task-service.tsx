@@ -110,7 +110,6 @@ const { toast } = useToast();
 
 
 
-
                 <div className="px-2">
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Format(s)*</Label>
                     <FormatDrop formRef={formRef}/>
