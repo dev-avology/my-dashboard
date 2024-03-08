@@ -28,9 +28,8 @@ export function SizeDrop({ formRef, service }: SizeDropProps) {
   const selectedTask = taskTitles.find((item) => item.value === service);
   const selectedTaskSizes = selectedTask?.custom;
 
-const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
-
-const [selectedCustomSizes, setSelectedCustomSizes] = useState<string>('100|100|cm');
+  const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
+  const [selectedCustomSizes, setSelectedCustomSizes] = useState<string>('100|100|cm');
 
 
 
@@ -74,6 +73,7 @@ const handleCustomSize = (value?: string, isChecked?: boolean) => {
   return (
     <>
     {selectedTask?.children !== 'CopyWriting' &&  <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Size(s)*</Label>}
+
     {selectedTask?.children === 'CopyWriting' &&  <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Number of words</Label>}
 
 
@@ -92,8 +92,11 @@ const handleCustomSize = (value?: string, isChecked?: boolean) => {
             const type = title.type;
 
             if (type === 'custom' || type === 'scalable') {
+              
               return <CustomSizePopOver key={i} formRef={frmRef} size={title} onCheckboxChange={handleCustomSize} checked={selectedCustomSizes} />;
+
             } else {
+
               return (
                 <div className="flex justify-center text-6xl bg-gray-100" key={i}>
                   <SizeIcon
@@ -105,6 +108,7 @@ const handleCustomSize = (value?: string, isChecked?: boolean) => {
                   </SizeIcon>
                 </div>
               );
+
             }
           })}
           </div>
