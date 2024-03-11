@@ -120,7 +120,7 @@ const CustomBrandDrawerDrop: React.FC<CustomBrandDrawerDropProps> = ({ formRef})
 
                     </div>
                 </DrawerTrigger>
-                <DrawerContent className="overflow-auto">
+                <DrawerContent>
                     <div className="mx-auto w-full overflow-auto h-[70vh]">
                         <DrawerHeader>
                             <DrawerTitle>
