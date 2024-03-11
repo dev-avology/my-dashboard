@@ -15,8 +15,11 @@ import {
 
   import { taskTitles,categoryTitles,Brandprofiles } from "@/use-cases/global-data"
 import Image from "next/image"
-import { CheckCheckIcon } from "lucide-react"
+import { CheckCheckIcon, CircleFadingPlus, MinusCircleIcon, PlusCircle } from "lucide-react"
 import { useEffect, useState } from "react"
+import { BrandInfoType } from "@/use-cases/global-types"
+
+import CustomBrandDrawer from "./custom-brand-details"
 
   interface BrandDetailProps {
     formRef: React.RefObject<HTMLFormElement>;
@@ -52,26 +55,29 @@ export function BrandDetail({ formRef, service,onBrandProfileChange, selectedBra
   return (
     <>
        {selectedCategoryBrandProfiles?.map((brandProfile,i)=>{
-        return <div key={i}>
-           <BrandDrawer formRef={formRef} brandProfile={brandProfile} onDrawerChange={handleDrawerChange} checked={selectedBrandProfiles.includes(brandProfile)} ></BrandDrawer>
+          const CurrentBrandProfile = Brandprofiles.find((item) => item.label===brandProfile);
+        return <div key={i}>{CurrentBrandProfile?.name?
+          <CustomBrandDrawer formRef={formRef} brandProfile={CurrentBrandProfile} onDrawerChange={handleDrawerChange} checked={selectedBrandProfiles.includes(brandProfile)} ></CustomBrandDrawer>:<BrandDrawer formRef={formRef} brandProfile={CurrentBrandProfile} onDrawerChange={handleDrawerChange} checked={selectedBrandProfiles.includes(brandProfile)} ></BrandDrawer>}
         </div>;
        })}
 
     </>
   )
 }
+
+
 export default BrandDetail;
 
 interface BrandDrawerProps {
   formRef: React.RefObject<HTMLFormElement>;
-  brandProfile?: string;
+  brandProfile?: BrandInfoType;
   onDrawerChange: (value: string, isChecked: boolean) => void; // Add a prop for handling checkbox changes
   checked:boolean;
 }
 
 const BrandDrawer: React.FC<BrandDrawerProps> = ({ formRef, brandProfile,onDrawerChange,checked}) => {
 
-  const CurrentBrandProfile = Brandprofiles.find((item) => item.label===brandProfile);
+  const CurrentBrandProfile = brandProfile;
 
   const [isChecked, setIsChecked] = useState(checked);
 
@@ -168,3 +174,9 @@ const BrandDrawer: React.FC<BrandDrawerProps> = ({ formRef, brandProfile,onDrawe
  </>
 
 }
+
+
+
+
+
+
