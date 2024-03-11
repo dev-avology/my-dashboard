@@ -14,6 +14,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { cn } from "@/lib/utils";
 import  AssetsUpload  from "./assets-upload";
 import Link from 'next/link';
+import CustomBrandDrawerDrop from "./custom-brand-details-drop";
 
 
 
@@ -92,7 +93,7 @@ const { toast } = useToast();
         </div>
 
         <div className="border-t-2 border-b-2  border-gray-200 border-dashed py-4 mt-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 <div className="px-2">
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Request Type*</Label>
                     <div  className="flex h-10 w-full items-center justify-between rounded-md border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 dark:border-slate-800 dark:bg-slate-950 dark:ring-offset-slate-950 dark:placeholder:text-slate-400 dark:focus:ring-slate-300">
@@ -108,15 +109,15 @@ const { toast } = useToast();
                 </div>
                 }
 
-
-
                 <div className="px-2">
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Format(s)*</Label>
                     <FormatDrop formRef={formRef}/>
                 </div>
+
                 <div className="px-2">
                     <Label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Brand Profile</Label>
-                    <BrandDrop formRef={formRef} service={service}/>
+                    {/* <BrandDrop formRef={formRef} service={service}/> */}
+                    <CustomBrandDrawerDrop formRef={formRef}></CustomBrandDrawerDrop>
                 </div>
 
                 {/* <div className="px-2">
