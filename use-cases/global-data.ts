@@ -2309,7 +2309,7 @@ export const Brandprofiles: BrandInfoType[] = [
  { 
   label:'Create Custom Profile',
   name:true,
-  colors: ['#fb6d02','#057452','#f10e2a','#ffc71d','#ff9903','#00e483','#0cae4d','#ff62b3','#c70104'],
+  colors: [],
   style:['brand-one.png','brand-two.png','brand-three.png','brand-four.png'],
   fonts:[
     {name:'Roboto',font:roboto},
