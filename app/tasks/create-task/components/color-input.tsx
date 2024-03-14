@@ -28,8 +28,13 @@ interface ColorPickerProps {
           setHex(color.hexa);
         }}
       />
-      <div style={{ background: hex, marginTop: 30, padding: 10 }} onClick={() => handleClick(hex)}>
-        {hex}
+      <div style={{ background: hex, marginTop: 30, padding: 10 }}>
+      <button
+       onClick={() => handleClick(hex)}
+        className="p-3 w-32 text-center rounded text-white"
+      >
+        {"Add"}
+      </button>
       </div>
     </>
   );

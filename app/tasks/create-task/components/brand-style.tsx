@@ -2,7 +2,7 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { CrossIcon, MinusCircleIcon } from "lucide-react";
-import { Cross1Icon } from "@radix-ui/react-icons";
+import { Cross1Icon, UploadIcon } from "@radix-ui/react-icons";
 import { FileUploader } from "react-drag-drop-files"; 
 
 interface BrandStyleProps {
@@ -30,13 +30,52 @@ const BrandStyle: React.FC<BrandStyleProps> = () => {
         }
     }
 
-    function handleSubmitFile(e: any) {
+    async function handleSubmitFile(fileName: any, idx: any) {
+
+
+       // const file = files[idx];
+
+        const formData = new FormData();
+        for (const file of files) {
+            formData.append('files', file);
+          }
+            
+             const response = await fetch('/api/brand-style', {
+              method: 'POST',
+              body: formData,
+            })
+         
+            if (response.ok) {
+              console.log(response.body);
+            } else {
+              // Handle errors
+            }
+    }
+
+
+
+    async function handleSubmitFiles(e: any) {
         if (files.length === 0) {
-            // no file has been submitted
+        
         } else {
-            // write submit logic here
+           
+            const formData = new FormData();
+            formData.append("files", files);
+            
+             const response = await fetch('/api/brand-style', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({files}),
+            })
+         
+            if (response.ok) {
+              console.log(response.body);
+            } else {
+              // Handle errors
+            }
         }
     }
+
 
     function handleDrop(e: any) {
         e.preventDefault();
@@ -114,11 +153,21 @@ const BrandStyle: React.FC<BrandStyleProps> = () => {
                                      <div className="hidden absolute -mt-4 right-0 group-hover:block z-10 ">
                                         <span
                                             className="text-red-500 cursor-pointer"
+                                            onClick={() => handleSubmitFile(file.name, idx)}
+                                        >
+                                            <UploadIcon></UploadIcon>
+                                        </span>
+                                    </div>
+
+                                    <div className="hidden absolute -mt-4 left-0 group-hover:block z-10 ">
+                                        <span
+                                            className="text-red-500 cursor-pointer"
                                             onClick={() => removeFile(file.name, idx)}
                                         >
                                             <MinusCircleIcon className="h-5 w-5"></MinusCircleIcon>
                                         </span>
                                     </div>
+
                                     <div className="flex flex-col items-center space-y-2 rounded-md">
                                     <div className="w-[60px] h-[60px] mx-auto" style={{position: 'relative'}}>
                                     {file.type.startsWith('image/') || file.type === 'application/pdf' || file.type === 'application/postscript' ? (
@@ -149,6 +198,7 @@ const BrandStyle: React.FC<BrandStyleProps> = () => {
                             accept="image/*,.psd, .pdf,.ai"
                         />
                        
+                       {files.length > 0 && <span onClick={handleSubmitFiles}><UploadIcon></UploadIcon></span>  }
                     </div>
                 </div>
             </div>

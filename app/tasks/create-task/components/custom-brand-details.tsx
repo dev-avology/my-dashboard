@@ -11,6 +11,9 @@ import BrandFontStyle from "./brand-font-style";
 
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
+import { FontPicker } from "@/components/FontPicker";
+import FileUpload from "./file-upload";
+
 
 interface CustomBrandDrawerProps {
     formRef: React.RefObject<HTMLFormElement>;
@@ -123,7 +126,7 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = ({ formRef, brandPro
 
                     </div>
                 </DrawerTrigger>
-                <DrawerContent className="overflow-auto">
+                <DrawerContent>
                     <div className="mx-auto w-full overflow-auto h-[70vh]">
                         <DrawerHeader>
                             <DrawerTitle>{CurrentBrandProfile.label}
@@ -165,13 +168,14 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = ({ formRef, brandPro
                            })} */}
                                     </div>
                                 </div>
+
                                 <div className="mb-4">
                                     <h3 className="tracking-tight py-2 text-base font-semibold text-gray-900 mb-2">Brand Styles  <div className="float-right flex items-center space-x-2">
                                         <Switch id="custom-style" checked={customStyle} onCheckedChange={() => setCustomStyle(!customStyle)} />
                                         <Label htmlFor="airplane-mode">Custom Style</Label>
                                     </div></h3>
                                     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                                        {CurrentBrandProfile.style.map((style) => {
+                                        {/* {CurrentBrandProfile.style.map((style) => {
                                             return <>
                                                 <div className={`p-2 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600 ${selectedStyles.includes(style)?`bg-green-500`:``}`} onClick={()=>handleCustomStyle(style,!selectedStyles.includes(style))} >
                                                     <div className="w-[100px] h-[100px] mx-auto" style={{ position: 'relative' }}>
@@ -179,29 +183,23 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = ({ formRef, brandPro
                                                     <p className="text-base text-gray-500 text-center mt-2">{style}</p>
                                                 </div>
                                             </>;
-                                        })}
-
-
-                                        {customStyle && <BrandStyle></BrandStyle>}
+                                        })} */}
+                                        <FileUpload ></FileUpload>
+                                        {/* {customStyle && <BrandStyle></BrandStyle>} */}
                                     </div>
                                 </div>
+
                                 <div className="mb-4">
                                     <h3 className="tracking-tight py-2 text-base font-semibold text-gray-900 mb-2">Brand Fonts <div className="float-right flex items-center space-x-2">
                                         <Switch id="custom-font" checked={customFont} onCheckedChange={() => setCustomFont(!customFont)} />
                                         <Label htmlFor="airplane-mode">Custom Font</Label>
                                     </div></h3>
                                     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                                        {CurrentBrandProfile.fonts.map((font) => {
-                                            return <>
-                                                <div className={`p-2 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600 ${selectedFonts.includes(font.name)?`bg-green-500`:``}`} onClick={()=>handleCustomFonts(font.name,!selectedFonts.includes(font.name))}>
-                                                    <h2 className={`block text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 text-center ${font.font.className}`}>Preview Text</h2>
-                                                    <p className="text-base text-gray-500 text-center mt-2">{font.name}</p>
-                                                </div>
-                                            </>;
-                                        })}
+
+                                       <FontPicker></FontPicker>
 
                                        {customFont && <BrandFontStyle></BrandFontStyle>}
-
+                                      
                                     </div>
 
                                 </div>
