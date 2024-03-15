@@ -44,7 +44,7 @@ export function BrandDrop({ formRef, service }: BrandDropProps) {
       <PopoverContent className="w-72 sm:w-96  overflow-auto h-96">
         <div className="grid gap-4">
             <div className="grid"> 
-                <h2 className="dark:text-slate-400 text-lg font-semibold leading-7 text-gray-700 mb-3">Brand Profile</h2>
+                <h2 className="dark:text-slate-400 text-lg font-semibold leading-7 text-gray-700 mb-3">Set Brand Profile</h2>
                 <BrandDetail formRef={formRef} service={service} onBrandProfileChange={handleBrandProfileChange} selectedBrandProfile={selectedBrandProfile}/>
             </div>
         </div>

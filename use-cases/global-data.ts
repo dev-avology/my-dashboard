@@ -2195,7 +2195,7 @@ export const categoryTitles: CategoryTitle[] = [
       icon:BrushIcon,
       bg:"bg-green-100 ",
       color:"text-green-800",
-      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name']
+      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name','Create Custom Profile']
     },
     {
       label: "Social Media Graphics",
@@ -2203,7 +2203,7 @@ export const categoryTitles: CategoryTitle[] = [
       icon:RadioTowerIcon,
       bg:"bg-yellow-100",
       color:"text-yellow-800",
-      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name']
+      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name','Create Custom Profile']
     },
     {
       label: "Paid Ads",
@@ -2211,7 +2211,7 @@ export const categoryTitles: CategoryTitle[] = [
       icon:BadgeDollarSignIcon,
       bg:"bg-yellow-100",
       color:"text-yellow-800",
-      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name']
+      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name','Create Custom Profile']
     },
     {
       label: "Apparel",
@@ -2219,7 +2219,7 @@ export const categoryTitles: CategoryTitle[] = [
       icon:WavesIcon,
       bg:"bg-yellow-100",
       color:"text-yellow-800",
-      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name']
+      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name','Create Custom Profile']
     },
     {
       label: "Motion Graphics",
@@ -2227,7 +2227,7 @@ export const categoryTitles: CategoryTitle[] = [
       icon:WindIcon,
       bg:"bg-yellow-100",
       color:"text-yellow-800",
-      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name']
+      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name','Create Custom Profile']
     },
     {
       label: "CopyWriting",
@@ -2235,7 +2235,7 @@ export const categoryTitles: CategoryTitle[] = [
       icon:CopyrightIcon,
       bg:"bg-yellow-100",
       color:"text-yellow-800",
-      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name']
+      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name','Create Custom Profile']
     },
     {
       label: "All",
@@ -2243,7 +2243,7 @@ export const categoryTitles: CategoryTitle[] = [
       icon:CopyrightIcon,
       bg:"bg-yellow-100",
       color:"text-yellow-800",
-      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name']
+      brandType:['7 - Eleven','7 - Eleven Other set','7 - Eleven with name','Create Custom Profile']
     },
     
   ];
@@ -2273,7 +2273,7 @@ export const Brandprofiles: BrandInfoType[] = [
  },
  { 
   label:'7 - Eleven with name',
-  name:true,
+  name:false,
   colors: ['#fb6d02','#057452','#f10e2a','#ffc71d'],
   style:['brand-one.png','brand-two.png','brand-three.png','brand-four.png'],
   fonts:[
@@ -2304,6 +2304,19 @@ export const Brandprofiles: BrandInfoType[] = [
     {name:'Roboto',font:roboto},
     {name:'Lusitana',font:lusitana},
     {name:'Inter',font:inter}
+    ]
+ },
+ { 
+  label:'Create Custom Profile',
+  name:true,
+  colors: [],
+  style:['brand-one.png','brand-two.png','brand-three.png','brand-four.png'],
+  fonts:[
+    {name:'Roboto',font:roboto},
+    {name:'Lusitana',font:lusitana},
+    {name:'Inter',font:inter},
+    {name:'Open Sans',font:openSans},
+    {name:'Noto Sans',font:notoSans},
     ]
  }
 

@@ -68,7 +68,7 @@ export function SizeDrop({ formRef, service }: SizeDropProps) {
 
   const numberWordValidate = () => {
 
-
+   
 
   }
 
