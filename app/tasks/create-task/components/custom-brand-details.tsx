@@ -40,7 +40,26 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = ({ formRef, brandPro
 
     const [selectedStyles, setSelectedStyles] = useState<string[]>([]);
     const [selectedFonts, setSelectedFonts] = useState<string[]>([]);
+    const [dirs, setDirs] = useState<string[]>([]);
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch("/api/brand-list");
+                if (!response.ok) {
+                    throw new Error("Failed to fetch data");
+                }
+                const data = await response.json(); // Parse JSON response
+                console.log(data);
+                setDirs(data); // Assuming data is an array of strings
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+    
+        fetchData(); // Call the asynchronous function
+    }, []);
+    
     const [customStyle, setCustomStyle] = useState<boolean>(false);
     const [customFont, setCustomFont] = useState<boolean>(false);
 
@@ -105,10 +124,27 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = ({ formRef, brandPro
 
 
 
+    const handleCustomUpload = async (uploaded?: boolean) => {
+        // Your async logic here
+        try {
+            const response = await fetch("/api/brand-list");
+            if (!response.ok) {
+                throw new Error("Failed to fetch data");
+            }
+            const data = await response.json(); // Parse JSON response
+            console.log(data);
+            setDirs(data); // Assuming data is an array of strings
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };
+
 
     useEffect(() => {
         // Update the isChecked state when the checked prop changes
         setIsChecked(checked);
+
+
     }, [checked]);
 
     return <>
@@ -175,16 +211,16 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = ({ formRef, brandPro
                                         <Label htmlFor="airplane-mode">Custom Style</Label>
                                     </div></h3>
                                     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                                        {/* {CurrentBrandProfile.style.map((style) => {
+                                        {dirs.map((style) => {
                                             return <>
                                                 <div className={`p-2 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600 ${selectedStyles.includes(style)?`bg-green-500`:``}`} onClick={()=>handleCustomStyle(style,!selectedStyles.includes(style))} >
                                                     <div className="w-[100px] h-[100px] mx-auto" style={{ position: 'relative' }}>
-                                                        <Image fill={true} src={`/services/${style}`} alt="img" className="w-full h-[100%] max-w-[100%] block mx-auto object-contain"></Image></div>
+                                                        <Image fill={true} src={`/brand-style/${style}`} alt="img" className="w-full h-[100%] max-w-[100%] block mx-auto object-contain"></Image></div>
                                                     <p className="text-base text-gray-500 text-center mt-2">{style}</p>
                                                 </div>
                                             </>;
-                                        })} */}
-                                        <FileUpload ></FileUpload>
+                                        })}
+                                        <FileUpload onFileUploadChange={handleCustomUpload} ></FileUpload>
                                         {/* {customStyle && <BrandStyle></BrandStyle>} */}
                                     </div>
                                 </div>

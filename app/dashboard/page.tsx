@@ -58,8 +58,8 @@ export default async  function Page() {
                                     <div className="flex gap-x-2">
                                         <div>
                                             <div className="rounded-md bg-primary-600 p-1.5 text-white">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" className="h-6 w-6">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" aria-hidden="true" className="h-6 w-6">
+                                                    <path strokeLinecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                                                 </svg>
                                             </div>
                                         </div>
@@ -77,8 +77,8 @@ export default async  function Page() {
                                     <div className="flex gap-x-2">
                                         <div>
                                             <div className="rounded-md bg-primary-600 p-1.5 text-white">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" className="h-6 w-6">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" aria-hidden="true" className="h-6 w-6">
+                                                    <path strokeLinecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                                                 </svg>
                                             </div>
                                         </div>
@@ -144,10 +144,10 @@ export default async  function Page() {
                                         <svg xmlns="http://www.w3.org/2000/svg" className="icon-tabler icon-tabler-list h-6 w-6" width="24px"
                                             height="24px"
                                             viewBox="0 0 24 24"
-                                            stroke-width="2"
+                                            strokeWidth="2"
                                             stroke="currentColor"
                                             fill="none"
-                                            stroke-linecap="round"
+                                            strokeLinecap="round"
                                             stroke-linejoin="round"
                                             aria-hidden="true"
                                         >
