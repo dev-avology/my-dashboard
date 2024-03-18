@@ -9,7 +9,7 @@ interface ColorPickerProps {
 
   const ColorPicker: React.FC<ColorPickerProps> = ({ onCheckboxChange}) => {
 
-  const [hex, setHex] = useState("#d29c9c53");
+  const [hex, setHex] = useState("#F73C3CA3");
 
   const handleClick = (hex: string) => {
     // Ensure that hex is a non-empty string before proceeding

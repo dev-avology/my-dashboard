@@ -105,7 +105,6 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = ({ formRef, brandPro
 
 
 
-
     useEffect(() => {
         // Update the isChecked state when the checked prop changes
         setIsChecked(checked);
