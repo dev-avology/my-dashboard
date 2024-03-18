@@ -1,21 +1,16 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
-import { getbrandProfile } from "@/lib/utils";
-
 
 interface FileUploadProps {
-  
+  onFileUploadChange: (uploaded?: boolean) => void; // Add a prop for handling checkbox changes
 }
 
-const FileUpload: React.FC<FileUploadProps> = async() => {
-
+const FileUpload: React.FC<FileUploadProps> = ({onFileUploadChange}) =>  {
   const [uploading, setUploading] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
   const [selectedFile, setSelectedFile] = useState<File>();
-
- const {dirs} = await getbrandProfile();
 
   const handleUpload = async () => {
     setUploading(true);
@@ -25,12 +20,31 @@ const FileUpload: React.FC<FileUploadProps> = async() => {
       formData.append("myImage", selectedFile);
       const { data } = await axios.post("/api/image", formData);
       console.log(data);
+      onFileUploadChange(true);
+      setSelectedImage("");
+      setSelectedFile(undefined);
     } catch (error: any) {
       console.log(error.response?.data);
     }
     setUploading(false);
   };
 
+  // useEffect(() => {
+  //   // Fetch data or perform any side effects that don't cause page refresh
+  //   const fetchData = async () => {
+  //     try {
+  //       // Perform the asynchronous operation here
+  //       const { data } = await axios.get("/api/data");
+  //       setDirs(data.dirs);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
+
+  //   fetchData(); // Call the function to initiate the data fetching
+
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []); // Empty dependency array means this effect runs only once, after initial render
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -46,9 +60,9 @@ const FileUpload: React.FC<FileUploadProps> = async() => {
             }
           }}
         />
-        <div className="w-40 aspect-video rounded flex items-center justify-center border-2 border-dashed cursor-pointer" style={{position: 'relative'}}>
+        <div className="w-40 aspect-video rounded flex items-center justify-center border-2 border-dashed cursor-pointer" style={{ position: 'relative' }}>
           {selectedImage ? (
-            <Image src={selectedImage} alt="" fill={true} className="rounded-md object-contain mx-auto mb-4 scale-80"/>
+            <Image src={selectedImage} alt="" fill={true} className="rounded-md object-contain mx-auto mb-4 scale-80" />
           ) : (
             <span>Select Image</span>
           )}
@@ -64,17 +78,8 @@ const FileUpload: React.FC<FileUploadProps> = async() => {
         {uploading ? "Uploading.." : "Upload"}
       </button>
 
-      <div className="mt-20 flex flex-col space-y-3">
-        {dirs.map((item) => (
-          <Link key={item} href={"/brand-style/" + item}>
-            <a className="text-blue-500 hover:underline">{item}</a>
-          </Link>
-        ))}
-      </div>
     </div>
   );
 };
-
-
 
 export default FileUpload;

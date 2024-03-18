@@ -32,6 +32,7 @@ const readFile = (
 
 const handler: NextApiHandler = async (req, res) => {
   try {
+
     await fs.readdir(path.join(process.cwd() + "/public", "/brand-style"));
   } catch (error) {
     await fs.mkdir(path.join(process.cwd() + "/public", "/brand-style"));

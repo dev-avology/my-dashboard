@@ -57,7 +57,7 @@ export function BrandDetail({ formRef, service,onBrandProfileChange, selectedBra
        {selectedCategoryBrandProfiles?.map((brandProfile,i)=>{
           const CurrentBrandProfile = Brandprofiles.find((item) => item.label===brandProfile);
         return <div key={i}>{CurrentBrandProfile?.name?
-          <CustomBrandDrawer formRef={formRef} brandProfile={CurrentBrandProfile} onDrawerChange={handleDrawerChange} checked={selectedBrandProfiles.includes(brandProfile)} ></CustomBrandDrawer>:<BrandDrawer formRef={formRef} brandProfile={CurrentBrandProfile} onDrawerChange={handleDrawerChange} checked={selectedBrandProfiles.includes(brandProfile)} ></BrandDrawer>}
+          <CustomBrandDrawer key={i} formRef={formRef} brandProfile={CurrentBrandProfile} onDrawerChange={handleDrawerChange} checked={selectedBrandProfiles.includes(brandProfile)} ></CustomBrandDrawer>:<BrandDrawer key={i} formRef={formRef} brandProfile={CurrentBrandProfile} onDrawerChange={handleDrawerChange} checked={selectedBrandProfiles.includes(brandProfile)} ></BrandDrawer>}
         </div>;
        })}
 
@@ -69,6 +69,7 @@ export function BrandDetail({ formRef, service,onBrandProfileChange, selectedBra
 export default BrandDetail;
 
 interface BrandDrawerProps {
+  key:any;
   formRef: React.RefObject<HTMLFormElement>;
   brandProfile?: BrandInfoType;
   onDrawerChange: (value: string, isChecked: boolean) => void; // Add a prop for handling checkbox changes
@@ -129,20 +130,20 @@ const BrandDrawer: React.FC<BrandDrawerProps> = ({ formRef, brandProfile,onDrawe
                 <h3 className="tracking-tight py-2 text-base font-semibold text-gray-900 mb-2">Brand Colors</h3>
                 <div className="flex items-center flex-wrap">
                          {CurrentBrandProfile.colors.map((color,i)=>{
-                          return <><span className={`m-1 inline-block w-[20px] h-[20px] rounded-full`} style={{backgroundColor:color}}></span></>;
+                          return <span key={i}><span className={`m-1 inline-block w-[20px] h-[20px] rounded-full`} style={{backgroundColor:color}}></span></span>;
                          })}
                 </div>
             </div>
             <div className="mb-4">
                 <h3 className="tracking-tight py-2 text-base font-semibold text-gray-900 mb-2">Brand Styles</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                       {CurrentBrandProfile.style.map((style)=>{
-                          return <>
+                       {CurrentBrandProfile.style.map((style,i)=>{
+                          return <div key={i}>
                                   <div className="p-2 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600" >
                                     <div className="w-[100px] h-[100px] mx-auto" style={{position: 'relative'}}><Image fill={true} src={`/services/${style}`} alt="img" className="w-full h-[100%] max-w-[100%] block mx-auto object-contain"></Image></div>
                                   <p className="text-base text-gray-500 text-center mt-2">{style}</p>
                                   </div>
-                                </>;
+                                </div>;
                          })}                   
                 </div>
             </div>
@@ -150,13 +151,13 @@ const BrandDrawer: React.FC<BrandDrawerProps> = ({ formRef, brandProfile,onDrawe
                 <h3 className="tracking-tight py-2 text-base font-semibold text-gray-900 mb-2">Brand Fonts</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
 
-                    {CurrentBrandProfile.fonts.map((font)=>{
-                          return <>
+                    {CurrentBrandProfile.fonts.map((font,i)=>{
+                          return <div key={i}>
                                   <div className="p-2 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600">
                                     <h2 className={`block text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 text-center ${font.font.className}`}>Preview Text</h2>
                                     <p className="text-base text-gray-500 text-center mt-2">{font.name}</p>
                                   </div>
-                                </>;
+                                </div>;
                          })}                   
 
                 </div>
