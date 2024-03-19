@@ -13,6 +13,7 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { FontPicker } from "@/components/FontPicker";
 import FileUpload from "./file-upload";
+import { Checkbox } from "@/components/ui/checkbox"
 
 
 interface CustomBrandDrawerProps {
@@ -149,28 +150,34 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = ({ formRef, brandPro
 
     return <>
         {CurrentBrandProfile !== undefined &&
-            <Drawer >
+              <div  className={`flex items-center justify-between py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none rounded-lg border border-gray-200 hover:text-blue-700 focus:z-10 focus:ring-4 ${
+                isChecked ? 'bg-green-400' : ''
+              }`}>
+         
+        
+          <Drawer >
                 <DrawerTrigger asChild>
-                    <div className={`flex items-center justify-between py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none rounded-lg border border-gray-200 hover:text-blue-700 focus:z-10 focus:ring-4 ${isChecked ? 'bg-green-400' : ''
-                        }`}>
-                        {CurrentBrandProfile.label}
+                       <div className="flex items-center justify-between gap-x-8"> 
+                       <span className="">{CurrentBrandProfile.label}</span>
                         <span className="flex items-center justify-between">
                             <span className=" m-1 inline-block w-[20px] h-[20px] rounded-full bg-[#d33938]" ></span>
                             <span className="m-1 inline-block w-[20px] h-[20px] rounded-full bg-[#ec8023]"></span>
                             <span className="m-1 inline-block w-[20px] h-[20px] rounded-full bg-[#457c60]"></span>
                         </span>
-
-                    </div>
+                        </div>
                 </DrawerTrigger>
+                <Checkbox id={CurrentBrandProfile.label} checked={isChecked} onCheckedChange={handleClick} className="shirnk"/>
                 <DrawerContent>
                     <div className="mx-auto w-full overflow-auto h-[70vh]">
                         <DrawerHeader>
                             <DrawerTitle>{CurrentBrandProfile.label}
 
-                                <Button onClick={handleClick} disabled={isChecked} className={`float-right ${isChecked ? 'bg-green-400' : ''
+                                {/* <Button onClick={handleClick} disabled={isChecked} className={`float-right ${isChecked ? 'bg-green-400' : ''
                                     }`} >
                                     <CheckCheckIcon></CheckCheckIcon>
-                                </Button>
+                                </Button> */}
+                                <Checkbox  id={CurrentBrandProfile.label}  checked={isChecked} onCheckedChange={handleClick} className={`float-right ${isChecked ? 'bg-green-400' : ''
+                                    }`} />
                             </DrawerTitle>
                             {/*<DrawerDescription>Set your daily activity goal.</DrawerDescription>*/}
                         </DrawerHeader>
@@ -248,7 +255,7 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = ({ formRef, brandPro
                         </DrawerFooter>
                     </div>
                 </DrawerContent>
-            </Drawer>}
+            </Drawer></div>}
     </>
 
 }
