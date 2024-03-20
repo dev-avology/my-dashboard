@@ -16,6 +16,7 @@ import Uploader from "@/components/uploader";
 import { Checkbox } from "@/components/ui/checkbox"
 import { Toaster } from "@/components/toaster";
 import { ListBlobResult, list } from '@vercel/blob';
+import { getItem } from "@/lib/utils";
 
 
 interface CustomBrandDrawerProps {
@@ -32,12 +33,17 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = async ({ formRef, br
 
     const [isChecked, setIsChecked] = useState(checked);
 
-    const handleClick = () => {
+    const handleClick = async () => {
         const newValue = CurrentBrandProfile?.label;
 
         setIsChecked(!isChecked);
         onDrawerChange(newValue ?? '', !isChecked);
+        let customBrandStyle =await getItem();
+    
+        setDirs(await customBrandStyle);
+
     };
+
 
     const [selectedColors, setSelectedColors] = useState<string[]>(CurrentBrandProfile.colors);
 
@@ -45,8 +51,9 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = async ({ formRef, br
     const [selectedFonts, setSelectedFonts] = useState<string[]>([]);
     const [dirs, setDirs] = useState<ListBlobResult>();
 
-    const customBrandStyle = await list({prefix:'test'});
-    setDirs(customBrandStyle);
+    const customBrandStyle =await getItem();
+    
+    setDirs(await customBrandStyle);
 
     // useEffect(() => {
     //     const fetchData = async () => {
