@@ -12,8 +12,10 @@ import BrandFontStyle from "./brand-font-style";
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { FontPicker } from "@/components/FontPicker";
-import FileUpload from "./file-upload";
+import Uploader from "@/components/uploader";
 import { Checkbox } from "@/components/ui/checkbox"
+import { Toaster } from "@/components/toaster";
+import { ListBlobResult, list } from '@vercel/blob';
 
 
 interface CustomBrandDrawerProps {
@@ -23,7 +25,7 @@ interface CustomBrandDrawerProps {
     checked: boolean;
 }
 
-const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = ({ formRef, brandProfile, onDrawerChange, checked }) => {
+const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = async ({ formRef, brandProfile, onDrawerChange, checked }) => {
 
 
     const CurrentBrandProfile = brandProfile;
@@ -41,25 +43,28 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = ({ formRef, brandPro
 
     const [selectedStyles, setSelectedStyles] = useState<string[]>([]);
     const [selectedFonts, setSelectedFonts] = useState<string[]>([]);
-    const [dirs, setDirs] = useState<string[]>([]);
+    const [dirs, setDirs] = useState<ListBlobResult>();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch("/api/brand-list");
-                if (!response.ok) {
-                    throw new Error("Failed to fetch data");
-                }
-                const data = await response.json(); // Parse JSON response
-                console.log(data);
-                setDirs(data); // Assuming data is an array of strings
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
+    const customBrandStyle = await list({prefix:'test'});
+    setDirs(customBrandStyle);
+
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             const response = await fetch("/api/brand-list");
+    //             if (!response.ok) {
+    //                 throw new Error("Failed to fetch data");
+    //             }
+    //             const data = await response.json(); // Parse JSON response
+    //             console.log(data);
+    //             setDirs(data); // Assuming data is an array of strings
+    //         } catch (error) {
+    //             console.error("Error fetching data:", error);
+    //         }
+    //     };
     
-        fetchData(); // Call the asynchronous function
-    }, []);
+    //     fetchData(); // Call the asynchronous function
+    // }, []);
     
     const [customStyle, setCustomStyle] = useState<boolean>(false);
     const [customFont, setCustomFont] = useState<boolean>(false);
@@ -140,7 +145,7 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = ({ formRef, brandPro
         }
     };
 
-
+   
     useEffect(() => {
         // Update the isChecked state when the checked prop changes
         setIsChecked(checked);
@@ -218,16 +223,17 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = ({ formRef, brandPro
                                         <Label htmlFor="airplane-mode">Custom Style</Label>
                                     </div></h3>
                                     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                                        {dirs.map((style) => {
+                                        <Toaster></Toaster>
+                                        {dirs?.blobs.map((style) => {
                                             return <>
-                                                <div className={`p-2 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600 ${selectedStyles.includes(style)?`bg-green-500`:``}`} onClick={()=>handleCustomStyle(style,!selectedStyles.includes(style))} >
+                                                <div className={`p-2 text-gray-900 rounded border border-gray-200 bg-gray-100 dark:border-gray-600 ${selectedStyles.includes(style.pathname)?`bg-green-500`:``}`} onClick={()=>handleCustomStyle(style.pathname,!selectedStyles.includes(style.pathname))} >
                                                     <div className="w-[100px] h-[100px] mx-auto" style={{ position: 'relative' }}>
-                                                        <Image fill={true} src={`/brand-style/${style}`} alt="img" className="w-full h-[100%] max-w-[100%] block mx-auto object-contain"></Image></div>
-                                                    <p className="text-base text-gray-500 text-center mt-2">{style}</p>
+                                                        <Image key={style.pathname} fill={true} src={style.url} alt="img" className="w-full h-[100%] max-w-[100%] block mx-auto object-contain"></Image></div>
                                                 </div>
                                             </>;
                                         })}
-                                        <FileUpload onFileUploadChange={handleCustomUpload} ></FileUpload>
+                                        {/* <FileUpload onFileUploadChange={handleCustomUpload} ></FileUpload> */}
+                                        <Uploader />
                                         {/* {customStyle && <BrandStyle></BrandStyle>} */}
                                     </div>
                                 </div>
