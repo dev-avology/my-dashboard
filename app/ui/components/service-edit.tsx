@@ -127,7 +127,7 @@ const ServiceEdit: React.FC<ServiceEditProps> = ({ row }) => {
                 <div className="relative">
                   <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
 
-                    <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" strokeLinecap="round">  <line x1="12" y1="1" x2="12" y2="23" />  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+                    <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round">  <line x1="12" y1="1" x2="12" y2="23" />  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
                   </div>
                   <Input type="text" id="amount" name="amount" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5 pl-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" autoFocus defaultValue={row.amount} hasError={formState.status === "field-errors" && !!formState.errors.amount
                   } />
