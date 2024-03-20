@@ -38,9 +38,9 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = async ({ formRef, br
 
         setIsChecked(!isChecked);
         onDrawerChange(newValue ?? '', !isChecked);
-        let customBrandStyle =await getItem();
+      //  let customBrandStyle =await getItem();
     
-        setDirs(await customBrandStyle);
+      //  setDirs(await customBrandStyle);
 
     };
 
@@ -51,9 +51,9 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = async ({ formRef, br
     const [selectedFonts, setSelectedFonts] = useState<string[]>([]);
     const [dirs, setDirs] = useState<ListBlobResult>();
 
-    const customBrandStyle =await getItem();
+    //const customBrandStyle =await getItem();
     
-    setDirs(await customBrandStyle);
+    //setDirs(await customBrandStyle);
 
     // useEffect(() => {
     //     const fetchData = async () => {
