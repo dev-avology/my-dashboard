@@ -137,21 +137,24 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> =  ({ formRef, brandPr
     };
 
 
-    async function fetchData() {
-      
-      let customBrandStyle =await getBlobs({prefix:'test'});
-      setDirs(customBrandStyle);
-       
-      }
-      fetchData();
-   
+          
+
     useEffect(() => {
         // Update the isChecked state when the checked prop changes
         setIsChecked(checked);
 
+        async function fetchData() {
+      
+            let customBrandStyle =await getBlobs({prefix:'test'});
+            setDirs(customBrandStyle);
+             
+            }
+            if(dirs === undefined){
+              fetchData();        
+            }  
         
 
-    }, [checked]);
+    }, [checked,dirs]);
 
     return <>
         {CurrentBrandProfile !== undefined &&
