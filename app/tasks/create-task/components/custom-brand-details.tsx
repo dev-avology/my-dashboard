@@ -27,7 +27,7 @@ interface CustomBrandDrawerProps {
     checked: boolean;
 }
 
-const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = async ({ formRef, brandProfile, onDrawerChange, checked }) => {
+const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> =  ({ formRef, brandProfile, onDrawerChange, checked }) => {
 
 
     const CurrentBrandProfile = brandProfile;
@@ -55,7 +55,7 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = async ({ formRef, br
     const [selectedStyles, setSelectedStyles] = useState<string[]>([]);
     const [selectedFonts, setSelectedFonts] = useState<string[]>([]);
     const [dirs, setDirs] = useState<ListBlobResult>();
-
+   
 
     const [customStyle, setCustomStyle] = useState<boolean>(false);
     const [customFont, setCustomFont] = useState<boolean>(false);
@@ -136,11 +136,20 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = async ({ formRef, br
         }
     };
 
+
+    async function fetchData() {
+      
+      let customBrandStyle =await getBlobs({prefix:'test'});
+      setDirs(customBrandStyle);
+       
+      }
+      fetchData();
    
     useEffect(() => {
         // Update the isChecked state when the checked prop changes
         setIsChecked(checked);
 
+        
 
     }, [checked]);
 
