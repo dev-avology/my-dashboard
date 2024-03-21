@@ -17,6 +17,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Toaster } from "@/components/toaster";
 import { ListBlobResult, list } from '@vercel/blob';
 import { getItem } from "@/lib/utils";
+import getBlobs from "./get-Blobs";
 
 
 interface CustomBrandDrawerProps {
@@ -38,12 +39,16 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = async ({ formRef, br
 
         setIsChecked(!isChecked);
         onDrawerChange(newValue ?? '', !isChecked);
-      //  let customBrandStyle =await getItem();
+
+        let customBrandStyle =await getBlobs({prefix:'test'});
     
-      //  setDirs(await customBrandStyle);
+        setDirs(customBrandStyle);
 
     };
 
+
+
+   
 
     const [selectedColors, setSelectedColors] = useState<string[]>(CurrentBrandProfile.colors);
 
@@ -51,28 +56,7 @@ const CustomBrandDrawer: React.FC<CustomBrandDrawerProps> = async ({ formRef, br
     const [selectedFonts, setSelectedFonts] = useState<string[]>([]);
     const [dirs, setDirs] = useState<ListBlobResult>();
 
-    //const customBrandStyle =await getItem();
-    
-    //setDirs(await customBrandStyle);
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const response = await fetch("/api/brand-list");
-    //             if (!response.ok) {
-    //                 throw new Error("Failed to fetch data");
-    //             }
-    //             const data = await response.json(); // Parse JSON response
-    //             console.log(data);
-    //             setDirs(data); // Assuming data is an array of strings
-    //         } catch (error) {
-    //             console.error("Error fetching data:", error);
-    //         }
-    //     };
-    
-    //     fetchData(); // Call the asynchronous function
-    // }, []);
-    
     const [customStyle, setCustomStyle] = useState<boolean>(false);
     const [customFont, setCustomFont] = useState<boolean>(false);
 

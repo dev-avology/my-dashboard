@@ -10,7 +10,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 
-export const getItem = async () => {
-  const item = await list();
-  return item
-}
+export const getItem = async ({ prefix }: { prefix: string }) => {
+  const item = await list({prefix:prefix});
+  return item;
+};
